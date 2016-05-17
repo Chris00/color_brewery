@@ -1,3 +1,3 @@
 S src
 B _build/**
-PKG gg csv yojson
+PKG gg yojson

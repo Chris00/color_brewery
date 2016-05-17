@@ -20,10 +20,9 @@ doc install uninstall reinstall: setup.log
 opam/opam: _oasis
 	oasis2opam --local
 
+# See the beginning of tools/make_brewer.ml for the JSON files to download.
 preconfigure:
-	ocaml tools/make_brewer.ml \
-	  tools/ColorBrewer_all_schemes_RGBonly4_withPalette_and_Macro.csv \
-	  tools/cmyk.js
+	ocaml tools/make_brewer.ml
 
 clean:
 	ocaml setup.ml -clean

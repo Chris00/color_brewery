@@ -1,15 +1,16 @@
 #!/usr/bin/env ocaml
 
 #use "topfind";;
-#require "csv";;
 #require "yojson";;
 
-(* To use this script, download the XLS file
-   http://www.personal.psu.edu/cab38/ColorBrewer/ColorBrewer_all_schemes_RGBonly4_withPalette_and_Macro.xls
-   and convert it to CSV.  Also download
-   view-source:http://colorbrewer2.org/cmyk.js and remove the initial
-   "var cmyk =" and the final ";".  Place both files in the tools/
-   directory. *)
+(* To use this script, download the JSON files
+   - http://colorbrewer2.org/colorbrewer_schemes.js and
+   - http://colorbrewer2.org/cmyk.js
+   and remove everything at be beginning before the first "{" and the
+   final ";" (if any).  In the first file, also quote all keys by,
+   say, evaluating (replace-regexp "\\b\\([0-9]+\\):" "\"\\1\":") in Emacs
+   and replace all single quotes by double quotes.
+   Place both files in the tools/ directory. *)
 
 open Format
 
@@ -48,42 +49,39 @@ let rgb r g b =
 module M = Map.Make(String)
 
 (* Keep a list of maps associated to a name. *)
-let store_map maps name m =
-  let m = {m with rgb = List.rev m.rgb } in
+let add_map maps name m =
   match M.find name maps with
   | l -> M.add name (m :: l) maps
   | exception Not_found -> M.add name [m] maps
 
-let rec process_name maps csv =
-  match csv with
-  | (name :: n :: ty :: _ :: _ :: _ :: r :: g :: b :: _) :: csv ->
-     if name <> "" then (
-       match rgb r g b with
-       | c -> (match int_of_string n with
-               | n -> get_colors maps name {n;  rgb = [c];  cmyk = []; ty} csv
-               | exception Failure _ -> process_name maps csv)
-       | exception Failure _ -> process_name maps csv
-     )
-     else process_name maps csv
-  | [] -> maps
-  | _ -> process_name maps csv
+let rgb_of_string = function
+  | `String s -> Scanf.sscanf s "rgb(%d,%d,%d)" (fun r g b -> (r,g,b))
+  | j -> failwith("rgb_of_string: " ^ Yojson.Safe.to_string j)
 
-and get_colors maps name m csv =
-  match csv with
-  | (new_name :: _ :: _ :: _ :: _ :: _ :: r :: g :: b :: _) :: csv_tl ->
-     if new_name = "" then (
-       match rgb r g b with
-       | c -> get_colors maps name {m with rgb = c :: m.rgb} csv_tl
-       | exception Failure _ ->
-          get_colors maps name m csv_tl
-     )
-     else (
-       (* New color map. Store the previous one. *)
-       let maps = store_map maps name m in
-       process_name maps csv
-     )
-  | _ -> (* Store last color map *)
-     store_map maps name m
+let parse_colors = function
+  | `List colors -> List.map rgb_of_string colors
+  | j -> failwith("parse_colors: " ^ Yojson.Safe.to_string j)
+
+let process_named_palette maps (name, palettes) =
+  match palettes with
+  | `Assoc palettes ->
+     let props = match List.assoc "properties" palettes with
+       | `Assoc p -> p
+       | _ -> failwith "process_names: properties" in
+     let ty = match List.assoc "type" props with
+       | `String ty -> ty
+       | _ -> failwith "process_named_palette: type" in
+     let palettes = List.filter (fun (n,_) -> n <> "properties") palettes in
+     List.fold_left (fun maps (n, colors) ->
+         let n = int_of_string n in
+         add_map maps name {n; rgb = parse_colors colors; cmyk = []; ty }
+       ) maps palettes
+  | j -> failwith("process_named_palette: " ^ Yojson.Safe.to_string j)
+
+let process_names maps (json: Yojson.Safe.json) =
+  match json with
+  | `Assoc l -> List.fold_left process_named_palette maps l
+  | _ -> failwith "process_name"
 
 
 (** [cmyk_of_json json] return the 4-uple for the JSON tutple listing
@@ -112,15 +110,12 @@ let add_cmyk json maps =
     ) maps
 
 let () =
-  let csv, json =
-    if Array.length Sys.argv >= 3 then
-      Csv.load Sys.argv.(1), Yojson.Safe.from_file Sys.argv.(2)
-    else (
-      Printf.eprintf "%s <CSV file> <CMYK Json file>\n"
-        (Filename.basename Sys.argv.(0));
-      exit 1
-    ) in
-  let maps = process_name M.empty csv |> add_cmyk json in
+  let dir = Filename.dirname Sys.argv.(0) in
+  let rgb_json_fname = Filename.concat dir "colorbrewer_schemes.js" in
+  let cmyk_json_fname = Filename.concat dir "cmyk.js" in
+  let rgb_json = Yojson.Safe.from_file rgb_json_fname in
+  let cmyk_json = Yojson.Safe.from_file cmyk_json_fname in
+  let maps = process_names M.empty rgb_json |> add_cmyk cmyk_json in
   let fh = open_out "src/color_brewery_palettes.ml" in
   let ft = Format.formatter_of_out_channel fh in
   fprintf ft "type ty = [`Seq | `Div | `Qual]@\n\
