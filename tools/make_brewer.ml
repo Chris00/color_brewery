@@ -14,11 +14,17 @@
 
 open Format
 
+type yes_no_maybe = [`Yes | `No | `Maybe]
+
 type map = {
     n: int;
     rgb: (int * int * int) list;
     cmyk: (int * int * int * int) list;
     ty: string;
+    blind: yes_no_maybe;
+    print: yes_no_maybe;
+    copy: yes_no_maybe;
+    screen: yes_no_maybe;
   }
 
 let write_rgb fh m =
@@ -62,20 +68,51 @@ let parse_colors = function
   | `List colors -> List.map rgb_of_string colors
   | j -> failwith("parse_colors: " ^ Yojson.Safe.to_string j)
 
+(* The colorbrewer_schemes way of encoding a "fuzzy value" *)
+let fuzzy_of_int = function
+  | `Int 0 -> `No
+  | `Int 1 -> `Yes
+  | `Int 2 -> `Maybe
+  | _ -> failwith "fuzzy_of_int"
+
+let fuzzy_prop = function
+  | `List [b] -> let b = fuzzy_of_int b in
+                 [b; b; b; b; b; b; b; b; b; b; b; b] (* 12 = max length *)
+  | `List l ->
+     (* Some property lists are not long enough, assume when not set,
+        the last item is always `No. *)
+     List.map fuzzy_of_int l @ [`No]
+  | _ -> failwith "fuzzy_prop"
+
+(* Add the list of color [palettes] for [name]. [blind], [print],
+   [copy], and [screen] are list of properties to be consumed in the
+   same order than [palettes] is. *)
+let rec add_color_palettes maps name ty palettes ~blind ~print ~copy ~screen =
+  match palettes, blind, print, copy, screen with
+  | (n, colors) :: palettes, b :: blind, p :: print, c :: copy, s :: screen ->
+     let n = int_of_string n in
+     let m = {n; rgb = parse_colors colors; cmyk = [];
+              ty; blind = b; print = p; copy = c; screen = s } in
+     let maps = add_map maps name m in
+     add_color_palettes maps name ty palettes ~blind ~print ~copy ~screen
+  | [], _, _, _, _ -> maps
+  | _ -> failwith "add_color_palettes"
+
 let process_named_palette maps (name, palettes) =
   match palettes with
   | `Assoc palettes ->
      let props = match List.assoc "properties" palettes with
        | `Assoc p -> p
        | _ -> failwith "process_names: properties" in
+     let palettes = List.filter (fun (n,_) -> n <> "properties") palettes in
      let ty = match List.assoc "type" props with
        | `String ty -> ty
        | _ -> failwith "process_named_palette: type" in
-     let palettes = List.filter (fun (n,_) -> n <> "properties") palettes in
-     List.fold_left (fun maps (n, colors) ->
-         let n = int_of_string n in
-         add_map maps name {n; rgb = parse_colors colors; cmyk = []; ty }
-       ) maps palettes
+     let blind = fuzzy_prop(List.assoc "blind" props) in
+     let print = fuzzy_prop(List.assoc "print" props) in
+     let copy = fuzzy_prop(List.assoc "copy" props) in
+     let screen = fuzzy_prop(List.assoc "screen" props) in
+     add_color_palettes maps name ty palettes ~blind ~print ~copy ~screen
   | j -> failwith("process_named_palette: " ^ Yojson.Safe.to_string j)
 
 let process_names maps (json: Yojson.Safe.json) =
@@ -135,10 +172,12 @@ let () =
         if n_min = 3 then (
           (* Complete the ranges of length 0, 1, 2 *)
           let m3 = List.hd ms in
-          { n = 0;  rgb = [];  cmyk = [];  ty }
-          :: { n = 1;  rgb = [List.hd m3.rgb];  cmyk = [List.hd m3.cmyk];  ty }
-          :: { n = 2;  rgb = [List.hd m3.rgb; List.nth m3.rgb 2];
-               cmyk = [List.hd m3.cmyk; List.nth m3.cmyk 2];  ty }
+          { n = 0;  rgb = [];  cmyk = [];  ty;
+            blind = `No; print = `No; copy = `No; screen =`No}
+          :: { m3 with n = 1;  rgb = [List.hd m3.rgb];
+                       cmyk = [List.hd m3.cmyk] }
+          :: { m3 with n = 2;  rgb = [List.hd m3.rgb; List.nth m3.rgb 2];
+                       cmyk = [List.hd m3.cmyk; List.nth m3.cmyk 2] }
           :: ms
         )
         else assert false in
