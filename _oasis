@@ -1,0 +1,27 @@
+#								-*-conf-*-
+OASISFormat: 0.4
+Name:        color_brewery
+Version:     0.1
+Synopsis:    Offer colors palettes and functions to brew colors
+Description: Allow to select color palettes given certain characteristics.
+  This is based on the excellent site http://colorbrewer2.org/
+  It also defines common functions to define colored ranges.
+Authors:     Christophe Troestler
+Maintainers: Christophe Troestler <Christophe.Troestler@umons.ac.be>
+License:     LGPL-3 with OCaml linking exception
+Homepage:    https://github.com/Chris00/color_brewery
+Plugins:     META (0.4), StdFiles (0.4)
+#PreConfCommand: ocaml make_brewer.ml
+
+Library "color_brewery"
+  Path: src
+  Modules:      Color_brewery
+  InternalModules: Color_brewery_maps
+  BuildDepends: gg
+  BuildTools:   ocamlbuild
+
+
+SourceRepository master
+  Type:     git
+  Location: https://github.com/Chris00/color_brewery.git
+  Browser:  https://github.com/Chris00/color_brewery

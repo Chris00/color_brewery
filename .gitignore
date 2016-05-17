@@ -1,0 +1,12 @@
+*.cmi
+*.cmo
+*.cmt
+*.cmx
+*.cma
+*.cmxa
+biblio/
+_build/
+data/
+setup.data
+setup.ml
+setup.log
