@@ -91,6 +91,9 @@ module Palette : sig
   val orrd : t     (** Light orange to dark red *)
   val ylorrd : t   (** Light yellow to orange to dark red *)
   val ylorbr : t   (** Light yellow to orange to dark brown *)
+
+  (** {3 Sequential schemes, single hue} *)
+
   val purples : t  (** Light to dark purple *)
   val blues : t    (** Light to dark blue *)
   val greens : t   (** Light to dark green *)

@@ -47,12 +47,12 @@ module Palette = struct
 
   let rgb_exn m n =
     if n <= 0 then []
-    else if n > m.length then invalid_arg "Color_brewery.Map.rgb"
+    else if n > m.length then invalid_arg "Color_brewery.Palette.rgb"
     else m.rgb.(n)
 
   let cmyk_exn m n =
     if n <= 0 then []
-    else if n > m.length then invalid_arg "Color_brewery.Map.cmyk"
+    else if n > m.length then invalid_arg "Color_brewery.Palette.cmyk"
     else m.cmyk.(n)
 
 
