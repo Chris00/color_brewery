@@ -16,7 +16,7 @@ Plugins:     META (0.4), StdFiles (0.4)
 Library "color_brewery"
   Path: src
   Modules:      Color_brewery
-  InternalModules: Color_brewery_maps
+  InternalModules: Color_brewery_palettes
   BuildDepends: gg
   BuildTools:   ocamlbuild
 

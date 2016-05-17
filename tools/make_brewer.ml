@@ -121,7 +121,7 @@ let () =
       exit 1
     ) in
   let maps = process_name M.empty csv |> add_cmyk json in
-  let fh = open_out "src/color_brewery_maps.ml" in
+  let fh = open_out "src/color_brewery_palettes.ml" in
   let ft = Format.formatter_of_out_channel fh in
   fprintf ft "type ty = [`Seq | `Div | `Qual]@\n\
               type t = { @[length: int;@\n\

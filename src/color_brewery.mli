@@ -28,7 +28,7 @@ val range : float -> float -> int -> (float * color) list
 
     Based on colors maps by Cynthia A. Brewer, Penn State. See
     www.ColorBrewer.org *)
-module Map : sig
+module Palette : sig
   type t
   (** A color map from which one can extract various color ranges. *)
 
