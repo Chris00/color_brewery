@@ -1,8 +1,13 @@
 type ty = [`Seq | `Div | `Qual]
+type yes_no_maybe = [`Yes | `No | `Maybe]
 type t = { length: int;
            rgb: (Gg.color list) array;
            cmyk: (Gg.v4 list) array;
-           ty: ty }
+           ty: ty;
+           blind: yes_no_maybe array;
+           print: yes_no_maybe array;
+           copy: yes_no_maybe array;
+           screen: yes_no_maybe array }
 
 (* Number of maps: 35 *)
 let accent_rgb = [|
@@ -83,10 +88,16 @@ let accent_cmyk = [|
     Gg.V4.v  25.  60.  90.   0.;
     Gg.V4.v   0.   0.   0.  60. ];
   |]
-let accent = ({ length = 8;
-                rgb = accent_rgb;
-                cmyk = accent_cmyk;
-                ty = `Qual } : t)
+let accent : t = {
+  length = 8;
+  rgb = accent_rgb;
+  cmyk = accent_cmyk;
+  ty = `Qual;
+  blind  = [| `No; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No; `No |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `Maybe |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe |];
+}
 
 let blues_rgb = [|
   [  ];
@@ -184,10 +195,16 @@ let blues_cmyk = [|
     Gg.V4.v 100.  45.   0.   7.;
     Gg.V4.v 100.  55.   0.  30. ];
   |]
-let blues = ({ length = 9;
-               rgb = blues_rgb;
-               cmyk = blues_cmyk;
-               ty = `Seq } : t)
+let blues : t = {
+  length = 9;
+  rgb = blues_rgb;
+  cmyk = blues_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+}
 
 let brbg_rgb = [|
   [  ];
@@ -327,10 +344,16 @@ let brbg_cmyk = [|
     Gg.V4.v 100.  30.  60.   0.;
     Gg.V4.v 100.  30.  70.  40. ];
   |]
-let brbg = ({ length = 11;
-              rgb = brbg_rgb;
-              cmyk = brbg_cmyk;
-              ty = `Div } : t)
+let brbg : t = {
+  length = 11;
+  rgb = brbg_rgb;
+  cmyk = brbg_cmyk;
+  ty = `Div;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No |];
+}
 
 let bugn_rgb = [|
   [  ];
@@ -428,10 +451,16 @@ let bugn_cmyk = [|
     Gg.V4.v 100.  20. 100.   0.;
     Gg.V4.v 100.  50. 100.   0. ];
   |]
-let bugn = ({ length = 9;
-              rgb = bugn_rgb;
-              cmyk = bugn_cmyk;
-              ty = `Seq } : t)
+let bugn : t = {
+  length = 9;
+  rgb = bugn_rgb;
+  cmyk = bugn_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+}
 
 let bupu_rgb = [|
   [  ];
@@ -529,10 +558,16 @@ let bupu_cmyk = [|
     Gg.V4.v  47.  95.   0.   5.;
     Gg.V4.v  50. 100.   0.  40. ];
   |]
-let bupu = ({ length = 9;
-              rgb = bupu_rgb;
-              cmyk = bupu_cmyk;
-              ty = `Seq } : t)
+let bupu : t = {
+  length = 9;
+  rgb = bupu_rgb;
+  cmyk = bupu_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No |];
+}
 
 let dark2_rgb = [|
   [  ];
@@ -612,10 +647,16 @@ let dark2_cmyk = [|
     Gg.V4.v  35.  45.  90.   0.;
     Gg.V4.v   0.   0.   0.  60. ];
   |]
-let dark2 = ({ length = 8;
-               rgb = dark2_rgb;
-               cmyk = dark2_cmyk;
-               ty = `Qual } : t)
+let dark2 : t = {
+  length = 8;
+  rgb = dark2_rgb;
+  cmyk = dark2_cmyk;
+  ty = `Qual;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `No; `No |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+}
 
 let gnbu_rgb = [|
   [  ];
@@ -713,10 +754,16 @@ let gnbu_cmyk = [|
     Gg.V4.v 100.  35.   0.   0.;
     Gg.V4.v 100.  50.   0.  20. ];
   |]
-let gnbu = ({ length = 9;
-              rgb = gnbu_rgb;
-              cmyk = gnbu_cmyk;
-              ty = `Seq } : t)
+let gnbu : t = {
+  length = 9;
+  rgb = gnbu_rgb;
+  cmyk = gnbu_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No |];
+}
 
 let greens_rgb = [|
   [  ];
@@ -814,10 +861,16 @@ let greens_cmyk = [|
     Gg.V4.v 100.  20. 100.   0.;
     Gg.V4.v 100.  50. 100.   0. ];
   |]
-let greens = ({ length = 9;
-                rgb = greens_rgb;
-                cmyk = greens_cmyk;
-                ty = `Seq } : t)
+let greens : t = {
+  length = 9;
+  rgb = greens_rgb;
+  cmyk = greens_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+}
 
 let greys_rgb = [|
   [  ];
@@ -915,10 +968,16 @@ let greys_cmyk = [|
     Gg.V4.v   0.   0.   0.  85.;
     Gg.V4.v   0.   0.   0. 100. ];
   |]
-let greys = ({ length = 9;
-               rgb = greys_rgb;
-               cmyk = greys_cmyk;
-               ty = `Seq } : t)
+let greys : t = {
+  length = 9;
+  rgb = greys_rgb;
+  cmyk = greys_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+}
 
 let orrd_rgb = [|
   [  ];
@@ -1016,10 +1075,16 @@ let orrd_cmyk = [|
     Gg.V4.v  30. 100. 100.   0.;
     Gg.V4.v  50. 100. 100.   0. ];
   |]
-let orrd = ({ length = 9;
-              rgb = orrd_rgb;
-              cmyk = orrd_cmyk;
-              ty = `Seq } : t)
+let orrd : t = {
+  length = 9;
+  rgb = orrd_rgb;
+  cmyk = orrd_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No |];
+}
 
 let oranges_rgb = [|
   [  ];
@@ -1117,10 +1182,16 @@ let oranges_cmyk = [|
     Gg.V4.v  35.  75. 100.   0.;
     Gg.V4.v  50.  80. 100.   0. ];
   |]
-let oranges = ({ length = 9;
-                 rgb = oranges_rgb;
-                 cmyk = oranges_cmyk;
-                 ty = `Seq } : t)
+let oranges : t = {
+  length = 9;
+  rgb = oranges_rgb;
+  cmyk = oranges_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No |];
+}
 
 let prgn_rgb = [|
   [  ];
@@ -1260,10 +1331,16 @@ let prgn_cmyk = [|
     Gg.V4.v  90.  20.  90.   0.;
     Gg.V4.v 100.  50. 100.   0. ];
   |]
-let prgn = ({ length = 11;
-              rgb = prgn_rgb;
-              cmyk = prgn_cmyk;
-              ty = `Div } : t)
+let prgn : t = {
+  length = 11;
+  rgb = prgn_rgb;
+  cmyk = prgn_cmyk;
+  ty = `Div;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No; `No; `No |];
+}
 
 let paired_rgb = [|
   [  ];
@@ -1427,10 +1504,16 @@ let paired_cmyk = [|
     Gg.V4.v   0.   0.  40.   0.;
     Gg.V4.v  23.  73.  98.  12. ];
   |]
-let paired = ({ length = 12;
-                rgb = paired_rgb;
-                cmyk = paired_cmyk;
-                ty = `Qual } : t)
+let paired : t = {
+  length = 12;
+  rgb = paired_rgb;
+  cmyk = paired_cmyk;
+  ty = `Qual;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `Maybe; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `No |];
+}
 
 let pastel1_rgb = [|
   [  ];
@@ -1528,10 +1611,16 @@ let pastel1_cmyk = [|
     Gg.V4.v   0.  15.   0.   0.;
     Gg.V4.v   0.   0.   0.   5. ];
   |]
-let pastel1 = ({ length = 9;
-                 rgb = pastel1_rgb;
-                 cmyk = pastel1_cmyk;
-                 ty = `Qual } : t)
+let pastel1 : t = {
+  length = 9;
+  rgb = pastel1_rgb;
+  cmyk = pastel1_cmyk;
+  ty = `Qual;
+  blind  = [| `No; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No; `No; `No |];
+  print  = [| `No; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `No; `No; `No |];
+}
 
 let pastel2_rgb = [|
   [  ];
@@ -1611,10 +1700,16 @@ let pastel2_cmyk = [|
     Gg.V4.v   5.  10.  15.   0.;
     Gg.V4.v   0.   0.   0.  20. ];
   |]
-let pastel2 = ({ length = 8;
-                 rgb = pastel2_rgb;
-                 cmyk = pastel2_cmyk;
-                 ty = `Qual } : t)
+let pastel2 : t = {
+  length = 8;
+  rgb = pastel2_rgb;
+  cmyk = pastel2_cmyk;
+  ty = `Qual;
+  blind  = [| `No; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No; `No |];
+  print  = [| `No; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Maybe; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No |];
+}
 
 let piyg_rgb = [|
   [  ];
@@ -1754,10 +1849,16 @@ let piyg_cmyk = [|
     Gg.V4.v  70.  15. 100.   0.;
     Gg.V4.v  75.   0. 100.  40. ];
   |]
-let piyg = ({ length = 11;
-              rgb = piyg_rgb;
-              cmyk = piyg_cmyk;
-              ty = `Div } : t)
+let piyg : t = {
+  length = 11;
+  rgb = piyg_rgb;
+  cmyk = piyg_cmyk;
+  ty = `Div;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No; `No |];
+}
 
 let pubu_rgb = [|
   [  ];
@@ -1855,10 +1956,16 @@ let pubu_cmyk = [|
     Gg.V4.v 100.  30.   0.  20.;
     Gg.V4.v 100.  30.   0.  50. ];
   |]
-let pubu = ({ length = 9;
-              rgb = pubu_rgb;
-              cmyk = pubu_cmyk;
-              ty = `Seq } : t)
+let pubu : t = {
+  length = 9;
+  rgb = pubu_rgb;
+  cmyk = pubu_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No |];
+}
 
 let pubugn_rgb = [|
   [  ];
@@ -1956,10 +2063,16 @@ let pubugn_cmyk = [|
     Gg.V4.v 100.  25.  65.   0.;
     Gg.V4.v 100.  50.  80.   0. ];
   |]
-let pubugn = ({ length = 9;
-                rgb = pubugn_rgb;
-                cmyk = pubugn_cmyk;
-                ty = `Seq } : t)
+let pubugn : t = {
+  length = 9;
+  rgb = pubugn_rgb;
+  cmyk = pubugn_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No |];
+}
 
 let puor_rgb = [|
   [  ];
@@ -2099,10 +2212,16 @@ let puor_cmyk = [|
     Gg.V4.v  70.  80.   5.   0.;
     Gg.V4.v  75. 100.   0.  40. ];
   |]
-let puor = ({ length = 11;
-              rgb = puor_rgb;
-              cmyk = puor_cmyk;
-              ty = `Div } : t)
+let puor : t = {
+  length = 11;
+  rgb = puor_rgb;
+  cmyk = puor_cmyk;
+  ty = `Div;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No |];
+}
 
 let purd_rgb = [|
   [  ];
@@ -2200,10 +2319,16 @@ let purd_cmyk = [|
     Gg.V4.v  40. 100.  47.   0.;
     Gg.V4.v  60. 100.  75.   0. ];
   |]
-let purd = ({ length = 9;
-              rgb = purd_rgb;
-              cmyk = purd_cmyk;
-              ty = `Seq } : t)
+let purd : t = {
+  length = 9;
+  rgb = purd_rgb;
+  cmyk = purd_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No |];
+}
 
 let purples_rgb = [|
   [  ];
@@ -2301,10 +2426,16 @@ let purples_cmyk = [|
     Gg.V4.v  70.  80.   0.   0.;
     Gg.V4.v  80. 100.   0.   0. ];
   |]
-let purples = ({ length = 9;
-                 rgb = purples_rgb;
-                 cmyk = purples_cmyk;
-                 ty = `Seq } : t)
+let purples : t = {
+  length = 9;
+  rgb = purples_rgb;
+  cmyk = purples_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No |];
+}
 
 let rdbu_rgb = [|
   [  ];
@@ -2444,10 +2575,16 @@ let rdbu_cmyk = [|
     Gg.V4.v  90.  40.   0.   0.;
     Gg.V4.v 100.  50.   0.  40. ];
   |]
-let rdbu = ({ length = 11;
-              rgb = rdbu_rgb;
-              cmyk = rdbu_cmyk;
-              ty = `Div } : t)
+let rdbu : t = {
+  length = 11;
+  rgb = rdbu_rgb;
+  cmyk = rdbu_cmyk;
+  ty = `Div;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No |];
+}
 
 let rdgy_rgb = [|
   [  ];
@@ -2587,10 +2724,16 @@ let rdgy_cmyk = [|
     Gg.V4.v   0.   0.   0.  70.;
     Gg.V4.v   0.   0.   0.  90. ];
   |]
-let rdgy = ({ length = 11;
-              rgb = rdgy_rgb;
-              cmyk = rdgy_cmyk;
-              ty = `Div } : t)
+let rdgy : t = {
+  length = 11;
+  rgb = rdgy_rgb;
+  cmyk = rdgy_cmyk;
+  ty = `Div;
+  blind  = [| `No; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No; `No |];
+}
 
 let rdpu_rgb = [|
   [  ];
@@ -2688,10 +2831,16 @@ let rdpu_cmyk = [|
     Gg.V4.v  50. 100.   0.   5.;
     Gg.V4.v  70. 100.   0.  15. ];
   |]
-let rdpu = ({ length = 9;
-              rgb = rdpu_rgb;
-              cmyk = rdpu_cmyk;
-              ty = `Seq } : t)
+let rdpu : t = {
+  length = 9;
+  rgb = rdpu_rgb;
+  cmyk = rdpu_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No |];
+}
 
 let rdylbu_rgb = [|
   [  ];
@@ -2831,10 +2980,16 @@ let rdylbu_cmyk = [|
     Gg.V4.v  75.  37.   0.   0.;
     Gg.V4.v  85.  70.   0.   0. ];
   |]
-let rdylbu = ({ length = 11;
-                rgb = rdylbu_rgb;
-                cmyk = rdylbu_cmyk;
-                ty = `Div } : t)
+let rdylbu : t = {
+  length = 11;
+  rgb = rdylbu_rgb;
+  cmyk = rdylbu_cmyk;
+  ty = `Div;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+}
 
 let rdylgn_rgb = [|
   [  ];
@@ -2974,10 +3129,16 @@ let rdylgn_cmyk = [|
     Gg.V4.v  90.   0.  80.   0.;
     Gg.V4.v 100.  25.  90.   0. ];
   |]
-let rdylgn = ({ length = 11;
-                rgb = rdylgn_rgb;
-                cmyk = rdylgn_cmyk;
-                ty = `Div } : t)
+let rdylgn : t = {
+  length = 11;
+  rgb = rdylgn_rgb;
+  cmyk = rdylgn_cmyk;
+  ty = `Div;
+  blind  = [| `No; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No; `No; `No |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No |];
+}
 
 let reds_rgb = [|
   [  ];
@@ -3075,10 +3236,16 @@ let reds_cmyk = [|
     Gg.V4.v  35.  95.  85.   0.;
     Gg.V4.v  60. 100.  90.   0. ];
   |]
-let reds = ({ length = 9;
-              rgb = reds_rgb;
-              cmyk = reds_cmyk;
-              ty = `Seq } : t)
+let reds : t = {
+  length = 9;
+  rgb = reds_rgb;
+  cmyk = reds_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+}
 
 let set1_rgb = [|
   [  ];
@@ -3176,10 +3343,16 @@ let set1_cmyk = [|
     Gg.V4.v   0.  50.   0.   0.;
     Gg.V4.v   0.   0.   0.  40. ];
   |]
-let set1 = ({ length = 9;
-              rgb = set1_rgb;
-              cmyk = set1_cmyk;
-              ty = `Qual } : t)
+let set1 : t = {
+  length = 9;
+  rgb = set1_rgb;
+  cmyk = set1_cmyk;
+  ty = `Qual;
+  blind  = [| `No; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+}
 
 let set2_rgb = [|
   [  ];
@@ -3259,10 +3432,16 @@ let set2_cmyk = [|
     Gg.V4.v  10.  20.  35.   0.;
     Gg.V4.v   0.   0.   0.  30. ];
   |]
-let set2 = ({ length = 8;
-              rgb = set2_rgb;
-              cmyk = set2_cmyk;
-              ty = `Qual } : t)
+let set2 : t = {
+  length = 8;
+  rgb = set2_rgb;
+  cmyk = set2_cmyk;
+  ty = `Qual;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `No; `No |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe |];
+  copy   = [| `No; `No; `No; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `Maybe |];
+}
 
 let set3_rgb = [|
   [  ];
@@ -3426,10 +3605,16 @@ let set3_cmyk = [|
     Gg.V4.v  20.   0.  20.   0.;
     Gg.V4.v   0.   7.  55.   0. ];
   |]
-let set3 = ({ length = 12;
-              rgb = set3_rgb;
-              cmyk = set3_cmyk;
-              ty = `Qual } : t)
+let set3 : t = {
+  length = 12;
+  rgb = set3_rgb;
+  cmyk = set3_cmyk;
+  ty = `Qual;
+  blind  = [| `No; `Maybe; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No; `No; `No; `No; `No |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No |];
+}
 
 let spectral_rgb = [|
   [  ];
@@ -3569,10 +3754,16 @@ let spectral_cmyk = [|
     Gg.V4.v  82.  23.   0.   0.;
     Gg.V4.v  65.  60.   0.   0. ];
   |]
-let spectral = ({ length = 11;
-                  rgb = spectral_rgb;
-                  cmyk = spectral_cmyk;
-                  ty = `Div } : t)
+let spectral : t = {
+  length = 11;
+  rgb = spectral_rgb;
+  cmyk = spectral_cmyk;
+  ty = `Div;
+  blind  = [| `No; `Maybe; `Maybe; `Maybe; `Maybe; `Maybe; `No; `No; `No; `No; `No; `No |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No; `No |];
+}
 
 let ylgn_rgb = [|
   [  ];
@@ -3670,10 +3861,16 @@ let ylgn_cmyk = [|
     Gg.V4.v 100.  25.  90.   0.;
     Gg.V4.v 100.  50.  90.   0. ];
   |]
-let ylgn = ({ length = 9;
-              rgb = ylgn_rgb;
-              cmyk = ylgn_cmyk;
-              ty = `Seq } : t)
+let ylgn : t = {
+  length = 9;
+  rgb = ylgn_rgb;
+  cmyk = ylgn_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `No; `No; `No; `No |];
+}
 
 let ylgnbu_rgb = [|
   [  ];
@@ -3771,10 +3968,16 @@ let ylgnbu_cmyk = [|
     Gg.V4.v  90.  70.   0.   0.;
     Gg.V4.v 100.  70.   0.  40. ];
   |]
-let ylgnbu = ({ length = 9;
-                rgb = ylgnbu_rgb;
-                cmyk = ylgnbu_cmyk;
-                ty = `Seq } : t)
+let ylgnbu : t = {
+  length = 9;
+  rgb = ylgnbu_rgb;
+  cmyk = ylgnbu_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `Maybe; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No |];
+}
 
 let ylorbr_rgb = [|
   [  ];
@@ -3872,10 +4075,16 @@ let ylorbr_cmyk = [|
     Gg.V4.v  40.  75. 100.   0.;
     Gg.V4.v  60.  80. 100.   0. ];
   |]
-let ylorbr = ({ length = 9;
-                rgb = ylorbr_rgb;
-                cmyk = ylorbr_cmyk;
-                ty = `Seq } : t)
+let ylorbr : t = {
+  length = 9;
+  rgb = ylorbr_rgb;
+  cmyk = ylorbr_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Maybe; `No; `No; `No; `No; `No |];
+}
 
 let ylorrd_rgb = [|
   [  ];
@@ -3973,10 +4182,16 @@ let ylorrd_cmyk = [|
     Gg.V4.v  25. 100.  70.   0.;
     Gg.V4.v  50. 100.  70.   0. ];
   |]
-let ylorrd = ({ length = 9;
-                rgb = ylorrd_rgb;
-                cmyk = ylorrd_cmyk;
-                ty = `Seq } : t)
+let ylorrd : t = {
+  length = 9;
+  rgb = ylorrd_rgb;
+  cmyk = ylorrd_cmyk;
+  ty = `Seq;
+  blind  = [| `No; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes; `Yes |];
+  print  = [| `No; `Yes; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No |];
+  copy   = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No; `No |];
+  screen = [| `No; `Yes; `Yes; `Yes; `Maybe; `Maybe; `No; `No; `No; `No |];
+}
 
 let all_maps = [accent; blues; brbg; bugn; bupu; dark2; gnbu; greens; greys;
   orrd; oranges; prgn; paired; pastel1; pastel2; piyg; pubu; pubugn; puor;

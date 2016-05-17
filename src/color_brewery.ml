@@ -55,11 +55,31 @@ module Palette = struct
     else if n > m.length then invalid_arg "Color_brewery.Map.cmyk"
     else m.cmyk.(n)
 
-  (* FIXME: add more characteristics to the colors & then more filter
-     options. *)
-  let find ?ty length =
-    let filter = match ty with
-      | Some ty -> (fun m -> m.length = length && m.ty = ty)
-      | None -> (fun m -> m.length = length) in
-    List.filter filter all_maps
+
+  let satisfy specified prop =
+    match specified with
+    | `Yes -> (match prop with
+               | `Yes -> true
+               | `No | `Maybe -> false)
+    | `Maybe -> (match prop with
+                 | `Yes | `Maybe -> true
+                 | `No -> false)
+    | `No -> true
+
+  let find ?ty ?(blind = `No) ?(print = `No) ?(copy = `No)
+        ?(lcd = `No) length =
+    if length <= 0 then []
+    else (
+      let is_of_type = match ty with
+        | Some ty -> (fun m -> m.ty = ty)
+        | None -> (fun _ -> true) in
+      let filter m =
+        m.length >= length
+        && is_of_type m
+        && satisfy blind m.blind.(length)
+        && satisfy print m.print.(length)
+        && satisfy copy m.copy.(length)
+        && satisfy lcd m.screen.(length) in
+      List.filter filter all_maps
+    )
 end

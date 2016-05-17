@@ -16,6 +16,11 @@ open Format
 
 type yes_no_maybe = [`Yes | `No | `Maybe]
 
+let string_of_yes_no_maybe = function
+  | `Yes -> "`Yes"
+  | `No -> "`No"
+  | `Maybe -> "`Maybe"
+
 type map = {
     n: int;
     rgb: (int * int * int) list;
@@ -146,6 +151,10 @@ let add_cmyk json maps =
       List.map (fun m -> { m with cmyk = get_cmyk json name m.n }) ms
     ) maps
 
+let array_string proj l =
+  let l = List.map proj l |> List.map string_of_yes_no_maybe in
+  "[| " ^ String.concat "; " l ^ " |]"
+
 let () =
   let dir = Filename.dirname Sys.argv.(0) in
   let rgb_json_fname = Filename.concat dir "colorbrewer_schemes.js" in
@@ -156,10 +165,15 @@ let () =
   let fh = open_out "src/color_brewery_palettes.ml" in
   let ft = Format.formatter_of_out_channel fh in
   fprintf ft "type ty = [`Seq | `Div | `Qual]@\n\
+              type yes_no_maybe = [`Yes | `No | `Maybe]@\n\
               type t = { @[length: int;@\n\
                            rgb: (Gg.color list) array;@\n\
                            cmyk: (Gg.v4 list) array;@\n\
-                           ty: ty }@]@\n@\n";
+                           ty: ty;@\n\
+                           blind: yes_no_maybe array;@\n\
+                           print: yes_no_maybe array;@\n\
+                           copy: yes_no_maybe array;@\n\
+                           screen: yes_no_maybe array }@]@\n@\n";
   let n = M.fold (fun _ _ n -> n+1) maps 0 in
   fprintf ft "(* Number of maps: %d *)@\n" n;
   M.iter (fun name ms ->
@@ -187,11 +201,21 @@ let () =
       fprintf ft "@[<2>let %s_cmyk = [|@\n" name;
       List.iter (fun m -> write_cmyk ft m) ms;
       fprintf ft "@]|]@\n";
-      fprintf ft "let %s = ({ @[length = %d;@\n\
+      fprintf ft "@[<2>let %s : t = {@\n\
+                  length = %d;@\n\
                   rgb = %s_rgb;@\n\
                   cmyk = %s_cmyk;@\n\
-                  ty = `%s @]} : t)@\n@\n"
-        name n_max name name (String.capitalize_ascii ty);
+                  ty = `%s;@\n\
+                  blind  = %s;@\n\
+                  print  = %s;@\n\
+                  copy   = %s;@\n\
+                  screen = %s;@]@\n\
+                  }@\n@\n"
+        name n_max name name (String.capitalize_ascii ty)
+        (array_string (fun m -> m.blind) ms)
+        (array_string (fun m -> m.print) ms)
+        (array_string (fun m -> m.copy) ms)
+        (array_string (fun m -> m.screen) ms);
     ) maps;
   (* Write a list of all maps (e.g. for search). *)
   fprintf ft "@[<2>let all_maps = [";

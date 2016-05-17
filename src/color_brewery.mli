@@ -43,13 +43,31 @@ module Palette : sig
   (** [rgb_exn m i] returns the CMYK color range containing [i] colors
       from [m].  If [i > length m], [Invalid_argument] is raised. *)
 
-  val find : ?ty:[`Seq | `Div | `Qual] -> int -> t list
-  (** [find length] return the list of maps that support the desired
-      [length].  [ty], if provided, restricts maps to the color scheme:
+  val find : ?ty:[`Seq | `Div | `Qual] ->
+             ?blind:[`Yes | `No | `Maybe] ->
+             ?print:[`Yes | `No | `Maybe] ->
+             ?copy:[`Yes | `No | `Maybe] ->
+             ?lcd:[`Yes | `No | `Maybe] ->
+             int -> t list
+  (** [find length] return the list of palettes that support the
+      desired properties for the length [length].  Note that the
+      maximum length is 12 and the longer the palette, the less it
+      will satisfy other properties.  For properties selected with
+      [`Yes] [`No] or [`Maybe], setting [`No] (the default) means one
+      does not care, setting [`Maybe] selects palettes that maybe (or
+      for sure) satisfy the property and [`Yes] selects palettes that
+      satisfy the property for sure.
 
-      - [`Seq]: Sequential scheme
-      - [`Div]: Diverging scheme
-      - [`Qual]: Qualitative scheme *)
+      - [ty], if provided, restricts maps to the color scheme:
+        {- [`Seq]: Sequential scheme
+         - [`Div]: Diverging scheme
+         - [`Qual]: Qualitative scheme
+        }
+      - [blind]: the palette should be safe for color blind people.
+      - [print]: the palette is print friendly.
+      - [copy]: the palette is photocopy friendly.
+      - [lcd]: the palette is LCD friendly.
+   *)
 
 
   (** {2 Color schemes} *)
