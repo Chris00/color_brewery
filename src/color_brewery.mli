@@ -39,7 +39,7 @@ module Map : sig
   (** [rgb_exn m i] returns the RGB color range containing [i] colors
       from [m].  If [i > length m], [Invalid_argument] is raised. *)
 
-  (* val cmyk_exn : t -> int -> cmyk list *)
+  val cmyk_exn : t -> int -> cmyk list
   (** [rgb_exn m i] returns the CMYK color range containing [i] colors
       from [m].  If [i > length m], [Invalid_argument] is raised. *)
 

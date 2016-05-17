@@ -19,3 +19,10 @@ doc install uninstall reinstall: setup.log
 
 opam/opam: _oasis
 	oasis2opam --local
+
+preconfigure:
+	ocaml tools/make_brewer.ml \
+	  tools/ColorBrewer_all_schemes_RGBonly4_withPalette_and_Macro.csv \
+	  tools/cmyk.js
+
+.PHONY: preconfigure all byte native

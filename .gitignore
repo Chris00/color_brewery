@@ -10,3 +10,8 @@ data/
 setup.data
 setup.ml
 setup.log
+tools/*.xls
+tools/*.XLS
+tools/*.csv
+tools/*.js
+
