@@ -25,4 +25,8 @@ preconfigure:
 	  tools/ColorBrewer_all_schemes_RGBonly4_withPalette_and_Macro.csv \
 	  tools/cmyk.js
 
-.PHONY: preconfigure all byte native
+clean:
+	ocaml setup.ml -clean
+	$(RM) -f setup.data
+
+.PHONY: preconfigure all byte native clean
