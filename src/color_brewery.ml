@@ -27,7 +27,7 @@ let hue h = hue_pct(h *. 360.)
 
 
 (* FIXME: generate color ranges between arbitrary colors.  *)
-let range a b n =
+let range ~n a b =
   let d1 = 1. /. float(n - 1) in
   let dx = (b -. a) *. d1 in
   let l = ref [] in

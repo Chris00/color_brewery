@@ -20,7 +20,10 @@ val hue_pct : float -> color
 (** [hue h] return the color corresponding to the hue [h ∈ [0., 1.[]. *)
 
 
-val range : float -> float -> int -> (float * color) list
+val range : n:int -> float -> float -> (float * color) list
+(** [range ~n a b] generates a uniform sampling of [n] points between
+    [a] and [b] (with the bounds [a] and [b] included in the list of
+    points) together with colors (based on {!hue} at the moment). *)
 
 
 
