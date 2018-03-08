@@ -14,10 +14,10 @@ val to_int : color -> int
     the HTML notation #RRGGBB.  *)
 
 val hue : float -> color
-(** [hue h] return the color corresponding to the hue [h ∈ [0., 360.[]. *)
+(** [hue h] return the color corresponding to the hue [h ∈ [0., 360.)]. *)
 
 val hue_pct : float -> color
-(** [hue h] return the color corresponding to the hue [h ∈ [0., 1.[]. *)
+(** [hue h] return the color corresponding to the hue [h ∈ [0., 1.)]. *)
 
 
 val range : n:int -> float -> float -> (float * color) list
