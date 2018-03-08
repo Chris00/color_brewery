@@ -36,6 +36,9 @@ let range ~n a b =
   done;
   !l
 
+let with_colors l =
+  let n = float(List.length l) in
+  List.mapi (fun i a -> (a, hue_pct (float i /. n))) l
 
 
 

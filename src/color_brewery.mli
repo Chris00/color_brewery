@@ -25,6 +25,8 @@ val range : n:int -> float -> float -> (float * color) list
     [a] and [b] (with the bounds [a] and [b] included in the list of
     points) together with colors (based on {!hue} at the moment). *)
 
+val with_colors : 'a list -> ('a * color) list
+(** [with_colors l] add a color range to the list [l]. *)
 
 
 (** Find a color map according to certain characteristics.
