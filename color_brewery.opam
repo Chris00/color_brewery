@@ -1,9 +1,9 @@
-opam-version: "1.2"
+opam-version: "2.0"
 maintainer: "Christophe Troestler <Christophe.Troestler@umons.ac.be>"
 authors: [ "Christophe Troestler" ]
 license: "LGPL-3 with OCaml linking exception"
 homepage: "https://github.com/Chris00/color_brewery"
-dev-repo: "https://github.com/Chris00/color_brewery.git"
+dev-repo: "git+https://github.com/Chris00/color_brewery.git"
 bug-reports: "https://github.com/Chris00/color_brewery/issues"
 doc: "https://Chris00.github.io/color_brewery/doc"
 build: [
@@ -11,6 +11,7 @@ build: [
   ["dune" "build" "-p" name "-j" jobs]
 ]
 depends: [
+  "ocaml"
   "gg"
   "dune" {build}
 ]
