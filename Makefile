@@ -1,15 +1,15 @@
 PKGVERSION = $(shell git describe --always --dirty)
 
 build:
-	jbuilder build @install #--dev
+	dune build @install
 
 install uninstall:
-	jbuilder $@
+	dune $@
 
 doc:
 	sed -e 's/%%VERSION%%/$(PKGVERSION)/' src/curve_sampling.mli \
 	  > _build/default/src/curve_sampling.mli
-	jbuilder build @doc
+	dune build @doc
 	echo '.def { background: #f9f9de; }' >> _build/default/_doc/odoc.css
 
 lint:
@@ -22,6 +22,6 @@ preconfigure:
 	ocaml tools/make_brewer.ml
 
 clean:
-	jbuilder clean
+	dune clean
 
 .PHONY: build install uninstall doc lint clean

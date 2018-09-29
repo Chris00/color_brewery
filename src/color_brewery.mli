@@ -1,3 +1,6 @@
+(** Colors palettes and functions to brew colors.
+
+  Version: %%VERSION%% *)
 
 type color = Gg.color
 (** A RGBA color. *)
@@ -85,37 +88,61 @@ module Palette : sig
   (** {3 Sequential schemes} *)
 
   val ylgn : t     (** Light yellow to dark green *)
+
   val ylgnbu : t   (** Light yellow to green to dark blue *)
+
   val gnbu : t     (** Light green to dark blue *)
+
   val bugn : t     (** Light blue to dark green *)
+
   val pubugn : t   (** Light purple to blue to dark green *)
+
   val pubu : t     (** Light purple to dark blue *)
+
   val bupu: t      (** Light blue to dark purple *)
+
   val rdpu : t     (** Light red to dark purple *)
+
   val purd : t     (** Light purple to dark red *)
+
   val orrd : t     (** Light orange to dark red *)
+
   val ylorrd : t   (** Light yellow to orange to dark red *)
+
   val ylorbr : t   (** Light yellow to orange to dark brown *)
 
   (** {3 Sequential schemes, single hue} *)
 
   val purples : t  (** Light to dark purple *)
+
   val blues : t    (** Light to dark blue *)
+
   val greens : t   (** Light to dark green *)
+
   val oranges : t  (** Light to dark oranges *)
+
   val reds : t     (** Light to dark red *)
+
   val greys : t    (** Light to dark gray *)
 
   (** {3 Diverging schemes} *)
 
   val puor : t     (** Dark orange to light to dark purple *)
+
   val brbg : t     (** Dark brown to light to dark blue-green *)
+
   val prgn : t     (** Dark reddish-purple to light to dark green *)
+
   val piyg : t     (** Dark magenta to light to dark yellow-green *)
+
   val rdbu : t     (** Dark red to light to dark blue *)
+
   val rdgy : t     (** Dark red to light to dark grey *)
+
   val rdylbu : t   (** Dark red to light yelow to dark blue *)
+
   val spectral : t (** Dark red, orange, light yellow, green, dark blue *)
+
   val rdylgn : t   (** Dark red, orange, light yellow, yellow-green,
                        dark green *)
 
@@ -123,14 +150,21 @@ module Palette : sig
 
   val set1 : t    (** Includes bold, readily named, basic colors (such
                       as red, green, blue) *)
+
   val pastel1 : t (** Lighter version of [Set1] *)
+
   val set2 : t    (** Includes mostly a mixture colors (such as
                       blue-green, red-orange) *)
+
   val pastel2 : t (** Lighter version of [Set2] *)
+
   val dark2 : t   (** Darker version of [Set2] *)
+
   val set3 : t    (** Medium saturation set with more lightness
                       variation and more classes than [Set1] and [Set2]. *)
+
   val paired : t  (** Light/dark paris for namable hues *)
+
   val accent : t  (** Include lightness and saturation extremes to
                       accent small or important areas *)
 
