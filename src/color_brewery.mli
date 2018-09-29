@@ -17,10 +17,10 @@ val to_int : color -> int
     the HTML notation #RRGGBB.  *)
 
 val hue : float -> color
-(** [hue h] return the color corresponding to the hue [h ∈ [0., 360.)]. *)
+(** [hue h] return the color corresponding to the hue [h ∈ \[0., 360.)]. *)
 
 val hue_pct : float -> color
-(** [hue h] return the color corresponding to the hue [h ∈ [0., 1.)]. *)
+(** [hue h] return the color corresponding to the hue [h ∈ \[0., 1.)]. *)
 
 
 val range : n:int -> float -> float -> (float * color) list
@@ -67,10 +67,10 @@ module Palette : sig
       satisfy the property for sure.
 
       - [ty], if provided, restricts maps to the color scheme:
-        {- [`Seq]: Sequential scheme
-         - [`Div]: Diverging scheme
-         - [`Qual]: Qualitative scheme
-        }
+        {ul
+         {- [`Seq]: Sequential scheme}
+         {- [`Div]: Diverging scheme}
+         {- [`Qual]: Qualitative scheme}}
       - [blind]: the palette should be safe for color blind people.
       - [print]: the palette is print friendly.
       - [copy]: the palette is photocopy friendly.
