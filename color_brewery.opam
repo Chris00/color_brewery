@@ -15,3 +15,8 @@ depends: [
   "gg"
   "dune" {build}
 ]
+synopsis: "Offer colors palettes and functions to brew colors"
+description: """
+Allow to select color palettes given certain characteristics. This is
+based on the excellent site http://colorbrewer2.org/ It also defines
+common functions to define colored ranges."""
