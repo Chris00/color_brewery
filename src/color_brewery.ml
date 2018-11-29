@@ -1,10 +1,11 @@
 type color = Gg.color
 type cmyk = Gg.v4
 
+(* Convert x ∈ [0,1] into an integer in [0, 255]. *)
 let to_hex x =
   if x <= 0. then 0
   else if x >= 1. then 0xFF
-  else truncate(x *. 255. +. 0.5)
+  else truncate(x *. 255. +. 0x1.FFFFFFFFFFFFFp-2)
 
 let to_int c =
   (to_hex(Gg.Color.r c) lsl 16) lor (to_hex(Gg.Color.g c) lsl 8)
