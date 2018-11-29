@@ -167,15 +167,5 @@ module Palette : sig
 
   val accent : t  (** Include lightness and saturation extremes to
                       accent small or important areas *)
-
 end
 
-
-(** {1 Color blindness}  *)
-
-(* http://vision.psychol.cam.ac.uk/jdmollon/papers/colourmaps.pdf
-   https://www.mapbox.com/blog/colorblind-simulation/
-   http://colororacle.org/ — https://github.com/nvkelso/colora-oracle-java
- *)
-
-;;
