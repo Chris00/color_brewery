@@ -25,6 +25,9 @@ val of_int : ?a: float -> int -> rgba option
 (** [of_int] is the similar to [of_int_exn] except that it returns
    [None] instead of raising an exception. *)
 
+val to_string : rgba -> string
+(** [to_string c] converts the color to a string of the form #RRGGBB. *)
+
 
 (** {2 “Continuous” color ranges} *)
 

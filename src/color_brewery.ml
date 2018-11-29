@@ -1,3 +1,5 @@
+open Printf
+
 type rgba = Gg.color
 type cmyk = Gg.v4
 
@@ -11,9 +13,13 @@ let to_int c =
   (to_hex(Gg.Color.r c) lsl 16) lor (to_hex(Gg.Color.g c) lsl 8)
   lor (to_hex(Gg.Color.b c))
 
+let to_string c =
+  sprintf "#%02x%02x%02x"
+    (to_hex(Gg.Color.r c)) (to_hex(Gg.Color.g c)) (to_hex(Gg.Color.b c))
+
 let of_int_exn ?(a=0.) i =
   if i < 0 || i > 0xFFFFFF then invalid_arg "Color_brewery.of_int_exn";
-  let r = float((i lsr 16) land 0xFF) /. 255. in
+  let r = float(i lsr 16) /. 255. in
   let g = float((i lsr 8) land 0xFF) /. 255. in
   let b = float(i land 0xFF) /. 255. in
   Gg.Color.v r g b a
