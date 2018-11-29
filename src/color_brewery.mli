@@ -16,6 +16,16 @@ val to_int : rgba -> int
     interact, say, with the Graphics module or specify the color using
     the HTML notation #RRGGBB.  *)
 
+val of_int_exn : ?a: float -> int -> rgba
+(** [of_int_exn i] returns the color provided as [0xRRGGBB].
+   @raise Invalid_argument if [i] does not represent a color.
+   @param a the transparency component of the color.  Default: [0.] *)
+
+val of_int : ?a: float -> int -> rgba option
+(** [of_int] is the similar to [of_int_exn] except that it returns
+   [None] instead of raising an exception. *)
+
+
 (** {2 “Continuous” color ranges} *)
 
 val hue : float -> rgba
