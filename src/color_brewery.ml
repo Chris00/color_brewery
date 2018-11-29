@@ -41,20 +41,55 @@ let hue_pct h =
 
 let hue h = hue_pct(h *. 360.)
 
+module Gradient = struct
+  type t = { l0: float;  c0: float;  h0: float;  a0: float;
+             dl: float;  dc: float;  dh: float;  da: float }
+
+  let pi = 0x1.921fb54442d18p+1
+  let two_pi = 0x1.921fb54442d18p+2
+
+  let v c0 c1 =
+    let open Gg in
+    let lch0 = Color.to_lch_ab c0 in
+    let lch1 = Color.to_lch_ab c1 in
+    let dl = V4.x lch1 -. V4.x lch0 in
+    let dc = V4.y lch1 -. V4.y lch0 in
+    let h0 = V4.z lch0 in
+    let h1 = V4.z lch1 in
+    let dh = if h1 > h0 && h1 -. h0 > pi then h1 -. (h0 +. two_pi)
+             else if h1 < h0 && h0 -. h1 > pi then h1 +. two_pi -. h0
+             else h1 -. h0 in
+    let da = V4.w lch1 -. V4.w lch0 in
+    { l0 = V4.x lch0;  c0 = V4.y lch0;  h0;  a0 = V4.w lch0;
+      dl; dh; dc; da }
+
+  let rgba_unsafe g t =
+    let lch = Gg.V4.v (g.l0 +. t *. g.dl) (g.c0 +. t *. g.dc)
+                (g.h0 +. t *. g.dh) (g.a0 +. t *. g.da) in
+    Gg.Color.(clamp(of_lch_ab lch))
+
+  let rgba g t =
+    let t = if t < 0. then 0. else if t > 1. then 1. else t in
+    rgba_unsafe g t
+end
 
 (* FIXME: generate color ranges between arbitrary colors.  *)
-let range ~n a b =
+let range ?grad ~n a b =
   let d1 = 1. /. float(n - 1) in
   let dx = (b -. a) *. d1 in
   let l = ref [] in
+  let color = match grad with None -> hue_pct
+                            | Some g -> Gradient.rgba_unsafe g in
   for i = n - 1 downto 0 do
-    l := (a +. float i *. dx,  hue_pct(float i *. d1)) :: !l
+    l := (a +. float i *. dx,  color(float i *. d1)) :: !l
   done;
   !l
 
-let with_colors l =
+let with_colors ?grad l =
   let n = float(List.length l) in
-  List.mapi (fun i a -> (a, hue_pct (float i /. n))) l
+  let color = match grad with None -> hue_pct
+                            | Some g -> Gradient.rgba_unsafe g in
+  List.mapi (fun i a -> (a, color (float i /. n))) l
 
 
 

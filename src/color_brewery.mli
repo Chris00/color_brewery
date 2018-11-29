@@ -13,8 +13,7 @@ val to_int : rgba -> int
 (** [to_int c] converts the color to [0xRRGGBB] where [RR], [GG] and
     [BB] are the red, green and blue values expressed on 2 hexadecimal
     digits.  The alpha value is ignored.  This is convenient to
-    interact, say, with the Graphics module or specify the color using
-    the HTML notation #RRGGBB.  *)
+    interact, say, with the Graphics module.  *)
 
 val of_int_exn : ?a: float -> int -> rgba
 (** [of_int_exn i] returns the color provided as [0xRRGGBB].
@@ -37,14 +36,33 @@ val hue : float -> rgba
 val hue_pct : float -> rgba
 (** [hue h] return the color corresponding to the hue [h ∈ \[0., 1.)]. *)
 
+module Gradient : sig
+  type t
+  (** Represent an interpolation between two colors. *)
 
-val range : n:int -> float -> float -> (float * rgba) list
+  val v : rgba -> rgba -> t
+  (** [v c0 c1] construct a gradient from the color [c0] to [c1]. *)
+
+  val rgba : t -> float -> rgba
+  (** [rgba g s] returns the color corresponding to [s] ∈ \[0,1\], where
+    [s = 0.] returns the first color provided in the gradient and
+    [s = 1.] the second. *)
+end
+
+val range : ?grad: Gradient.t ->
+            n:int -> float -> float -> (float * rgba) list
 (** [range ~n a b] generates a uniform sampling of [n] points between
     [a] and [b] (with the bounds [a] and [b] included in the list of
-    points) together with colors (based on {!hue} at the moment). *)
+    points) together with colors (based on {!hue} at the moment).
 
-val with_colors : 'a list -> ('a * rgba) list
-(** [with_colors l] add a color range to the list [l]. *)
+    @param grad generate colors using the given gradient.  Default:
+    use the hue. *)
+
+val with_colors : ?grad: Gradient.t -> 'a list -> ('a * rgba) list
+(** [with_colors l] add a color range to the list [l].
+
+    @param grad generate colors using the given gradient.  Default:
+    use the hue. *)
 
 
 (** {2 Color palettes} *)
