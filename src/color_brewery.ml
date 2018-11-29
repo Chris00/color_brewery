@@ -1,4 +1,4 @@
-type color = Gg.color
+type rgba = Gg.color
 type cmyk = Gg.v4
 
 (* Convert x ∈ [0,1] into an integer in [0, 255]. *)

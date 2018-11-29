@@ -2,14 +2,14 @@
 
   @version %%VERSION%% *)
 
-type color = Gg.color
+type rgba = Gg.color
 (** A RGBA color. *)
 
 type cmyk = Gg.v4
 (** A CMYK color. *)
 
 
-val to_int : color -> int
+val to_int : rgba -> int
 (** [to_int c] converts the color to [0xRRGGBB] where [RR], [GG] and
     [BB] are the red, green and blue values expressed on 2 hexadecimal
     digits.  The alpha value is ignored.  This is convenient to
@@ -18,19 +18,19 @@ val to_int : color -> int
 
 (** {2 “Continuous” color ranges} *)
 
-val hue : float -> color
+val hue : float -> rgba
 (** [hue h] return the color corresponding to the hue [h ∈ \[0., 360.)]. *)
 
-val hue_pct : float -> color
+val hue_pct : float -> rgba
 (** [hue h] return the color corresponding to the hue [h ∈ \[0., 1.)]. *)
 
 
-val range : n:int -> float -> float -> (float * color) list
+val range : n:int -> float -> float -> (float * rgba) list
 (** [range ~n a b] generates a uniform sampling of [n] points between
     [a] and [b] (with the bounds [a] and [b] included in the list of
     points) together with colors (based on {!hue} at the moment). *)
 
-val with_colors : 'a list -> ('a * color) list
+val with_colors : 'a list -> ('a * rgba) list
 (** [with_colors l] add a color range to the list [l]. *)
 
 
@@ -47,7 +47,7 @@ module Palette : sig
   val length : t -> int
   (** [length m] returns the length of the longest color range in [m]. *)
 
-  val rgb_exn : t -> int -> color list
+  val rgb_exn : t -> int -> rgba list
   (** [rgb_exn m i] returns the RGB color range containing [i] colors
       from [m].  If [i > length m], [Invalid_argument] is raised. *)
 
