@@ -1,6 +1,6 @@
 (** Colors palettes and functions to brew colors.
 
-  Version: %%VERSION%% *)
+  @version %%VERSION%% *)
 
 type color = Gg.color
 (** A RGBA color. *)
@@ -15,6 +15,8 @@ val to_int : color -> int
     digits.  The alpha value is ignored.  This is convenient to
     interact, say, with the Graphics module or specify the color using
     the HTML notation #RRGGBB.  *)
+
+(** {2 “Continuous” color ranges} *)
 
 val hue : float -> color
 (** [hue h] return the color corresponding to the hue [h ∈ \[0., 360.)]. *)
@@ -31,6 +33,8 @@ val range : n:int -> float -> float -> (float * color) list
 val with_colors : 'a list -> ('a * color) list
 (** [with_colors l] add a color range to the list [l]. *)
 
+
+(** {2 Color palettes} *)
 
 (** Find a color map according to certain characteristics.
 

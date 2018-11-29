@@ -7,11 +7,10 @@ install uninstall:
 	dune $@
 
 doc: build
-	sed -e 's/%%VERSION%%/$(PKGVERSION)/' src/color_brewery.mli \
-	  > _build/default/src/color_brewery.mli
 	dune build @doc
-	@echo '.def { background: #f0f0f0; }' \
-	  >> _build/default/_doc/_html/odoc.css
+	@sed -e 's/%%VERSION%%/$(PKGVERSION)/' --in-place \
+	  _build/default/_doc/_html/color_brewery/Color_brewery/index.html
+	@echo "See _build/default/_doc/_html/index.html"
 
 lint:
 	@opam lint color_brewery.opam
