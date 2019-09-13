@@ -13,7 +13,7 @@ build: [
 depends: [
   "ocaml"
   "gg"
-  "dune" {build}
+  "dune"
 ]
 synopsis: "Offer colors palettes and functions to brew colors"
 description: """
