@@ -1,13 +1,17 @@
 PKGVERSION = $(shell git describe --always)
 
 build:
-	dune build @install @exe
+	ulimit -s 16384 && dune build @install @exe
 
 install uninstall:
 	dune $@
 
 test:
-	dune runtest --force
+	ulimit -s 16384 && dune runtest --force
+
+distrib:
+	dune-release tag
+	ulimit -s 16384 && dune-release distrib
 
 doc: build
 	dune build @doc
@@ -27,4 +31,4 @@ preconfigure:
 clean:
 	dune clean
 
-.PHONY: build install uninstall test doc lint preconfigure clean
+.PHONY: build install uninstall test distrib doc lint preconfigure clean

@@ -8,7 +8,9 @@ bug-reports: "https://github.com/Chris00/color_brewery/issues"
 doc: "https://Chris00.github.io/color_brewery/doc"
 build: [
   ["dune" "subst"] {pinned}
-  ["dune" "build" "-p" name "-j" jobs]
+  ["sh" "-c" "ulimit -s 16384 && dune build -p %{name}% -j %{jobs}%"
+   ] {os = "linux"}
+  ["dune" "build" "-p" name "-j" jobs] {os != "linux"}
 ]
 depends: [
   "ocaml"
