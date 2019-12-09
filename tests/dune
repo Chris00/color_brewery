@@ -1,6 +1,6 @@
 (executables
  (names     gradient conversions)
- (libraries color_brewery))
+ (libraries color-brewery))
 
 (alias
  (name exe)
