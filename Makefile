@@ -16,7 +16,7 @@ distrib:
 doc: build
 	dune build @doc
 	@sed -e 's/%%VERSION%%/$(PKGVERSION)/' --in-place \
-	  _build/default/_doc/_html/color_brewery/Color_brewery/index.html
+	  _build/default/_doc/_html/color-brewery/Color_brewery/index.html
 	@echo "See _build/default/_doc/_html/index.html"
 
 lint:
