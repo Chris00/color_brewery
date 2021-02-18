@@ -2,14 +2,14 @@
 
 open Printf
 
-let table_of_colors fh ?(w=30) colors =
+let table_of_colors fh ?(comment="") ?(w=30) colors =
   fprintf fh "<table style=\"border: 0px;  border-spacing: 0px\"><tr>\n";
   List.iter (fun c ->
       fprintf fh "  <td style=\"width: %dpx; height: 30px; \
                   background-color: %s\"></td>\n"
         w (Color_brewery.to_string c))
     colors;
-  fprintf fh "</tr><tr>";
+  fprintf fh "<td rowspan=\"2\">%s</td></tr><tr>" comment;
   List.iter (fun c ->
       fprintf fh "  <td style=\"width: %dpx; height: 12px; \
                   background-color: %s\"></td>\n"
@@ -24,14 +24,14 @@ let () =
   let fh = open_out "gradient.html" in
   fprintf fh "<html>\n\
               <body>\n";
-  let range ?w color ~n =
+  let range ?comment ?w color ~n =
     let dt = 1. /. float(n - 1) in
     let colors = List.map (fun i -> color (float i *. dt)) (int_range 0 n) in
-    table_of_colors fh ?w colors;
+    table_of_colors fh ?comment ?w colors;
   in
-  let gradient ?w c0 c1 ~n =
+  let gradient ?comment ?w c0 c1 ~n =
     let g = Color_brewery.(Gradient.v (of_int_exn c0) (of_int_exn c1)) in
-    range ?w (Color_brewery.Gradient.rgba g) ~n
+    range ?comment ?w (Color_brewery.Gradient.rgba g) ~n
   in
   fprintf fh "<h3>Hue</h3>\n";
   range Color_brewery.hue_pct ~n:10;
@@ -42,8 +42,11 @@ let () =
   gradient 0x5e0063 0xffebaa ~n:30 ~w:10;
   gradient 0x5e0063 0xffebaa ~n:150 ~w:1;
   gradient 0xFF0000 0x0000FF ~n:150 ~w:1;
-  gradient 0xFF0000 0x00FF00 ~n:150 ~w:1;
+  gradient 0xFF0000 0x00FF00 ~n:150 ~w:1
+    ~comment:"Best <a href=\"https://youtu.be/XjHzLUnHeM0?t=230\"
+              >to avoid red and green</a>.";
   gradient 0x000000 0xFFFFFF ~n:150 ~w:1;
+  fprintf fh "<h3>Maps</h3>\n";
 
   fprintf fh "</body>\n\
               </html>\n";
