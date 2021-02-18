@@ -28,6 +28,13 @@ val to_string : rgba -> string
 (** [to_string c] converts the color to a string of the form #RRGGBB. *)
 
 
+val to_gray : rgba -> rgba
+(** [to_gray c] returns the grayscale color corresponding to [c].  It
+   is a weighted sum of RGB
+   {{:https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf}Rec. ITU-R T.601-7}
+   [0.299 r + 0.587 g + 0.114 b]. *)
+
+
 (** {2 “Continuous” color ranges} *)
 
 val hue : float -> rgba

@@ -27,6 +27,12 @@ let of_int_exn ?(a=0.) i =
 let of_int ?a i = try Some(of_int_exn ?a i) with _ -> None
 
 
+let to_gray c =
+  let x = 0.299 *. Gg.Color.r c +. 0.587 *. Gg.Color.g c
+          +. 0.114 *. Gg.Color.b c in
+  Gg.Color.v x x x (Gg.Color.a c)
+
+
 let hue_pct h =
   (* h ∈ [0, 1[ instead of the usual h ∈ [0, 360[. *)
   let f, hi = modf (abs_float h *. 6.) in
