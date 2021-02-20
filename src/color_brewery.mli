@@ -130,7 +130,17 @@ module Palette : sig
    *)
 
 
-  (** {2 Color schemes} *)
+  (** {2 Matplotlib colormaps}
+
+     These are sequential colormaps (each with 256 colors).  You can
+     find more information on {{:https://bids.github.io/colormap/}this
+     page}. *)
+  val viridis : t
+  val magma : t
+  val inferno : t
+  val plasma : t
+
+  (** {2 ColorBrewer schemes} *)
 
   (** Color schemes as described in the paper: Brewer, Cynthia A.,
       Geoffrey W. Hatchard and Mark A. Harrower, 2003, ColorBrewer in
@@ -221,15 +231,5 @@ module Palette : sig
 
   val accent : t list  (** Include lightness and saturation extremes to
                            accent small or important areas *)
-
-  (** {3 Matplotlib colormaps}
-
-     These are sequential colormaps (each with 256 colors).  You can
-     find more information on {{:https://bids.github.io/colormap/}this
-     page}. *)
-  val viridis : t
-  val magma : t
-  val inferno : t
-  val plasma : t
 end
 
