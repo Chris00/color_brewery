@@ -103,6 +103,22 @@ module Palette : sig
 
      @param interpolate If [false] (the default), just map *)
 
+  val ty : t -> [`Seq | `Div | `Qual]
+  (** [ty m] says whether the palette is [`Seq]uential, [`Div]ergent
+     or [`Qual]itative. *)
+
+  val blind : t -> [`Yes | `No | `Maybe]
+  (** [blind m] says whether the palette [m] is colorblind safe. *)
+
+  val print : t -> [`Yes | `No | `Maybe]
+  (** [print m] says whether the palette [m] is print friendly. *)
+
+  val copy : t -> [`Yes | `No | `Maybe]
+  (** [print m] says whether the palette [m] is photocopy safe. *)
+
+  val lcd : t -> [`Yes | `No | `Maybe]
+  (** [print m] says whether the palette [m] is friendly for LCD screens. *)
+
   val find : ?ty:[`Seq | `Div | `Qual] ->
              ?blind:[`Yes | `No | `Maybe] ->
              ?print:[`Yes | `No | `Maybe] ->

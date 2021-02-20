@@ -127,6 +127,11 @@ module Palette = struct
   (* The important types are defined in the included module. *)
 
   let length m = m.length
+  let ty m = m.ty
+  let blind m = m.blind
+  let print m = m.print
+  let copy m = m.copy
+  let lcd m = m.screen
 
   let rgb m =
     Array.to_list m.rgb (* do not allow modifying the array *)
