@@ -72,9 +72,9 @@ val with_colors : ?grad: Gradient.t -> 'a list -> ('a * rgba) list
     use the hue. *)
 
 
-(** {2 Color palettes} *)
+(** {2 Color palettes (aka colormaps)} *)
 
-(** Find a color map according to certain characteristics.
+(** Colormaps with certain characteristics.
 
     Based on colors maps by Cynthia A. Brewer, Penn State. See
     www.ColorBrewer.org *)
@@ -207,5 +207,15 @@ module Palette : sig
 
   val accent : t list  (** Include lightness and saturation extremes to
                            accent small or important areas *)
+
+  (** {3 Matplotlib colormaps}
+
+     These are sequential colormaps (each with 256 colors).  You can
+     find more information on {{:https://github.com/BIDS/colormap}this
+     page}. *)
+  val viridis : t
+  val magma : t
+  val inferno : t
+  val plasma : t
 end
 

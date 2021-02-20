@@ -26,7 +26,7 @@ lint:
 # This only need to be run if these JSON files change — the result is
 # commited so the rest of the code is independent of this.
 preconfigure:
-	ocaml tools/make_brewer.ml
+	dune exec tools/make_palettes.exe
 
 clean:
 	dune clean

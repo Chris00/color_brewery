@@ -1,8 +1,3 @@
-#!/usr/bin/env ocaml
-
-#use "topfind";;
-#require "yojson";;
-
 (* To use this script, download the JSON files
    - http://colorbrewer2.org/colorbrewer_schemes.js and
    - http://colorbrewer2.org/cmyk.js
@@ -120,7 +115,7 @@ let process_named_palette maps (name, palettes) =
      add_color_palettes maps name ty palettes ~blind ~print ~copy ~screen
   | j -> failwith("process_named_palette: " ^ Yojson.Safe.to_string j)
 
-let process_names maps (json: Yojson.Safe.json) =
+let process_names maps (json: Yojson.Safe.t) =
   match json with
   | `Assoc l -> List.fold_left process_named_palette maps l
   | _ -> failwith "process_name"
@@ -134,7 +129,7 @@ let cmyk_of_json = function
 
 (** Get the CMYK information from [json] for the palette [name] with
     [n] colors. *)
-let get_cmyk (json: Yojson.Safe.json) name n =
+let get_cmyk (json: Yojson.Safe.t) name n =
   match json with
   | `Assoc l ->
      (match List.assoc name l with
@@ -155,18 +150,30 @@ let array_string proj l =
   let l = List.map proj l |> List.map string_of_yes_no_maybe in
   "[| " ^ String.concat "; " l ^ " |]"
 
+let write_cmyk_of_rgb ft c =
+  let r, g, b = Gg.Color.(r c, g c, b c) in (* ∈ [0,1] *)
+  let k' = max r (max g b) in
+  let k = 1. -. k' in
+  let c = (1. -. r -. k) /. k' in
+  let m = (1. -. g -. k) /. k' in
+  let y = (1. -. b -. k) /. k' in
+  fprintf ft "Gg.V4.v %f %f %f %f;@\n" c m y k
+
+
 let () =
   let dir = Filename.dirname Sys.argv.(0) in
   let rgb_json_fname = Filename.concat dir "colorbrewer_schemes.js" in
   let cmyk_json_fname = Filename.concat dir "cmyk.js" in
   let rgb_json = Yojson.Safe.from_file rgb_json_fname in
   let cmyk_json = Yojson.Safe.from_file cmyk_json_fname in
-  let maps = process_names M.empty rgb_json |> add_cmyk cmyk_json in
-  let fh = open_out "src/brewer_palettes.ml" in
+  let brewer_maps = process_names M.empty rgb_json |> add_cmyk cmyk_json in
+  let fh = open_out "src/palettes.ml" in
   let ft = Format.formatter_of_out_channel fh in
-  fprintf ft "(* Written by make_brewer.ml *)\n\
-              open Palette_t\n@\n";
-  fprintf ft "(* Number of maps: %d *)@\n" (M.fold (fun _ _ n -> n+1) maps 0);
+  fprintf ft "(* Written by %s *)\n\
+              open Palette_t\n@\n" Sys.argv.(0);
+  fprintf ft "(* Brewer colormaps — see http://colorbrewer2.org/\n   \
+              Number of maps: %d *)@\n"
+    (M.fold (fun _ _ n -> n+1) brewer_maps 0);
   M.iter (fun name ms ->
       let ms = List.sort (fun m1 m2 -> compare m1.n m2.n) ms in
       let name = String.lowercase_ascii name in
@@ -207,7 +214,26 @@ let () =
         fprintf ft "%s_%i;@ " name i
       done;
       fprintf ft "]@]@\n@\n";
-    ) maps;
+    ) brewer_maps;
+  fprintf ft "(* Matplotlib colormaps *)@\n";
+  let matplotlib_maps =
+    Matplotlib.([ "magma", magma_rgb; "inferno", inferno_rgb;
+                  "plasma", plasma_rgb; "viridis", viridis_rgb]) in
+  List.iter (fun (name, rgb) ->
+      fprintf ft "@[<4>let %s = {@\n\
+                  length = %i;@\n\
+                  rgb = @[<3>[| " name (Array.length rgb);
+      Array.iter (fun c -> let r, g, b = Gg.Color.(r c, g c, b c) in
+                           fprintf ft "Gg.Color.v %f %f %f 1.;@\n" r g b) rgb;
+      fprintf ft "|];@]@\ncmyk = @[<3>[| ";
+      Array.iter (write_cmyk_of_rgb ft) rgb;
+      fprintf ft "|];@]@\n\
+                  ty = `Seq;@\n\
+                  blind = `Yes;@\n\
+                  print = `Yes;@\n\
+                  copy = `Yes;@\n\
+                  screen = `Yes }@]@\n@\n"
+    ) matplotlib_maps;
   (* Write a list of all maps (e.g. for search). *)
   fprintf ft "@[<4>let all_maps = [@\n";
   M.iter (fun name ms ->
@@ -216,6 +242,15 @@ let () =
       for i = 1 to n_max do
         fprintf ft "%s_%i;@ " name i
       done
-    ) maps;
+    ) brewer_maps;
+  List.iter (fun (name, _) ->
+      fprintf ft "%s;@ " name
+    ) matplotlib_maps;
   fprintf ft "]@]@\n";
   close_out fh
+
+
+
+(* Local Variables: *)
+(* compile-command: "make -k -w -C.. preconfigure" *)
+(* End: *)
