@@ -217,7 +217,7 @@ module Palette : sig
   (** {3 Matplotlib colormaps}
 
      These are sequential colormaps (each with 256 colors).  You can
-     find more information on {{:https://github.com/BIDS/colormap}this
+     find more information on {{:https://bids.github.io/colormap/}this
      page}. *)
   val viridis : t
   val magma : t
