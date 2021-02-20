@@ -97,6 +97,12 @@ module Palette : sig
   val get_cmyk : t -> int -> cmyk
   (** [get_cmyk m i] return the [i]th CMYK color of the palette [m]. *)
 
+  val gradient : ?interpolate: bool -> t -> Gradient.t
+  (** [gradient m] returns a gradient constructed from the palette.
+     It only makes sense for sequential palettes.
+
+     @param interpolate If [false] (the default), just map *)
+
   val find : ?ty:[`Seq | `Div | `Qual] ->
              ?blind:[`Yes | `No | `Maybe] ->
              ?print:[`Yes | `No | `Maybe] ->

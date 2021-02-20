@@ -57,13 +57,16 @@ let hue_pct h =
 let hue h = hue_pct(h *. 360.)
 
 module Gradient = struct
-  type t = { l0: float;  c0: float;  h0: float;  a0: float;
-             dl: float;  dc: float;  dh: float;  da: float }
+  (** The functions can assume that the float ∈ [0,1]. *)
+  type t = { rgba: float -> rgba;
+             cmyk: float -> cmyk }
+  type two_colors = { l0: float;  c0: float;  h0: float;  a0: float;
+                      dl: float;  dc: float;  dh: float;  da: float }
 
   let pi = 0x1.921fb54442d18p+1
   let two_pi = 0x1.921fb54442d18p+2
 
-  let v c0 c1 =
+  let from_2_colors c0 c1 =
     let open Gg in
     let lch0 = Color.to_lch_ab c0 in
     let lch1 = Color.to_lch_ab c1 in
@@ -83,12 +86,19 @@ module Gradient = struct
                 (g.h0 +. t *. g.dh) (g.a0 +. t *. g.da) in
     Gg.Color.(clamp(of_lch_ab lch))
 
+  let v c0 c1 =
+    let g = from_2_colors c0 c1 in
+    let rgba = rgba_unsafe g in
+    let cmyk t = cmyk_of_rgb(rgba t) in
+    { rgba; cmyk }
+
   let rgba g t =
     let t = if t < 0. then 0. else if t > 1. then 1. else t in
-    rgba_unsafe g t
+    g.rgba t
 
   let cmyk g t =
-    cmyk_of_rgb (rgba g t)
+    let t = if t < 0. then 0. else if t > 1. then 1. else t in
+    g.cmyk t
 end
 
 (* FIXME: generate color ranges between arbitrary colors.  *)
@@ -97,7 +107,7 @@ let range ?grad ~n a b =
   let dx = (b -. a) *. d1 in
   let l = ref [] in
   let color = match grad with None -> hue_pct
-                            | Some g -> Gradient.rgba_unsafe g in
+                            | Some g -> g.Gradient.rgba in
   for i = n - 1 downto 0 do
     l := (a +. float i *. dx,  color(float i *. d1)) :: !l
   done;
@@ -106,7 +116,7 @@ let range ?grad ~n a b =
 let with_colors ?grad l =
   let n = float(List.length l) in
   let color = match grad with None -> hue_pct
-                            | Some g -> Gradient.rgba_unsafe g in
+                            | Some g -> g.Gradient.rgba in
   List.mapi (fun i a -> (a, color (float i /. n))) l
 
 
@@ -131,6 +141,31 @@ module Palette = struct
     if i < 0 || i > m.length then invalid_arg "Color_brewery.Palette.get_cmyk";
     m.cmyk.(i)
 
+  let unsafe_gradient_truncate colors t =
+    let n = Array.length colors in
+    let i = truncate (t *. float n) in
+    if i < n then colors.(i) else colors.(n - 1)
+
+  let interpolate_palette colors =
+    Array.init (Array.length colors - 1) (fun i ->
+        Gradient.from_2_colors colors.(i) colors.(i+1))
+
+  let gradient_interpolate interp t =
+    let n = Array.length interp in
+    let t', i = modf (t *. float n) in
+    let i = truncate i in
+    if i < n then Gradient.rgba_unsafe interp.(i) t'
+    else Gradient.rgba_unsafe interp.(n - 1) 1.
+
+  let gradient ?(interpolate=false) m =
+    if interpolate then
+      let interp = interpolate_palette m.rgb in
+      let rgba t = gradient_interpolate interp t in
+      let cmyk t = cmyk_of_rgb(rgba t) in
+      { Gradient.rgba = rgba;  Gradient.cmyk = cmyk }
+    else
+      { Gradient.rgba = unsafe_gradient_truncate m.rgb;
+        Gradient.cmyk = unsafe_gradient_truncate m.cmyk }
 
   let satisfy specified prop =
     match specified with
