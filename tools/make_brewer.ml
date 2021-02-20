@@ -162,18 +162,9 @@ let () =
   let rgb_json = Yojson.Safe.from_file rgb_json_fname in
   let cmyk_json = Yojson.Safe.from_file cmyk_json_fname in
   let maps = process_names M.empty rgb_json |> add_cmyk cmyk_json in
-  let fh = open_out "src/color_brewery_palettes.ml" in
+  let fh = open_out "src/brewer_palettes.ml" in
   let ft = Format.formatter_of_out_channel fh in
-  fprintf ft "type ty = [`Seq | `Div | `Qual]@\n\
-              type yes_no_maybe = [`Yes | `No | `Maybe]@\n\
-              type t = { @[length: int;@\n\
-                           rgb: (Gg.color list) array;@\n\
-                           cmyk: (Gg.v4 list) array;@\n\
-                           ty: ty;@\n\
-                           blind: yes_no_maybe array;@\n\
-                           print: yes_no_maybe array;@\n\
-                           copy: yes_no_maybe array;@\n\
-                           screen: yes_no_maybe array }@]@\n@\n";
+  fprintf ft "open Palette_t\n@\n";
   let n = M.fold (fun _ _ n -> n+1) maps 0 in
   fprintf ft "(* Number of maps: %d *)@\n" n;
   M.iter (fun name ms ->
