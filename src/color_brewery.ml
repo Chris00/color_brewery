@@ -32,6 +32,15 @@ let to_gray c =
           +. 0.114 *. Gg.Color.b c in
   Gg.Color.v x x x (Gg.Color.a c)
 
+let[@inline] cmyk_of_rgb c =
+  let r, g, b = Gg.Color.(r c, g c, b c) in (* ∈ [0,1] *)
+  let k' = max r (max g b) in
+  let k = 1. -. k' in
+  let c = (1. -. r -. k) /. k' in
+  let m = (1. -. g -. k) /. k' in
+  let y = (1. -. b -. k) /. k' in
+  Gg.V4.v c m y k
+
 
 let hue_pct h =
   (* h ∈ [0, 1[ instead of the usual h ∈ [0, 360[. *)
@@ -77,6 +86,9 @@ module Gradient = struct
   let rgba g t =
     let t = if t < 0. then 0. else if t > 1. then 1. else t in
     rgba_unsafe g t
+
+  let cmyk g t =
+    cmyk_of_rgb (rgba g t)
 end
 
 (* FIXME: generate color ranges between arbitrary colors.  *)

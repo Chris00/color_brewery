@@ -54,6 +54,9 @@ module Gradient : sig
   (** [rgba g s] returns the color corresponding to [s] ∈ \[0,1\], where
     [s = 0.] returns the first color provided in the gradient and
     [s = 1.] the second. *)
+
+  val cmyk : t -> float -> cmyk
+  (** Same as {!rgba} except that it returns a CMYK color. *)
 end
 
 val range : ?grad: Gradient.t ->
