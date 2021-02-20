@@ -80,18 +80,16 @@ val with_colors : ?grad: Gradient.t -> 'a list -> ('a * rgba) list
     www.ColorBrewer.org *)
 module Palette : sig
   type t
-  (** A color map from which one can extract various color ranges. *)
+  (** A color map. *)
 
   val length : t -> int
-  (** [length m] returns the length of the longest color range in [m]. *)
+  (** [length m] returns the number of colors in the palette [m]. *)
 
-  val rgb_exn : t -> int -> rgba list
-  (** [rgb_exn m i] returns the RGB color range containing [i] colors
-      from [m].  If [i > length m], [Invalid_argument] is raised. *)
+  val rgb : t -> rgba list
+  (** [rgb m] returns the RGB color range of the palette [m]. *)
 
-  val cmyk_exn : t -> int -> cmyk list
-  (** [rgb_exn m i] returns the CMYK color range containing [i] colors
-      from [m].  If [i > length m], [Invalid_argument] is raised. *)
+  val cmyk : t -> cmyk list
+  (** [cmyk m] returns the CMYK color range of the palette [m]. *)
 
   val find : ?ty:[`Seq | `Div | `Qual] ->
              ?blind:[`Yes | `No | `Maybe] ->
@@ -129,85 +127,85 @@ module Palette : sig
 
   (** {3 Sequential schemes} *)
 
-  val ylgn : t     (** Light yellow to dark green *)
+  val ylgn : t list     (** Light yellow to dark green *)
 
-  val ylgnbu : t   (** Light yellow to green to dark blue *)
+  val ylgnbu : t list   (** Light yellow to green to dark blue *)
 
-  val gnbu : t     (** Light green to dark blue *)
+  val gnbu : t list     (** Light green to dark blue *)
 
-  val bugn : t     (** Light blue to dark green *)
+  val bugn : t list     (** Light blue to dark green *)
 
-  val pubugn : t   (** Light purple to blue to dark green *)
+  val pubugn : t list   (** Light purple to blue to dark green *)
 
-  val pubu : t     (** Light purple to dark blue *)
+  val pubu : t list     (** Light purple to dark blue *)
 
-  val bupu: t      (** Light blue to dark purple *)
+  val bupu: t list      (** Light blue to dark purple *)
 
-  val rdpu : t     (** Light red to dark purple *)
+  val rdpu : t list     (** Light red to dark purple *)
 
-  val purd : t     (** Light purple to dark red *)
+  val purd : t list     (** Light purple to dark red *)
 
-  val orrd : t     (** Light orange to dark red *)
+  val orrd : t list     (** Light orange to dark red *)
 
-  val ylorrd : t   (** Light yellow to orange to dark red *)
+  val ylorrd : t list   (** Light yellow to orange to dark red *)
 
-  val ylorbr : t   (** Light yellow to orange to dark brown *)
+  val ylorbr : t list   (** Light yellow to orange to dark brown *)
 
   (** {3 Sequential schemes, single hue} *)
 
-  val purples : t  (** Light to dark purple *)
+  val purples : t list  (** Light to dark purple *)
 
-  val blues : t    (** Light to dark blue *)
+  val blues : t list    (** Light to dark blue *)
 
-  val greens : t   (** Light to dark green *)
+  val greens : t list   (** Light to dark green *)
 
-  val oranges : t  (** Light to dark oranges *)
+  val oranges : t list  (** Light to dark oranges *)
 
-  val reds : t     (** Light to dark red *)
+  val reds : t list     (** Light to dark red *)
 
-  val greys : t    (** Light to dark gray *)
+  val greys : t list    (** Light to dark gray *)
 
   (** {3 Diverging schemes} *)
 
-  val puor : t     (** Dark orange to light to dark purple *)
+  val puor : t list     (** Dark orange to light to dark purple *)
 
-  val brbg : t     (** Dark brown to light to dark blue-green *)
+  val brbg : t list     (** Dark brown to light to dark blue-green *)
 
-  val prgn : t     (** Dark reddish-purple to light to dark green *)
+  val prgn : t list     (** Dark reddish-purple to light to dark green *)
 
-  val piyg : t     (** Dark magenta to light to dark yellow-green *)
+  val piyg : t list     (** Dark magenta to light to dark yellow-green *)
 
-  val rdbu : t     (** Dark red to light to dark blue *)
+  val rdbu : t list     (** Dark red to light to dark blue *)
 
-  val rdgy : t     (** Dark red to light to dark grey *)
+  val rdgy : t list     (** Dark red to light to dark grey *)
 
-  val rdylbu : t   (** Dark red to light yelow to dark blue *)
+  val rdylbu : t list   (** Dark red to light yelow to dark blue *)
 
-  val spectral : t (** Dark red, orange, light yellow, green, dark blue *)
+  val spectral : t list (** Dark red, orange, light yellow, green, dark blue *)
 
-  val rdylgn : t   (** Dark red, orange, light yellow, yellow-green,
-                       dark green *)
+  val rdylgn : t list   (** Dark red, orange, light yellow, yellow-green,
+                            dark green *)
 
   (** {3 Qualitative schemes} *)
 
-  val set1 : t    (** Includes bold, readily named, basic colors (such
-                      as red, green, blue) *)
+  val set1 : t list    (** Includes bold, readily named, basic colors (such
+                           as red, green, blue) *)
 
-  val pastel1 : t (** Lighter version of [Set1] *)
+  val pastel1 : t list (** Lighter version of [Set1] *)
 
-  val set2 : t    (** Includes mostly a mixture colors (such as
-                      blue-green, red-orange) *)
+  val set2 : t list    (** Includes mostly a mixture colors (such as
+                           blue-green, red-orange) *)
 
-  val pastel2 : t (** Lighter version of [Set2] *)
+  val pastel2 : t list (** Lighter version of [Set2] *)
 
-  val dark2 : t   (** Darker version of [Set2] *)
+  val dark2 : t list   (** Darker version of [Set2] *)
 
-  val set3 : t    (** Medium saturation set with more lightness
-                      variation and more classes than [Set1] and [Set2]. *)
+  val set3 : t list    (** Medium saturation set with more lightness
+                           variation and more classes than [Set1] and [Set2]. *)
 
-  val paired : t  (** Light/dark paris for namable hues *)
+  val paired : t list  (** Light/dark paris for namable hues *)
 
-  val accent : t  (** Include lightness and saturation extremes to
-                      accent small or important areas *)
+  val accent : t list  (** Include lightness and saturation extremes to
+                           accent small or important areas *)
 end
 

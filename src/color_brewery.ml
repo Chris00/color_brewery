@@ -106,15 +106,10 @@ module Palette = struct
 
   let length m = m.length
 
-  let rgb_exn m n =
-    if n <= 0 then []
-    else if n > m.length then invalid_arg "Color_brewery.Palette.rgb"
-    else m.rgb.(n)
+  let rgb m =
+    Array.to_list m.rgb (* do not allow modifying the array *)
 
-  let cmyk_exn m n =
-    if n <= 0 then []
-    else if n > m.length then invalid_arg "Color_brewery.Palette.cmyk"
-    else m.cmyk.(n)
+  let cmyk m = Array.to_list m.cmyk
 
 
   let satisfy specified prop =
@@ -137,10 +132,10 @@ module Palette = struct
       let filter m =
         m.length >= length
         && is_of_type m
-        && satisfy blind m.blind.(length)
-        && satisfy print m.print.(length)
-        && satisfy copy m.copy.(length)
-        && satisfy lcd m.screen.(length) in
+        && satisfy blind m.blind
+        && satisfy print m.print
+        && satisfy copy m.copy
+        && satisfy lcd m.screen in
       List.filter filter all_maps
     )
 end

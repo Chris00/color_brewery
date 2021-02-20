@@ -33,7 +33,7 @@ type map = {
   }
 
 let write_rgb fh m =
-  fprintf fh "@[<2>[ ";
+  fprintf fh "@[<3>[| ";
   (match m.rgb with
    | (r,g,b) :: rgb ->
       fprintf fh "Gg.Color.v_srgbi %3d %3d %3d" r g b;
@@ -41,10 +41,10 @@ let write_rgb fh m =
           fprintf fh ";@\nGg.Color.v_srgbi %3d %3d %3d" r g b
         ) rgb;
    | [] -> ());
-  fprintf fh "@] ];@\n"
+  fprintf fh "@] |];@\n"
 
 let write_cmyk fh m =
-  fprintf fh "@[<2>[ ";
+  fprintf fh "@[<3>[| ";
   (match m.cmyk with
    | (c,m,y,k) :: cmyk ->
       fprintf fh "Gg.V4.v %3d. %3d. %3d. %3d." c m y k;
@@ -52,7 +52,7 @@ let write_cmyk fh m =
           fprintf fh ";@\nGg.V4.v %3d. %3d. %3d. %3d." c m y k
         ) cmyk;
    | [] -> ());
-  fprintf fh "@] ];@\n"
+  fprintf fh "@] |];@\n"
 
 let rgb r g b =
   (int_of_string r, int_of_string g, int_of_string b)
@@ -164,52 +164,58 @@ let () =
   let maps = process_names M.empty rgb_json |> add_cmyk cmyk_json in
   let fh = open_out "src/brewer_palettes.ml" in
   let ft = Format.formatter_of_out_channel fh in
-  fprintf ft "open Palette_t\n@\n";
-  let n = M.fold (fun _ _ n -> n+1) maps 0 in
-  fprintf ft "(* Number of maps: %d *)@\n" n;
+  fprintf ft "(* Written by make_brewer.ml *)\n\
+              open Palette_t\n@\n";
+  fprintf ft "(* Number of maps: %d *)@\n" (M.fold (fun _ _ n -> n+1) maps 0);
   M.iter (fun name ms ->
       let ms = List.sort (fun m1 m2 -> compare m1.n m2.n) ms in
       let name = String.lowercase_ascii name in
       let n_min = List.fold_left (fun n m -> min n m.n) max_int ms in
       let n_max = List.fold_left (fun n m -> max n m.n) 0 ms in
-      let ty = (List.hd ms).ty in
       let ms =
         if n_min = 3 then (
-          (* Complete the ranges of length 0, 1, 2 *)
+          (* Complete the ranges of length 1, 2 *)
           let m3 = List.hd ms in
-          { n = 0;  rgb = [];  cmyk = [];  ty;
-            blind = `No; print = `No; copy = `No; screen =`No}
-          :: { m3 with n = 1;  rgb = [List.hd m3.rgb];
+          { m3 with n = 1;  rgb = [List.hd m3.rgb];
                        cmyk = [List.hd m3.cmyk] }
           :: { m3 with n = 2;  rgb = [List.hd m3.rgb; List.nth m3.rgb 2];
                        cmyk = [List.hd m3.cmyk; List.nth m3.cmyk 2] }
           :: ms
         )
         else assert false in
-      fprintf ft "@[<2>let %s_rgb = [|@\n" name;
-      List.iter (fun m -> write_rgb ft m) ms;
-      fprintf ft "@]|]@\n";
-      fprintf ft "@[<2>let %s_cmyk = [|@\n" name;
-      List.iter (fun m -> write_cmyk ft m) ms;
-      fprintf ft "@]|]@\n";
-      fprintf ft "@[<2>let %s : t = {@\n\
-                  length = %d;@\n\
-                  rgb = %s_rgb;@\n\
-                  cmyk = %s_cmyk;@\n\
-                  ty = `%s;@\n\
-                  blind  = %s;@\n\
-                  print  = %s;@\n\
-                  copy   = %s;@\n\
-                  screen = %s;@]@\n\
-                  }@\n@\n"
-        name n_max name name (String.capitalize_ascii ty)
-        (array_string (fun m -> m.blind) ms)
-        (array_string (fun m -> m.print) ms)
-        (array_string (fun m -> m.copy) ms)
-        (array_string (fun m -> m.screen) ms);
+      List.iter (fun m ->
+          fprintf ft "@[<4>let %s_%i = {@\n\
+                      length = %i;@\n\
+                      rgb = " name m.n m.n;
+          write_rgb ft m;
+          fprintf ft "cmyk = ";
+          write_cmyk ft m;
+          fprintf ft "ty = `%s;@\n\
+                      blind = %s;@\n\
+                      print = %s;@\n\
+                      copy = %s;@\n\
+                      screen = %s }@]@\n"
+            (String.capitalize_ascii m.ty)
+            (string_of_yes_no_maybe m.blind)
+            (string_of_yes_no_maybe m.print)
+            (string_of_yes_no_maybe m.copy)
+            (string_of_yes_no_maybe m.screen);
+        ) ms;
+      (* Group maps with the same "scheme". *)
+      fprintf ft "@[<4>let %s : t list = [@\n" name;
+      for i = 1 to n_max do
+        fprintf ft "%s_%i;@ " name i
+      done;
+      fprintf ft "]@]@\n@\n";
     ) maps;
   (* Write a list of all maps (e.g. for search). *)
-  fprintf ft "@[<2>let all_maps = [";
-  M.iter (fun name _ -> fprintf ft "%s;@ " (String.lowercase_ascii name)) maps;
+  fprintf ft "@[<4>let all_maps = [@\n";
+  M.iter (fun name ms ->
+      let name = String.lowercase_ascii name in
+      let n_max = List.fold_left (fun n m -> max n m.n) 0 ms in
+      for i = 1 to n_max do
+        fprintf ft "%s_%i;@ " name i
+      done
+    ) maps;
   fprintf ft "]@]@\n";
   close_out fh
