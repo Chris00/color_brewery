@@ -77,10 +77,7 @@ val with_colors : ?grad: Gradient.t -> 'a list -> ('a * rgba) list
 
 (** {2 Color palettes (aka colormaps)} *)
 
-(** Colormaps with certain characteristics.
-
-    Based on colors maps by Cynthia A. Brewer, Penn State. See
-    www.ColorBrewer.org *)
+(** Colormaps with certain characteristics. *)
 module Palette : sig
   type t
   (** A color map. *)
@@ -132,7 +129,9 @@ module Palette : sig
   (** Color schemes as described in the paper: Brewer, Cynthia A.,
       Geoffrey W. Hatchard and Mark A. Harrower, 2003, ColorBrewer in
       Print: A Catalog of Color Schemes for Maps, Cartography and
-      Geographic Information Science 30(1): 5-32. *)
+      Geographic Information Science 30(1): 5-32.
+
+      See also www.ColorBrewer.org *)
 
   (** {3 Sequential schemes} *)
 
