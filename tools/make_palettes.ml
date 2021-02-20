@@ -91,7 +91,10 @@ let rec add_color_palettes maps name ty palettes ~blind ~print ~copy ~screen =
   match palettes, blind, print, copy, screen with
   | (n, colors) :: palettes, b :: blind, p :: print, c :: copy, s :: screen ->
      let n = int_of_string n in
-     let m = {n; rgb = parse_colors colors; cmyk = [];
+     let rgb = parse_colors colors in
+     (* For sequential schemes, revert to go from dark to light. *)
+     let rgb = if ty = "seq" then List.rev rgb else rgb in
+     let m = {n; rgb; cmyk = [];
               ty; blind = b; print = p; copy = c; screen = s } in
      let maps = add_map maps name m in
      add_color_palettes maps name ty palettes ~blind ~print ~copy ~screen

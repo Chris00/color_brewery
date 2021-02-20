@@ -137,7 +137,7 @@ let accent : t list = [
 
 let blues_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 222 235 247 |];
+    rgb = [| Gg.Color.v_srgbi  49 130 189 |];
     cmyk = [| Gg.V4.v  13.   3.   0.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -146,8 +146,8 @@ let blues_1 = {
     screen = `Yes }
 let blues_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 222 235 247;
-             Gg.Color.v_srgbi  49 130 189 |];
+    rgb = [| Gg.Color.v_srgbi  49 130 189;
+             Gg.Color.v_srgbi 222 235 247 |];
     cmyk = [| Gg.V4.v  13.   3.   0.   0.;
               Gg.V4.v  82.  27.   0.   0. |];
     ty = `Seq;
@@ -157,9 +157,9 @@ let blues_2 = {
     screen = `Yes }
 let blues_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 222 235 247;
+    rgb = [| Gg.Color.v_srgbi  49 130 189;
              Gg.Color.v_srgbi 158 202 225;
-             Gg.Color.v_srgbi  49 130 189 |];
+             Gg.Color.v_srgbi 222 235 247 |];
     cmyk = [| Gg.V4.v  13.   3.   0.   0.;
               Gg.V4.v  38.   8.   0.   0.;
               Gg.V4.v  82.  27.   0.   0. |];
@@ -170,10 +170,10 @@ let blues_3 = {
     screen = `Yes }
 let blues_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 239 243 255;
-             Gg.Color.v_srgbi 189 215 231;
+    rgb = [| Gg.Color.v_srgbi  33 113 181;
              Gg.Color.v_srgbi 107 174 214;
-             Gg.Color.v_srgbi  33 113 181 |];
+             Gg.Color.v_srgbi 189 215 231;
+             Gg.Color.v_srgbi 239 243 255 |];
     cmyk = [| Gg.V4.v   8.   2.   0.   0.;
               Gg.V4.v  28.   7.   0.   0.;
               Gg.V4.v  57.  14.   0.   0.;
@@ -185,11 +185,11 @@ let blues_4 = {
     screen = `Maybe }
 let blues_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 239 243 255;
-             Gg.Color.v_srgbi 189 215 231;
-             Gg.Color.v_srgbi 107 174 214;
+    rgb = [| Gg.Color.v_srgbi   8  81 156;
              Gg.Color.v_srgbi  49 130 189;
-             Gg.Color.v_srgbi   8  81 156 |];
+             Gg.Color.v_srgbi 107 174 214;
+             Gg.Color.v_srgbi 189 215 231;
+             Gg.Color.v_srgbi 239 243 255 |];
     cmyk = [| Gg.V4.v   8.   2.   0.   0.;
               Gg.V4.v  28.   7.   0.   0.;
               Gg.V4.v  57.  14.   0.   0.;
@@ -202,12 +202,12 @@ let blues_5 = {
     screen = `No }
 let blues_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 239 243 255;
-             Gg.Color.v_srgbi 198 219 239;
-             Gg.Color.v_srgbi 158 202 225;
-             Gg.Color.v_srgbi 107 174 214;
+    rgb = [| Gg.Color.v_srgbi   8  81 156;
              Gg.Color.v_srgbi  49 130 189;
-             Gg.Color.v_srgbi   8  81 156 |];
+             Gg.Color.v_srgbi 107 174 214;
+             Gg.Color.v_srgbi 158 202 225;
+             Gg.Color.v_srgbi 198 219 239;
+             Gg.Color.v_srgbi 239 243 255 |];
     cmyk = [| Gg.V4.v   8.   2.   0.   0.;
               Gg.V4.v  24.   6.   0.   0.;
               Gg.V4.v  38.   8.   0.   0.;
@@ -221,13 +221,13 @@ let blues_6 = {
     screen = `No }
 let blues_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 239 243 255;
-             Gg.Color.v_srgbi 198 219 239;
-             Gg.Color.v_srgbi 158 202 225;
-             Gg.Color.v_srgbi 107 174 214;
-             Gg.Color.v_srgbi  66 146 198;
+    rgb = [| Gg.Color.v_srgbi   8  69 148;
              Gg.Color.v_srgbi  33 113 181;
-             Gg.Color.v_srgbi   8  69 148 |];
+             Gg.Color.v_srgbi  66 146 198;
+             Gg.Color.v_srgbi 107 174 214;
+             Gg.Color.v_srgbi 158 202 225;
+             Gg.Color.v_srgbi 198 219 239;
+             Gg.Color.v_srgbi 239 243 255 |];
     cmyk = [| Gg.V4.v   8.   2.   0.   0.;
               Gg.V4.v  24.   6.   0.   0.;
               Gg.V4.v  38.   8.   0.   0.;
@@ -242,14 +242,14 @@ let blues_7 = {
     screen = `No }
 let blues_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 247 251 255;
-             Gg.Color.v_srgbi 222 235 247;
-             Gg.Color.v_srgbi 198 219 239;
-             Gg.Color.v_srgbi 158 202 225;
-             Gg.Color.v_srgbi 107 174 214;
-             Gg.Color.v_srgbi  66 146 198;
+    rgb = [| Gg.Color.v_srgbi   8  69 148;
              Gg.Color.v_srgbi  33 113 181;
-             Gg.Color.v_srgbi   8  69 148 |];
+             Gg.Color.v_srgbi  66 146 198;
+             Gg.Color.v_srgbi 107 174 214;
+             Gg.Color.v_srgbi 158 202 225;
+             Gg.Color.v_srgbi 198 219 239;
+             Gg.Color.v_srgbi 222 235 247;
+             Gg.Color.v_srgbi 247 251 255 |];
     cmyk = [| Gg.V4.v   3.   1.   0.   0.;
               Gg.V4.v  13.   3.   0.   0.;
               Gg.V4.v  24.   6.   0.   0.;
@@ -265,15 +265,15 @@ let blues_8 = {
     screen = `No }
 let blues_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 247 251 255;
-             Gg.Color.v_srgbi 222 235 247;
-             Gg.Color.v_srgbi 198 219 239;
-             Gg.Color.v_srgbi 158 202 225;
-             Gg.Color.v_srgbi 107 174 214;
-             Gg.Color.v_srgbi  66 146 198;
-             Gg.Color.v_srgbi  33 113 181;
+    rgb = [| Gg.Color.v_srgbi   8  48 107;
              Gg.Color.v_srgbi   8  81 156;
-             Gg.Color.v_srgbi   8  48 107 |];
+             Gg.Color.v_srgbi  33 113 181;
+             Gg.Color.v_srgbi  66 146 198;
+             Gg.Color.v_srgbi 107 174 214;
+             Gg.Color.v_srgbi 158 202 225;
+             Gg.Color.v_srgbi 198 219 239;
+             Gg.Color.v_srgbi 222 235 247;
+             Gg.Color.v_srgbi 247 251 255 |];
     cmyk = [| Gg.V4.v   3.   1.   0.   0.;
               Gg.V4.v  13.   3.   0.   0.;
               Gg.V4.v  24.   6.   0.   0.;
@@ -507,7 +507,7 @@ let brbg : t list = [
 
 let bugn_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 229 245 249 |];
+    rgb = [| Gg.Color.v_srgbi  44 162  95 |];
     cmyk = [| Gg.V4.v  10.   0.   0.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -516,8 +516,8 @@ let bugn_1 = {
     screen = `Yes }
 let bugn_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 229 245 249;
-             Gg.Color.v_srgbi  44 162  95 |];
+    rgb = [| Gg.Color.v_srgbi  44 162  95;
+             Gg.Color.v_srgbi 229 245 249 |];
     cmyk = [| Gg.V4.v  10.   0.   0.   0.;
               Gg.V4.v  83.   0.  70.   0. |];
     ty = `Seq;
@@ -527,9 +527,9 @@ let bugn_2 = {
     screen = `Yes }
 let bugn_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 229 245 249;
+    rgb = [| Gg.Color.v_srgbi  44 162  95;
              Gg.Color.v_srgbi 153 216 201;
-             Gg.Color.v_srgbi  44 162  95 |];
+             Gg.Color.v_srgbi 229 245 249 |];
     cmyk = [| Gg.V4.v  10.   0.   0.   0.;
               Gg.V4.v  40.   0.  15.   0.;
               Gg.V4.v  83.   0.  70.   0. |];
@@ -540,10 +540,10 @@ let bugn_3 = {
     screen = `Yes }
 let bugn_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 237 248 251;
-             Gg.Color.v_srgbi 178 226 226;
+    rgb = [| Gg.Color.v_srgbi  35 139  69;
              Gg.Color.v_srgbi 102 194 164;
-             Gg.Color.v_srgbi  35 139  69 |];
+             Gg.Color.v_srgbi 178 226 226;
+             Gg.Color.v_srgbi 237 248 251 |];
     cmyk = [| Gg.V4.v   7.   0.   0.   0.;
               Gg.V4.v  30.   0.   5.   0.;
               Gg.V4.v  60.   0.  30.   0.;
@@ -555,11 +555,11 @@ let bugn_4 = {
     screen = `Maybe }
 let bugn_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 237 248 251;
-             Gg.Color.v_srgbi 178 226 226;
-             Gg.Color.v_srgbi 102 194 164;
+    rgb = [| Gg.Color.v_srgbi   0 109  44;
              Gg.Color.v_srgbi  44 162  95;
-             Gg.Color.v_srgbi   0 109  44 |];
+             Gg.Color.v_srgbi 102 194 164;
+             Gg.Color.v_srgbi 178 226 226;
+             Gg.Color.v_srgbi 237 248 251 |];
     cmyk = [| Gg.V4.v   7.   0.   0.   0.;
               Gg.V4.v  30.   0.   5.   0.;
               Gg.V4.v  60.   0.  30.   0.;
@@ -572,12 +572,12 @@ let bugn_5 = {
     screen = `No }
 let bugn_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 237 248 251;
-             Gg.Color.v_srgbi 204 236 230;
-             Gg.Color.v_srgbi 153 216 201;
-             Gg.Color.v_srgbi 102 194 164;
+    rgb = [| Gg.Color.v_srgbi   0 109  44;
              Gg.Color.v_srgbi  44 162  95;
-             Gg.Color.v_srgbi   0 109  44 |];
+             Gg.Color.v_srgbi 102 194 164;
+             Gg.Color.v_srgbi 153 216 201;
+             Gg.Color.v_srgbi 204 236 230;
+             Gg.Color.v_srgbi 237 248 251 |];
     cmyk = [| Gg.V4.v   7.   0.   0.   0.;
               Gg.V4.v  20.   0.   6.   0.;
               Gg.V4.v  40.   0.  15.   0.;
@@ -591,13 +591,13 @@ let bugn_6 = {
     screen = `No }
 let bugn_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 237 248 251;
-             Gg.Color.v_srgbi 204 236 230;
-             Gg.Color.v_srgbi 153 216 201;
-             Gg.Color.v_srgbi 102 194 164;
-             Gg.Color.v_srgbi  65 174 118;
+    rgb = [| Gg.Color.v_srgbi   0  88  36;
              Gg.Color.v_srgbi  35 139  69;
-             Gg.Color.v_srgbi   0  88  36 |];
+             Gg.Color.v_srgbi  65 174 118;
+             Gg.Color.v_srgbi 102 194 164;
+             Gg.Color.v_srgbi 153 216 201;
+             Gg.Color.v_srgbi 204 236 230;
+             Gg.Color.v_srgbi 237 248 251 |];
     cmyk = [| Gg.V4.v   7.   0.   0.   0.;
               Gg.V4.v  20.   0.   6.   0.;
               Gg.V4.v  40.   0.  15.   0.;
@@ -612,14 +612,14 @@ let bugn_7 = {
     screen = `No }
 let bugn_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 247 252 253;
-             Gg.Color.v_srgbi 229 245 249;
-             Gg.Color.v_srgbi 204 236 230;
-             Gg.Color.v_srgbi 153 216 201;
-             Gg.Color.v_srgbi 102 194 164;
-             Gg.Color.v_srgbi  65 174 118;
+    rgb = [| Gg.Color.v_srgbi   0  88  36;
              Gg.Color.v_srgbi  35 139  69;
-             Gg.Color.v_srgbi   0  88  36 |];
+             Gg.Color.v_srgbi  65 174 118;
+             Gg.Color.v_srgbi 102 194 164;
+             Gg.Color.v_srgbi 153 216 201;
+             Gg.Color.v_srgbi 204 236 230;
+             Gg.Color.v_srgbi 229 245 249;
+             Gg.Color.v_srgbi 247 252 253 |];
     cmyk = [| Gg.V4.v   3.   0.   0.   0.;
               Gg.V4.v  10.   0.   0.   0.;
               Gg.V4.v  20.   0.   6.   0.;
@@ -635,15 +635,15 @@ let bugn_8 = {
     screen = `No }
 let bugn_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 247 252 253;
-             Gg.Color.v_srgbi 229 245 249;
-             Gg.Color.v_srgbi 204 236 230;
-             Gg.Color.v_srgbi 153 216 201;
-             Gg.Color.v_srgbi 102 194 164;
-             Gg.Color.v_srgbi  65 174 118;
-             Gg.Color.v_srgbi  35 139  69;
+    rgb = [| Gg.Color.v_srgbi   0  68  27;
              Gg.Color.v_srgbi   0 109  44;
-             Gg.Color.v_srgbi   0  68  27 |];
+             Gg.Color.v_srgbi  35 139  69;
+             Gg.Color.v_srgbi  65 174 118;
+             Gg.Color.v_srgbi 102 194 164;
+             Gg.Color.v_srgbi 153 216 201;
+             Gg.Color.v_srgbi 204 236 230;
+             Gg.Color.v_srgbi 229 245 249;
+             Gg.Color.v_srgbi 247 252 253 |];
     cmyk = [| Gg.V4.v   3.   0.   0.   0.;
               Gg.V4.v  10.   0.   0.   0.;
               Gg.V4.v  20.   0.   6.   0.;
@@ -663,7 +663,7 @@ let bugn : t list = [
 
 let bupu_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 224 236 244 |];
+    rgb = [| Gg.Color.v_srgbi 136  86 167 |];
     cmyk = [| Gg.V4.v  12.   3.   0.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -672,8 +672,8 @@ let bupu_1 = {
     screen = `Yes }
 let bupu_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 224 236 244;
-             Gg.Color.v_srgbi 136  86 167 |];
+    rgb = [| Gg.Color.v_srgbi 136  86 167;
+             Gg.Color.v_srgbi 224 236 244 |];
     cmyk = [| Gg.V4.v  12.   3.   0.   0.;
               Gg.V4.v  47.  60.   0.   0. |];
     ty = `Seq;
@@ -683,9 +683,9 @@ let bupu_2 = {
     screen = `Yes }
 let bupu_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 224 236 244;
+    rgb = [| Gg.Color.v_srgbi 136  86 167;
              Gg.Color.v_srgbi 158 188 218;
-             Gg.Color.v_srgbi 136  86 167 |];
+             Gg.Color.v_srgbi 224 236 244 |];
     cmyk = [| Gg.V4.v  12.   3.   0.   0.;
               Gg.V4.v  38.  14.   0.   0.;
               Gg.V4.v  47.  60.   0.   0. |];
@@ -696,10 +696,10 @@ let bupu_3 = {
     screen = `Yes }
 let bupu_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 237 248 251;
-             Gg.Color.v_srgbi 179 205 227;
+    rgb = [| Gg.Color.v_srgbi 136  65 157;
              Gg.Color.v_srgbi 140 150 198;
-             Gg.Color.v_srgbi 136  65 157 |];
+             Gg.Color.v_srgbi 179 205 227;
+             Gg.Color.v_srgbi 237 248 251 |];
     cmyk = [| Gg.V4.v   7.   0.   0.   0.;
               Gg.V4.v  30.  10.   0.   0.;
               Gg.V4.v  45.  30.   0.   0.;
@@ -711,11 +711,11 @@ let bupu_4 = {
     screen = `Yes }
 let bupu_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 237 248 251;
-             Gg.Color.v_srgbi 179 205 227;
-             Gg.Color.v_srgbi 140 150 198;
+    rgb = [| Gg.Color.v_srgbi 129  15 124;
              Gg.Color.v_srgbi 136  86 167;
-             Gg.Color.v_srgbi 129  15 124 |];
+             Gg.Color.v_srgbi 140 150 198;
+             Gg.Color.v_srgbi 179 205 227;
+             Gg.Color.v_srgbi 237 248 251 |];
     cmyk = [| Gg.V4.v   7.   0.   0.   0.;
               Gg.V4.v  30.  10.   0.   0.;
               Gg.V4.v  45.  30.   0.   0.;
@@ -728,12 +728,12 @@ let bupu_5 = {
     screen = `Yes }
 let bupu_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 237 248 251;
-             Gg.Color.v_srgbi 191 211 230;
-             Gg.Color.v_srgbi 158 188 218;
-             Gg.Color.v_srgbi 140 150 198;
+    rgb = [| Gg.Color.v_srgbi 129  15 124;
              Gg.Color.v_srgbi 136  86 167;
-             Gg.Color.v_srgbi 129  15 124 |];
+             Gg.Color.v_srgbi 140 150 198;
+             Gg.Color.v_srgbi 158 188 218;
+             Gg.Color.v_srgbi 191 211 230;
+             Gg.Color.v_srgbi 237 248 251 |];
     cmyk = [| Gg.V4.v   7.   0.   0.   0.;
               Gg.V4.v  25.   9.   0.   0.;
               Gg.V4.v  38.  14.   0.   0.;
@@ -747,13 +747,13 @@ let bupu_6 = {
     screen = `No }
 let bupu_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 237 248 251;
-             Gg.Color.v_srgbi 191 211 230;
-             Gg.Color.v_srgbi 158 188 218;
-             Gg.Color.v_srgbi 140 150 198;
-             Gg.Color.v_srgbi 140 107 177;
+    rgb = [| Gg.Color.v_srgbi 110   1 107;
              Gg.Color.v_srgbi 136  65 157;
-             Gg.Color.v_srgbi 110   1 107 |];
+             Gg.Color.v_srgbi 140 107 177;
+             Gg.Color.v_srgbi 140 150 198;
+             Gg.Color.v_srgbi 158 188 218;
+             Gg.Color.v_srgbi 191 211 230;
+             Gg.Color.v_srgbi 237 248 251 |];
     cmyk = [| Gg.V4.v   7.   0.   0.   0.;
               Gg.V4.v  25.   9.   0.   0.;
               Gg.V4.v  38.  14.   0.   0.;
@@ -768,14 +768,14 @@ let bupu_7 = {
     screen = `No }
 let bupu_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 247 252 253;
-             Gg.Color.v_srgbi 224 236 244;
-             Gg.Color.v_srgbi 191 211 230;
-             Gg.Color.v_srgbi 158 188 218;
-             Gg.Color.v_srgbi 140 150 198;
-             Gg.Color.v_srgbi 140 107 177;
+    rgb = [| Gg.Color.v_srgbi 110   1 107;
              Gg.Color.v_srgbi 136  65 157;
-             Gg.Color.v_srgbi 110   1 107 |];
+             Gg.Color.v_srgbi 140 107 177;
+             Gg.Color.v_srgbi 140 150 198;
+             Gg.Color.v_srgbi 158 188 218;
+             Gg.Color.v_srgbi 191 211 230;
+             Gg.Color.v_srgbi 224 236 244;
+             Gg.Color.v_srgbi 247 252 253 |];
     cmyk = [| Gg.V4.v   3.   0.   0.   0.;
               Gg.V4.v  12.   3.   0.   0.;
               Gg.V4.v  25.   9.   0.   0.;
@@ -791,15 +791,15 @@ let bupu_8 = {
     screen = `No }
 let bupu_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 247 252 253;
-             Gg.Color.v_srgbi 224 236 244;
-             Gg.Color.v_srgbi 191 211 230;
-             Gg.Color.v_srgbi 158 188 218;
-             Gg.Color.v_srgbi 140 150 198;
-             Gg.Color.v_srgbi 140 107 177;
-             Gg.Color.v_srgbi 136  65 157;
+    rgb = [| Gg.Color.v_srgbi  77   0  75;
              Gg.Color.v_srgbi 129  15 124;
-             Gg.Color.v_srgbi  77   0  75 |];
+             Gg.Color.v_srgbi 136  65 157;
+             Gg.Color.v_srgbi 140 107 177;
+             Gg.Color.v_srgbi 140 150 198;
+             Gg.Color.v_srgbi 158 188 218;
+             Gg.Color.v_srgbi 191 211 230;
+             Gg.Color.v_srgbi 224 236 244;
+             Gg.Color.v_srgbi 247 252 253 |];
     cmyk = [| Gg.V4.v   3.   0.   0.   0.;
               Gg.V4.v  12.   3.   0.   0.;
               Gg.V4.v  25.   9.   0.   0.;
@@ -950,7 +950,7 @@ let dark2 : t list = [
 
 let gnbu_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 224 243 219 |];
+    rgb = [| Gg.Color.v_srgbi  67 162 202 |];
     cmyk = [| Gg.V4.v  12.   0.  12.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -959,8 +959,8 @@ let gnbu_1 = {
     screen = `Yes }
 let gnbu_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 224 243 219;
-             Gg.Color.v_srgbi  67 162 202 |];
+    rgb = [| Gg.Color.v_srgbi  67 162 202;
+             Gg.Color.v_srgbi 224 243 219 |];
     cmyk = [| Gg.V4.v  12.   0.  12.   0.;
               Gg.V4.v  75.  12.   0.   0. |];
     ty = `Seq;
@@ -970,9 +970,9 @@ let gnbu_2 = {
     screen = `Yes }
 let gnbu_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 224 243 219;
+    rgb = [| Gg.Color.v_srgbi  67 162 202;
              Gg.Color.v_srgbi 168 221 181;
-             Gg.Color.v_srgbi  67 162 202 |];
+             Gg.Color.v_srgbi 224 243 219 |];
     cmyk = [| Gg.V4.v  12.   0.  12.   0.;
               Gg.V4.v  34.   0.  25.   0.;
               Gg.V4.v  75.  12.   0.   0. |];
@@ -983,10 +983,10 @@ let gnbu_3 = {
     screen = `Yes }
 let gnbu_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 240 249 232;
-             Gg.Color.v_srgbi 186 228 188;
+    rgb = [| Gg.Color.v_srgbi  43 140 190;
              Gg.Color.v_srgbi 123 204 196;
-             Gg.Color.v_srgbi  43 140 190 |];
+             Gg.Color.v_srgbi 186 228 188;
+             Gg.Color.v_srgbi 240 249 232 |];
     cmyk = [| Gg.V4.v   6.   0.   8.   0.;
               Gg.V4.v  27.   0.  23.   0.;
               Gg.V4.v  52.   0.  15.   0.;
@@ -998,11 +998,11 @@ let gnbu_4 = {
     screen = `Yes }
 let gnbu_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 240 249 232;
-             Gg.Color.v_srgbi 186 228 188;
-             Gg.Color.v_srgbi 123 204 196;
+    rgb = [| Gg.Color.v_srgbi   8 104 172;
              Gg.Color.v_srgbi  67 162 202;
-             Gg.Color.v_srgbi   8 104 172 |];
+             Gg.Color.v_srgbi 123 204 196;
+             Gg.Color.v_srgbi 186 228 188;
+             Gg.Color.v_srgbi 240 249 232 |];
     cmyk = [| Gg.V4.v   6.   0.   8.   0.;
               Gg.V4.v  27.   0.  23.   0.;
               Gg.V4.v  52.   0.  15.   0.;
@@ -1015,12 +1015,12 @@ let gnbu_5 = {
     screen = `Maybe }
 let gnbu_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 240 249 232;
-             Gg.Color.v_srgbi 204 235 197;
-             Gg.Color.v_srgbi 168 221 181;
-             Gg.Color.v_srgbi 123 204 196;
+    rgb = [| Gg.Color.v_srgbi   8 104 172;
              Gg.Color.v_srgbi  67 162 202;
-             Gg.Color.v_srgbi   8 104 172 |];
+             Gg.Color.v_srgbi 123 204 196;
+             Gg.Color.v_srgbi 168 221 181;
+             Gg.Color.v_srgbi 204 235 197;
+             Gg.Color.v_srgbi 240 249 232 |];
     cmyk = [| Gg.V4.v   6.   0.   8.   0.;
               Gg.V4.v  20.   0.  20.   0.;
               Gg.V4.v  34.   0.  25.   0.;
@@ -1034,13 +1034,13 @@ let gnbu_6 = {
     screen = `No }
 let gnbu_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 240 249 232;
-             Gg.Color.v_srgbi 204 235 197;
-             Gg.Color.v_srgbi 168 221 181;
-             Gg.Color.v_srgbi 123 204 196;
-             Gg.Color.v_srgbi  78 179 211;
+    rgb = [| Gg.Color.v_srgbi   8  88 158;
              Gg.Color.v_srgbi  43 140 190;
-             Gg.Color.v_srgbi   8  88 158 |];
+             Gg.Color.v_srgbi  78 179 211;
+             Gg.Color.v_srgbi 123 204 196;
+             Gg.Color.v_srgbi 168 221 181;
+             Gg.Color.v_srgbi 204 235 197;
+             Gg.Color.v_srgbi 240 249 232 |];
     cmyk = [| Gg.V4.v   6.   0.   8.   0.;
               Gg.V4.v  20.   0.  20.   0.;
               Gg.V4.v  34.   0.  25.   0.;
@@ -1055,14 +1055,14 @@ let gnbu_7 = {
     screen = `No }
 let gnbu_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 247 252 240;
-             Gg.Color.v_srgbi 224 243 219;
-             Gg.Color.v_srgbi 204 235 197;
-             Gg.Color.v_srgbi 168 221 181;
-             Gg.Color.v_srgbi 123 204 196;
-             Gg.Color.v_srgbi  78 179 211;
+    rgb = [| Gg.Color.v_srgbi   8  88 158;
              Gg.Color.v_srgbi  43 140 190;
-             Gg.Color.v_srgbi   8  88 158 |];
+             Gg.Color.v_srgbi  78 179 211;
+             Gg.Color.v_srgbi 123 204 196;
+             Gg.Color.v_srgbi 168 221 181;
+             Gg.Color.v_srgbi 204 235 197;
+             Gg.Color.v_srgbi 224 243 219;
+             Gg.Color.v_srgbi 247 252 240 |];
     cmyk = [| Gg.V4.v   3.   0.   5.   0.;
               Gg.V4.v  12.   0.  12.   0.;
               Gg.V4.v  20.   0.  20.   0.;
@@ -1078,15 +1078,15 @@ let gnbu_8 = {
     screen = `No }
 let gnbu_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 247 252 240;
-             Gg.Color.v_srgbi 224 243 219;
-             Gg.Color.v_srgbi 204 235 197;
-             Gg.Color.v_srgbi 168 221 181;
-             Gg.Color.v_srgbi 123 204 196;
-             Gg.Color.v_srgbi  78 179 211;
-             Gg.Color.v_srgbi  43 140 190;
+    rgb = [| Gg.Color.v_srgbi   8  64 129;
              Gg.Color.v_srgbi   8 104 172;
-             Gg.Color.v_srgbi   8  64 129 |];
+             Gg.Color.v_srgbi  43 140 190;
+             Gg.Color.v_srgbi  78 179 211;
+             Gg.Color.v_srgbi 123 204 196;
+             Gg.Color.v_srgbi 168 221 181;
+             Gg.Color.v_srgbi 204 235 197;
+             Gg.Color.v_srgbi 224 243 219;
+             Gg.Color.v_srgbi 247 252 240 |];
     cmyk = [| Gg.V4.v   3.   0.   5.   0.;
               Gg.V4.v  12.   0.  12.   0.;
               Gg.V4.v  20.   0.  20.   0.;
@@ -1106,7 +1106,7 @@ let gnbu : t list = [
 
 let greens_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 229 245 224 |];
+    rgb = [| Gg.Color.v_srgbi  49 163  84 |];
     cmyk = [| Gg.V4.v  10.   0.  10.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -1115,8 +1115,8 @@ let greens_1 = {
     screen = `Yes }
 let greens_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 229 245 224;
-             Gg.Color.v_srgbi  49 163  84 |];
+    rgb = [| Gg.Color.v_srgbi  49 163  84;
+             Gg.Color.v_srgbi 229 245 224 |];
     cmyk = [| Gg.V4.v  10.   0.  10.   0.;
               Gg.V4.v  81.   0.  76.   0. |];
     ty = `Seq;
@@ -1126,9 +1126,9 @@ let greens_2 = {
     screen = `Yes }
 let greens_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 229 245 224;
+    rgb = [| Gg.Color.v_srgbi  49 163  84;
              Gg.Color.v_srgbi 161 217 155;
-             Gg.Color.v_srgbi  49 163  84 |];
+             Gg.Color.v_srgbi 229 245 224 |];
     cmyk = [| Gg.V4.v  10.   0.  10.   0.;
               Gg.V4.v  37.   0.  37.   0.;
               Gg.V4.v  81.   0.  76.   0. |];
@@ -1139,10 +1139,10 @@ let greens_3 = {
     screen = `Yes }
 let greens_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 237 248 233;
-             Gg.Color.v_srgbi 186 228 179;
+    rgb = [| Gg.Color.v_srgbi  35 139  69;
              Gg.Color.v_srgbi 116 196 118;
-             Gg.Color.v_srgbi  35 139  69 |];
+             Gg.Color.v_srgbi 186 228 179;
+             Gg.Color.v_srgbi 237 248 233 |];
     cmyk = [| Gg.V4.v   7.   0.   7.   0.;
               Gg.V4.v  27.   0.  27.   0.;
               Gg.V4.v  55.   0.  55.   0.;
@@ -1154,11 +1154,11 @@ let greens_4 = {
     screen = `Maybe }
 let greens_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 237 248 233;
-             Gg.Color.v_srgbi 186 228 179;
-             Gg.Color.v_srgbi 116 196 118;
+    rgb = [| Gg.Color.v_srgbi   0 109  44;
              Gg.Color.v_srgbi  49 163  84;
-             Gg.Color.v_srgbi   0 109  44 |];
+             Gg.Color.v_srgbi 116 196 118;
+             Gg.Color.v_srgbi 186 228 179;
+             Gg.Color.v_srgbi 237 248 233 |];
     cmyk = [| Gg.V4.v   7.   0.   7.   0.;
               Gg.V4.v  27.   0.  27.   0.;
               Gg.V4.v  55.   0.  55.   0.;
@@ -1171,12 +1171,12 @@ let greens_5 = {
     screen = `No }
 let greens_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 237 248 233;
-             Gg.Color.v_srgbi 199 233 192;
-             Gg.Color.v_srgbi 161 217 155;
-             Gg.Color.v_srgbi 116 196 118;
+    rgb = [| Gg.Color.v_srgbi   0 109  44;
              Gg.Color.v_srgbi  49 163  84;
-             Gg.Color.v_srgbi   0 109  44 |];
+             Gg.Color.v_srgbi 116 196 118;
+             Gg.Color.v_srgbi 161 217 155;
+             Gg.Color.v_srgbi 199 233 192;
+             Gg.Color.v_srgbi 237 248 233 |];
     cmyk = [| Gg.V4.v   7.   0.   7.   0.;
               Gg.V4.v  22.   0.  22.   0.;
               Gg.V4.v  37.   0.  37.   0.;
@@ -1190,13 +1190,13 @@ let greens_6 = {
     screen = `No }
 let greens_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 237 248 233;
-             Gg.Color.v_srgbi 199 233 192;
-             Gg.Color.v_srgbi 161 217 155;
-             Gg.Color.v_srgbi 116 196 118;
-             Gg.Color.v_srgbi  65 171  93;
+    rgb = [| Gg.Color.v_srgbi   0  90  50;
              Gg.Color.v_srgbi  35 139  69;
-             Gg.Color.v_srgbi   0  90  50 |];
+             Gg.Color.v_srgbi  65 171  93;
+             Gg.Color.v_srgbi 116 196 118;
+             Gg.Color.v_srgbi 161 217 155;
+             Gg.Color.v_srgbi 199 233 192;
+             Gg.Color.v_srgbi 237 248 233 |];
     cmyk = [| Gg.V4.v   7.   0.   7.   0.;
               Gg.V4.v  22.   0.  22.   0.;
               Gg.V4.v  37.   0.  37.   0.;
@@ -1211,14 +1211,14 @@ let greens_7 = {
     screen = `No }
 let greens_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 247 252 245;
-             Gg.Color.v_srgbi 229 245 224;
-             Gg.Color.v_srgbi 199 233 192;
-             Gg.Color.v_srgbi 161 217 155;
-             Gg.Color.v_srgbi 116 196 118;
-             Gg.Color.v_srgbi  65 171  93;
+    rgb = [| Gg.Color.v_srgbi   0  90  50;
              Gg.Color.v_srgbi  35 139  69;
-             Gg.Color.v_srgbi   0  90  50 |];
+             Gg.Color.v_srgbi  65 171  93;
+             Gg.Color.v_srgbi 116 196 118;
+             Gg.Color.v_srgbi 161 217 155;
+             Gg.Color.v_srgbi 199 233 192;
+             Gg.Color.v_srgbi 229 245 224;
+             Gg.Color.v_srgbi 247 252 245 |];
     cmyk = [| Gg.V4.v   3.   0.   3.   0.;
               Gg.V4.v  10.   0.  10.   0.;
               Gg.V4.v  22.   0.  22.   0.;
@@ -1234,15 +1234,15 @@ let greens_8 = {
     screen = `No }
 let greens_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 247 252 245;
-             Gg.Color.v_srgbi 229 245 224;
-             Gg.Color.v_srgbi 199 233 192;
-             Gg.Color.v_srgbi 161 217 155;
-             Gg.Color.v_srgbi 116 196 118;
-             Gg.Color.v_srgbi  65 171  93;
-             Gg.Color.v_srgbi  35 139  69;
+    rgb = [| Gg.Color.v_srgbi   0  68  27;
              Gg.Color.v_srgbi   0 109  44;
-             Gg.Color.v_srgbi   0  68  27 |];
+             Gg.Color.v_srgbi  35 139  69;
+             Gg.Color.v_srgbi  65 171  93;
+             Gg.Color.v_srgbi 116 196 118;
+             Gg.Color.v_srgbi 161 217 155;
+             Gg.Color.v_srgbi 199 233 192;
+             Gg.Color.v_srgbi 229 245 224;
+             Gg.Color.v_srgbi 247 252 245 |];
     cmyk = [| Gg.V4.v   3.   0.   3.   0.;
               Gg.V4.v  10.   0.  10.   0.;
               Gg.V4.v  22.   0.  22.   0.;
@@ -1263,7 +1263,7 @@ let greens : t list = [
 
 let greys_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 240 240 240 |];
+    rgb = [| Gg.Color.v_srgbi  99  99  99 |];
     cmyk = [| Gg.V4.v   0.   0.   0.   6. |];
     ty = `Seq;
     blind = `Yes;
@@ -1272,8 +1272,8 @@ let greys_1 = {
     screen = `Yes }
 let greys_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 240 240 240;
-             Gg.Color.v_srgbi  99  99  99 |];
+    rgb = [| Gg.Color.v_srgbi  99  99  99;
+             Gg.Color.v_srgbi 240 240 240 |];
     cmyk = [| Gg.V4.v   0.   0.   0.   6.;
               Gg.V4.v   0.   0.   0.  61. |];
     ty = `Seq;
@@ -1283,9 +1283,9 @@ let greys_2 = {
     screen = `Yes }
 let greys_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 240 240 240;
+    rgb = [| Gg.Color.v_srgbi  99  99  99;
              Gg.Color.v_srgbi 189 189 189;
-             Gg.Color.v_srgbi  99  99  99 |];
+             Gg.Color.v_srgbi 240 240 240 |];
     cmyk = [| Gg.V4.v   0.   0.   0.   6.;
               Gg.V4.v   0.   0.   0.  26.;
               Gg.V4.v   0.   0.   0.  61. |];
@@ -1296,10 +1296,10 @@ let greys_3 = {
     screen = `Yes }
 let greys_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 247 247 247;
-             Gg.Color.v_srgbi 204 204 204;
+    rgb = [| Gg.Color.v_srgbi  82  82  82;
              Gg.Color.v_srgbi 150 150 150;
-             Gg.Color.v_srgbi  82  82  82 |];
+             Gg.Color.v_srgbi 204 204 204;
+             Gg.Color.v_srgbi 247 247 247 |];
     cmyk = [| Gg.V4.v   0.   0.   0.   3.;
               Gg.V4.v   0.   0.   0.  20.;
               Gg.V4.v   0.   0.   0.  41.;
@@ -1311,11 +1311,11 @@ let greys_4 = {
     screen = `Maybe }
 let greys_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 247 247 247;
-             Gg.Color.v_srgbi 204 204 204;
-             Gg.Color.v_srgbi 150 150 150;
+    rgb = [| Gg.Color.v_srgbi  37  37  37;
              Gg.Color.v_srgbi  99  99  99;
-             Gg.Color.v_srgbi  37  37  37 |];
+             Gg.Color.v_srgbi 150 150 150;
+             Gg.Color.v_srgbi 204 204 204;
+             Gg.Color.v_srgbi 247 247 247 |];
     cmyk = [| Gg.V4.v   0.   0.   0.   3.;
               Gg.V4.v   0.   0.   0.  20.;
               Gg.V4.v   0.   0.   0.  41.;
@@ -1328,12 +1328,12 @@ let greys_5 = {
     screen = `No }
 let greys_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 247 247 247;
-             Gg.Color.v_srgbi 217 217 217;
-             Gg.Color.v_srgbi 189 189 189;
-             Gg.Color.v_srgbi 150 150 150;
+    rgb = [| Gg.Color.v_srgbi  37  37  37;
              Gg.Color.v_srgbi  99  99  99;
-             Gg.Color.v_srgbi  37  37  37 |];
+             Gg.Color.v_srgbi 150 150 150;
+             Gg.Color.v_srgbi 189 189 189;
+             Gg.Color.v_srgbi 217 217 217;
+             Gg.Color.v_srgbi 247 247 247 |];
     cmyk = [| Gg.V4.v   0.   0.   0.   3.;
               Gg.V4.v   0.   0.   0.  15.;
               Gg.V4.v   0.   0.   0.  26.;
@@ -1347,13 +1347,13 @@ let greys_6 = {
     screen = `No }
 let greys_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 247 247 247;
-             Gg.Color.v_srgbi 217 217 217;
-             Gg.Color.v_srgbi 189 189 189;
-             Gg.Color.v_srgbi 150 150 150;
-             Gg.Color.v_srgbi 115 115 115;
+    rgb = [| Gg.Color.v_srgbi  37  37  37;
              Gg.Color.v_srgbi  82  82  82;
-             Gg.Color.v_srgbi  37  37  37 |];
+             Gg.Color.v_srgbi 115 115 115;
+             Gg.Color.v_srgbi 150 150 150;
+             Gg.Color.v_srgbi 189 189 189;
+             Gg.Color.v_srgbi 217 217 217;
+             Gg.Color.v_srgbi 247 247 247 |];
     cmyk = [| Gg.V4.v   0.   0.   0.   3.;
               Gg.V4.v   0.   0.   0.  15.;
               Gg.V4.v   0.   0.   0.  26.;
@@ -1368,14 +1368,14 @@ let greys_7 = {
     screen = `No }
 let greys_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 255 255;
-             Gg.Color.v_srgbi 240 240 240;
-             Gg.Color.v_srgbi 217 217 217;
-             Gg.Color.v_srgbi 189 189 189;
-             Gg.Color.v_srgbi 150 150 150;
-             Gg.Color.v_srgbi 115 115 115;
+    rgb = [| Gg.Color.v_srgbi  37  37  37;
              Gg.Color.v_srgbi  82  82  82;
-             Gg.Color.v_srgbi  37  37  37 |];
+             Gg.Color.v_srgbi 115 115 115;
+             Gg.Color.v_srgbi 150 150 150;
+             Gg.Color.v_srgbi 189 189 189;
+             Gg.Color.v_srgbi 217 217 217;
+             Gg.Color.v_srgbi 240 240 240;
+             Gg.Color.v_srgbi 255 255 255 |];
     cmyk = [| Gg.V4.v   0.   0.   0.   0.;
               Gg.V4.v   0.   0.   0.   6.;
               Gg.V4.v   0.   0.   0.  15.;
@@ -1391,15 +1391,15 @@ let greys_8 = {
     screen = `No }
 let greys_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 255 255;
-             Gg.Color.v_srgbi 240 240 240;
-             Gg.Color.v_srgbi 217 217 217;
-             Gg.Color.v_srgbi 189 189 189;
-             Gg.Color.v_srgbi 150 150 150;
-             Gg.Color.v_srgbi 115 115 115;
-             Gg.Color.v_srgbi  82  82  82;
+    rgb = [| Gg.Color.v_srgbi   0   0   0;
              Gg.Color.v_srgbi  37  37  37;
-             Gg.Color.v_srgbi   0   0   0 |];
+             Gg.Color.v_srgbi  82  82  82;
+             Gg.Color.v_srgbi 115 115 115;
+             Gg.Color.v_srgbi 150 150 150;
+             Gg.Color.v_srgbi 189 189 189;
+             Gg.Color.v_srgbi 217 217 217;
+             Gg.Color.v_srgbi 240 240 240;
+             Gg.Color.v_srgbi 255 255 255 |];
     cmyk = [| Gg.V4.v   0.   0.   0.   0.;
               Gg.V4.v   0.   0.   0.   6.;
               Gg.V4.v   0.   0.   0.  15.;
@@ -1420,7 +1420,7 @@ let greys : t list = [
 
 let orrd_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 254 232 200 |];
+    rgb = [| Gg.Color.v_srgbi 227  74  51 |];
     cmyk = [| Gg.V4.v   0.   9.  18.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -1429,8 +1429,8 @@ let orrd_1 = {
     screen = `Yes }
 let orrd_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 254 232 200;
-             Gg.Color.v_srgbi 227  74  51 |];
+    rgb = [| Gg.Color.v_srgbi 227  74  51;
+             Gg.Color.v_srgbi 254 232 200 |];
     cmyk = [| Gg.V4.v   0.   9.  18.   0.;
               Gg.V4.v  10.  70.  70.   0. |];
     ty = `Seq;
@@ -1440,9 +1440,9 @@ let orrd_2 = {
     screen = `Yes }
 let orrd_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 254 232 200;
+    rgb = [| Gg.Color.v_srgbi 227  74  51;
              Gg.Color.v_srgbi 253 187 132;
-             Gg.Color.v_srgbi 227  74  51 |];
+             Gg.Color.v_srgbi 254 232 200 |];
     cmyk = [| Gg.V4.v   0.   9.  18.   0.;
               Gg.V4.v   0.  27.  40.   0.;
               Gg.V4.v  10.  70.  70.   0. |];
@@ -1453,10 +1453,10 @@ let orrd_3 = {
     screen = `Yes }
 let orrd_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 254 240 217;
-             Gg.Color.v_srgbi 253 204 138;
+    rgb = [| Gg.Color.v_srgbi 215  48  31;
              Gg.Color.v_srgbi 252 141  89;
-             Gg.Color.v_srgbi 215  48  31 |];
+             Gg.Color.v_srgbi 253 204 138;
+             Gg.Color.v_srgbi 254 240 217 |];
     cmyk = [| Gg.V4.v   0.   6.  12.   0.;
               Gg.V4.v   0.  20.  40.   0.;
               Gg.V4.v   0.  45.  55.   0.;
@@ -1468,11 +1468,11 @@ let orrd_4 = {
     screen = `Yes }
 let orrd_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 254 240 217;
-             Gg.Color.v_srgbi 253 204 138;
-             Gg.Color.v_srgbi 252 141  89;
+    rgb = [| Gg.Color.v_srgbi 179   0   0;
              Gg.Color.v_srgbi 227  74  51;
-             Gg.Color.v_srgbi 179   0   0 |];
+             Gg.Color.v_srgbi 252 141  89;
+             Gg.Color.v_srgbi 253 204 138;
+             Gg.Color.v_srgbi 254 240 217 |];
     cmyk = [| Gg.V4.v   0.   6.  12.   0.;
               Gg.V4.v   0.  20.  40.   0.;
               Gg.V4.v   0.  45.  55.   0.;
@@ -1485,12 +1485,12 @@ let orrd_5 = {
     screen = `Yes }
 let orrd_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 254 240 217;
-             Gg.Color.v_srgbi 253 212 158;
-             Gg.Color.v_srgbi 253 187 132;
-             Gg.Color.v_srgbi 252 141  89;
+    rgb = [| Gg.Color.v_srgbi 179   0   0;
              Gg.Color.v_srgbi 227  74  51;
-             Gg.Color.v_srgbi 179   0   0 |];
+             Gg.Color.v_srgbi 252 141  89;
+             Gg.Color.v_srgbi 253 187 132;
+             Gg.Color.v_srgbi 253 212 158;
+             Gg.Color.v_srgbi 254 240 217 |];
     cmyk = [| Gg.V4.v   0.   6.  12.   0.;
               Gg.V4.v   0.  17.  32.   0.;
               Gg.V4.v   0.  27.  40.   0.;
@@ -1504,13 +1504,13 @@ let orrd_6 = {
     screen = `No }
 let orrd_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 254 240 217;
-             Gg.Color.v_srgbi 253 212 158;
-             Gg.Color.v_srgbi 253 187 132;
-             Gg.Color.v_srgbi 252 141  89;
-             Gg.Color.v_srgbi 239 101  72;
+    rgb = [| Gg.Color.v_srgbi 153   0   0;
              Gg.Color.v_srgbi 215  48  31;
-             Gg.Color.v_srgbi 153   0   0 |];
+             Gg.Color.v_srgbi 239 101  72;
+             Gg.Color.v_srgbi 252 141  89;
+             Gg.Color.v_srgbi 253 187 132;
+             Gg.Color.v_srgbi 253 212 158;
+             Gg.Color.v_srgbi 254 240 217 |];
     cmyk = [| Gg.V4.v   0.   6.  12.   0.;
               Gg.V4.v   0.  17.  32.   0.;
               Gg.V4.v   0.  27.  40.   0.;
@@ -1525,14 +1525,14 @@ let orrd_7 = {
     screen = `No }
 let orrd_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 247 236;
-             Gg.Color.v_srgbi 254 232 200;
-             Gg.Color.v_srgbi 253 212 158;
-             Gg.Color.v_srgbi 253 187 132;
-             Gg.Color.v_srgbi 252 141  89;
-             Gg.Color.v_srgbi 239 101  72;
+    rgb = [| Gg.Color.v_srgbi 153   0   0;
              Gg.Color.v_srgbi 215  48  31;
-             Gg.Color.v_srgbi 153   0   0 |];
+             Gg.Color.v_srgbi 239 101  72;
+             Gg.Color.v_srgbi 252 141  89;
+             Gg.Color.v_srgbi 253 187 132;
+             Gg.Color.v_srgbi 253 212 158;
+             Gg.Color.v_srgbi 254 232 200;
+             Gg.Color.v_srgbi 255 247 236 |];
     cmyk = [| Gg.V4.v   0.   3.   6.   0.;
               Gg.V4.v   0.   9.  18.   0.;
               Gg.V4.v   0.  17.  32.   0.;
@@ -1548,15 +1548,15 @@ let orrd_8 = {
     screen = `No }
 let orrd_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 247 236;
-             Gg.Color.v_srgbi 254 232 200;
-             Gg.Color.v_srgbi 253 212 158;
-             Gg.Color.v_srgbi 253 187 132;
-             Gg.Color.v_srgbi 252 141  89;
-             Gg.Color.v_srgbi 239 101  72;
-             Gg.Color.v_srgbi 215  48  31;
+    rgb = [| Gg.Color.v_srgbi 127   0   0;
              Gg.Color.v_srgbi 179   0   0;
-             Gg.Color.v_srgbi 127   0   0 |];
+             Gg.Color.v_srgbi 215  48  31;
+             Gg.Color.v_srgbi 239 101  72;
+             Gg.Color.v_srgbi 252 141  89;
+             Gg.Color.v_srgbi 253 187 132;
+             Gg.Color.v_srgbi 253 212 158;
+             Gg.Color.v_srgbi 254 232 200;
+             Gg.Color.v_srgbi 255 247 236 |];
     cmyk = [| Gg.V4.v   0.   3.   6.   0.;
               Gg.V4.v   0.   9.  18.   0.;
               Gg.V4.v   0.  17.  32.   0.;
@@ -1576,7 +1576,7 @@ let orrd : t list = [
 
 let oranges_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 254 230 206 |];
+    rgb = [| Gg.Color.v_srgbi 230  85  13 |];
     cmyk = [| Gg.V4.v   0.  10.  15.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -1585,8 +1585,8 @@ let oranges_1 = {
     screen = `Yes }
 let oranges_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 254 230 206;
-             Gg.Color.v_srgbi 230  85  13 |];
+    rgb = [| Gg.Color.v_srgbi 230  85  13;
+             Gg.Color.v_srgbi 254 230 206 |];
     cmyk = [| Gg.V4.v   0.  10.  15.   0.;
               Gg.V4.v  10.  65.  95.   0. |];
     ty = `Seq;
@@ -1596,9 +1596,9 @@ let oranges_2 = {
     screen = `Yes }
 let oranges_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 254 230 206;
+    rgb = [| Gg.Color.v_srgbi 230  85  13;
              Gg.Color.v_srgbi 253 174 107;
-             Gg.Color.v_srgbi 230  85  13 |];
+             Gg.Color.v_srgbi 254 230 206 |];
     cmyk = [| Gg.V4.v   0.  10.  15.   0.;
               Gg.V4.v   0.  32.  50.   0.;
               Gg.V4.v  10.  65.  95.   0. |];
@@ -1609,10 +1609,10 @@ let oranges_3 = {
     screen = `Yes }
 let oranges_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 254 237 222;
-             Gg.Color.v_srgbi 253 190 133;
+    rgb = [| Gg.Color.v_srgbi 217  71   1;
              Gg.Color.v_srgbi 253 141  60;
-             Gg.Color.v_srgbi 217  71   1 |];
+             Gg.Color.v_srgbi 253 190 133;
+             Gg.Color.v_srgbi 254 237 222 |];
     cmyk = [| Gg.V4.v   0.   7.  10.   0.;
               Gg.V4.v   0.  26.  40.   0.;
               Gg.V4.v   0.  45.  70.   0.;
@@ -1624,11 +1624,11 @@ let oranges_4 = {
     screen = `Yes }
 let oranges_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 254 237 222;
-             Gg.Color.v_srgbi 253 190 133;
-             Gg.Color.v_srgbi 253 141  60;
+    rgb = [| Gg.Color.v_srgbi 166  54   3;
              Gg.Color.v_srgbi 230  85  13;
-             Gg.Color.v_srgbi 166  54   3 |];
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 253 190 133;
+             Gg.Color.v_srgbi 254 237 222 |];
     cmyk = [| Gg.V4.v   0.   7.  10.   0.;
               Gg.V4.v   0.  26.  40.   0.;
               Gg.V4.v   0.  45.  70.   0.;
@@ -1641,12 +1641,12 @@ let oranges_5 = {
     screen = `Yes }
 let oranges_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 254 237 222;
-             Gg.Color.v_srgbi 253 208 162;
-             Gg.Color.v_srgbi 253 174 107;
-             Gg.Color.v_srgbi 253 141  60;
+    rgb = [| Gg.Color.v_srgbi 166  54   3;
              Gg.Color.v_srgbi 230  85  13;
-             Gg.Color.v_srgbi 166  54   3 |];
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 253 174 107;
+             Gg.Color.v_srgbi 253 208 162;
+             Gg.Color.v_srgbi 254 237 222 |];
     cmyk = [| Gg.V4.v   0.   7.  10.   0.;
               Gg.V4.v   0.  19.  30.   0.;
               Gg.V4.v   0.  32.  50.   0.;
@@ -1660,13 +1660,13 @@ let oranges_6 = {
     screen = `No }
 let oranges_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 254 237 222;
-             Gg.Color.v_srgbi 253 208 162;
-             Gg.Color.v_srgbi 253 174 107;
-             Gg.Color.v_srgbi 253 141  60;
-             Gg.Color.v_srgbi 241 105  19;
+    rgb = [| Gg.Color.v_srgbi 140  45   4;
              Gg.Color.v_srgbi 217  72   1;
-             Gg.Color.v_srgbi 140  45   4 |];
+             Gg.Color.v_srgbi 241 105  19;
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 253 174 107;
+             Gg.Color.v_srgbi 253 208 162;
+             Gg.Color.v_srgbi 254 237 222 |];
     cmyk = [| Gg.V4.v   0.   7.  10.   0.;
               Gg.V4.v   0.  19.  30.   0.;
               Gg.V4.v   0.  32.  50.   0.;
@@ -1681,14 +1681,14 @@ let oranges_7 = {
     screen = `No }
 let oranges_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 245 235;
-             Gg.Color.v_srgbi 254 230 206;
-             Gg.Color.v_srgbi 253 208 162;
-             Gg.Color.v_srgbi 253 174 107;
-             Gg.Color.v_srgbi 253 141  60;
-             Gg.Color.v_srgbi 241 105  19;
+    rgb = [| Gg.Color.v_srgbi 140  45   4;
              Gg.Color.v_srgbi 217  72   1;
-             Gg.Color.v_srgbi 140  45   4 |];
+             Gg.Color.v_srgbi 241 105  19;
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 253 174 107;
+             Gg.Color.v_srgbi 253 208 162;
+             Gg.Color.v_srgbi 254 230 206;
+             Gg.Color.v_srgbi 255 245 235 |];
     cmyk = [| Gg.V4.v   0.   4.   6.   0.;
               Gg.V4.v   0.  10.  15.   0.;
               Gg.V4.v   0.  19.  30.   0.;
@@ -1704,15 +1704,15 @@ let oranges_8 = {
     screen = `No }
 let oranges_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 245 235;
-             Gg.Color.v_srgbi 254 230 206;
-             Gg.Color.v_srgbi 253 208 162;
-             Gg.Color.v_srgbi 253 174 107;
-             Gg.Color.v_srgbi 253 141  60;
-             Gg.Color.v_srgbi 241 105  19;
-             Gg.Color.v_srgbi 217  72   1;
+    rgb = [| Gg.Color.v_srgbi 127  39   4;
              Gg.Color.v_srgbi 166  54   3;
-             Gg.Color.v_srgbi 127  39   4 |];
+             Gg.Color.v_srgbi 217  72   1;
+             Gg.Color.v_srgbi 241 105  19;
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 253 174 107;
+             Gg.Color.v_srgbi 253 208 162;
+             Gg.Color.v_srgbi 254 230 206;
+             Gg.Color.v_srgbi 255 245 235 |];
     cmyk = [| Gg.V4.v   0.   4.   6.   0.;
               Gg.V4.v   0.  10.  15.   0.;
               Gg.V4.v   0.  19.  30.   0.;
@@ -2692,7 +2692,7 @@ let piyg : t list = [
 
 let pubu_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 236 231 242 |];
+    rgb = [| Gg.Color.v_srgbi  43 140 190 |];
     cmyk = [| Gg.V4.v   7.   7.   0.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -2701,8 +2701,8 @@ let pubu_1 = {
     screen = `Yes }
 let pubu_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 236 231 242;
-             Gg.Color.v_srgbi  43 140 190 |];
+    rgb = [| Gg.Color.v_srgbi  43 140 190;
+             Gg.Color.v_srgbi 236 231 242 |];
     cmyk = [| Gg.V4.v   7.   7.   0.   0.;
               Gg.V4.v  85.  20.   0.   0. |];
     ty = `Seq;
@@ -2712,9 +2712,9 @@ let pubu_2 = {
     screen = `Yes }
 let pubu_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 236 231 242;
+    rgb = [| Gg.Color.v_srgbi  43 140 190;
              Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi  43 140 190 |];
+             Gg.Color.v_srgbi 236 231 242 |];
     cmyk = [| Gg.V4.v   7.   7.   0.   0.;
               Gg.V4.v  35.  15.   0.   0.;
               Gg.V4.v  85.  20.   0.   0. |];
@@ -2725,10 +2725,10 @@ let pubu_3 = {
     screen = `Yes }
 let pubu_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 241 238 246;
-             Gg.Color.v_srgbi 189 201 225;
+    rgb = [| Gg.Color.v_srgbi   5 112 176;
              Gg.Color.v_srgbi 116 169 207;
-             Gg.Color.v_srgbi   5 112 176 |];
+             Gg.Color.v_srgbi 189 201 225;
+             Gg.Color.v_srgbi 241 238 246 |];
     cmyk = [| Gg.V4.v   5.   5.   0.   0.;
               Gg.V4.v  26.  13.   0.   0.;
               Gg.V4.v  55.  17.   0.   0.;
@@ -2740,11 +2740,11 @@ let pubu_4 = {
     screen = `Yes }
 let pubu_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 241 238 246;
-             Gg.Color.v_srgbi 189 201 225;
-             Gg.Color.v_srgbi 116 169 207;
+    rgb = [| Gg.Color.v_srgbi   4  90 141;
              Gg.Color.v_srgbi  43 140 190;
-             Gg.Color.v_srgbi   4  90 141 |];
+             Gg.Color.v_srgbi 116 169 207;
+             Gg.Color.v_srgbi 189 201 225;
+             Gg.Color.v_srgbi 241 238 246 |];
     cmyk = [| Gg.V4.v   5.   5.   0.   0.;
               Gg.V4.v  26.  13.   0.   0.;
               Gg.V4.v  55.  17.   0.   0.;
@@ -2757,12 +2757,12 @@ let pubu_5 = {
     screen = `Maybe }
 let pubu_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 241 238 246;
-             Gg.Color.v_srgbi 208 209 230;
-             Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi 116 169 207;
+    rgb = [| Gg.Color.v_srgbi   4  90 141;
              Gg.Color.v_srgbi  43 140 190;
-             Gg.Color.v_srgbi   4  90 141 |];
+             Gg.Color.v_srgbi 116 169 207;
+             Gg.Color.v_srgbi 166 189 219;
+             Gg.Color.v_srgbi 208 209 230;
+             Gg.Color.v_srgbi 241 238 246 |];
     cmyk = [| Gg.V4.v   5.   5.   0.   0.;
               Gg.V4.v  18.  12.   0.   0.;
               Gg.V4.v  35.  15.   0.   0.;
@@ -2776,13 +2776,13 @@ let pubu_6 = {
     screen = `No }
 let pubu_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 241 238 246;
-             Gg.Color.v_srgbi 208 209 230;
-             Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi 116 169 207;
-             Gg.Color.v_srgbi  54 144 192;
+    rgb = [| Gg.Color.v_srgbi   3  78 123;
              Gg.Color.v_srgbi   5 112 176;
-             Gg.Color.v_srgbi   3  78 123 |];
+             Gg.Color.v_srgbi  54 144 192;
+             Gg.Color.v_srgbi 116 169 207;
+             Gg.Color.v_srgbi 166 189 219;
+             Gg.Color.v_srgbi 208 209 230;
+             Gg.Color.v_srgbi 241 238 246 |];
     cmyk = [| Gg.V4.v   5.   5.   0.   0.;
               Gg.V4.v  18.  12.   0.   0.;
               Gg.V4.v  35.  15.   0.   0.;
@@ -2797,14 +2797,14 @@ let pubu_7 = {
     screen = `No }
 let pubu_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 247 251;
-             Gg.Color.v_srgbi 236 231 242;
-             Gg.Color.v_srgbi 208 209 230;
-             Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi 116 169 207;
-             Gg.Color.v_srgbi  54 144 192;
+    rgb = [| Gg.Color.v_srgbi   3  78 123;
              Gg.Color.v_srgbi   5 112 176;
-             Gg.Color.v_srgbi   3  78 123 |];
+             Gg.Color.v_srgbi  54 144 192;
+             Gg.Color.v_srgbi 116 169 207;
+             Gg.Color.v_srgbi 166 189 219;
+             Gg.Color.v_srgbi 208 209 230;
+             Gg.Color.v_srgbi 236 231 242;
+             Gg.Color.v_srgbi 255 247 251 |];
     cmyk = [| Gg.V4.v   0.   3.   0.   0.;
               Gg.V4.v   7.   7.   0.   0.;
               Gg.V4.v  18.  12.   0.   0.;
@@ -2820,15 +2820,15 @@ let pubu_8 = {
     screen = `No }
 let pubu_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 247 251;
-             Gg.Color.v_srgbi 236 231 242;
-             Gg.Color.v_srgbi 208 209 230;
-             Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi 116 169 207;
-             Gg.Color.v_srgbi  54 144 192;
-             Gg.Color.v_srgbi   5 112 176;
+    rgb = [| Gg.Color.v_srgbi   2  56  88;
              Gg.Color.v_srgbi   4  90 141;
-             Gg.Color.v_srgbi   2  56  88 |];
+             Gg.Color.v_srgbi   5 112 176;
+             Gg.Color.v_srgbi  54 144 192;
+             Gg.Color.v_srgbi 116 169 207;
+             Gg.Color.v_srgbi 166 189 219;
+             Gg.Color.v_srgbi 208 209 230;
+             Gg.Color.v_srgbi 236 231 242;
+             Gg.Color.v_srgbi 255 247 251 |];
     cmyk = [| Gg.V4.v   0.   3.   0.   0.;
               Gg.V4.v   7.   7.   0.   0.;
               Gg.V4.v  18.  12.   0.   0.;
@@ -2848,7 +2848,7 @@ let pubu : t list = [
 
 let pubugn_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 236 226 240 |];
+    rgb = [| Gg.Color.v_srgbi  28 144 153 |];
     cmyk = [| Gg.V4.v   7.   9.   0.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -2857,8 +2857,8 @@ let pubugn_1 = {
     screen = `Yes }
 let pubugn_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 236 226 240;
-             Gg.Color.v_srgbi  28 144 153 |];
+    rgb = [| Gg.Color.v_srgbi  28 144 153;
+             Gg.Color.v_srgbi 236 226 240 |];
     cmyk = [| Gg.V4.v   7.   9.   0.   0.;
               Gg.V4.v  90.  12.  27.   0. |];
     ty = `Seq;
@@ -2868,9 +2868,9 @@ let pubugn_2 = {
     screen = `Yes }
 let pubugn_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 236 226 240;
+    rgb = [| Gg.Color.v_srgbi  28 144 153;
              Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi  28 144 153 |];
+             Gg.Color.v_srgbi 236 226 240 |];
     cmyk = [| Gg.V4.v   7.   9.   0.   0.;
               Gg.V4.v  35.  15.   0.   0.;
               Gg.V4.v  90.  12.  27.   0. |];
@@ -2881,10 +2881,10 @@ let pubugn_3 = {
     screen = `Yes }
 let pubugn_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 246 239 247;
-             Gg.Color.v_srgbi 189 201 225;
+    rgb = [| Gg.Color.v_srgbi   2 129 138;
              Gg.Color.v_srgbi 103 169 207;
-             Gg.Color.v_srgbi   2 129 138 |];
+             Gg.Color.v_srgbi 189 201 225;
+             Gg.Color.v_srgbi 246 239 247 |];
     cmyk = [| Gg.V4.v   3.   5.   0.   0.;
               Gg.V4.v  26.  13.   0.   0.;
               Gg.V4.v  60.  15.   0.   0.;
@@ -2896,11 +2896,11 @@ let pubugn_4 = {
     screen = `Yes }
 let pubugn_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 246 239 247;
-             Gg.Color.v_srgbi 189 201 225;
-             Gg.Color.v_srgbi 103 169 207;
+    rgb = [| Gg.Color.v_srgbi   1 108  89;
              Gg.Color.v_srgbi  28 144 153;
-             Gg.Color.v_srgbi   1 108  89 |];
+             Gg.Color.v_srgbi 103 169 207;
+             Gg.Color.v_srgbi 189 201 225;
+             Gg.Color.v_srgbi 246 239 247 |];
     cmyk = [| Gg.V4.v   3.   5.   0.   0.;
               Gg.V4.v  26.  13.   0.   0.;
               Gg.V4.v  60.  15.   0.   0.;
@@ -2913,12 +2913,12 @@ let pubugn_5 = {
     screen = `Maybe }
 let pubugn_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 246 239 247;
-             Gg.Color.v_srgbi 208 209 230;
-             Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi 103 169 207;
+    rgb = [| Gg.Color.v_srgbi   1 108  89;
              Gg.Color.v_srgbi  28 144 153;
-             Gg.Color.v_srgbi   1 108  89 |];
+             Gg.Color.v_srgbi 103 169 207;
+             Gg.Color.v_srgbi 166 189 219;
+             Gg.Color.v_srgbi 208 209 230;
+             Gg.Color.v_srgbi 246 239 247 |];
     cmyk = [| Gg.V4.v   3.   5.   0.   0.;
               Gg.V4.v  18.  12.   0.   0.;
               Gg.V4.v  35.  15.   0.   0.;
@@ -2932,13 +2932,13 @@ let pubugn_6 = {
     screen = `No }
 let pubugn_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 246 239 247;
-             Gg.Color.v_srgbi 208 209 230;
-             Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi 103 169 207;
-             Gg.Color.v_srgbi  54 144 192;
+    rgb = [| Gg.Color.v_srgbi   1 100  80;
              Gg.Color.v_srgbi   2 129 138;
-             Gg.Color.v_srgbi   1 100  80 |];
+             Gg.Color.v_srgbi  54 144 192;
+             Gg.Color.v_srgbi 103 169 207;
+             Gg.Color.v_srgbi 166 189 219;
+             Gg.Color.v_srgbi 208 209 230;
+             Gg.Color.v_srgbi 246 239 247 |];
     cmyk = [| Gg.V4.v   3.   5.   0.   0.;
               Gg.V4.v  18.  12.   0.   0.;
               Gg.V4.v  35.  15.   0.   0.;
@@ -2953,14 +2953,14 @@ let pubugn_7 = {
     screen = `No }
 let pubugn_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 247 251;
-             Gg.Color.v_srgbi 236 226 240;
-             Gg.Color.v_srgbi 208 209 230;
-             Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi 103 169 207;
-             Gg.Color.v_srgbi  54 144 192;
+    rgb = [| Gg.Color.v_srgbi   1 100  80;
              Gg.Color.v_srgbi   2 129 138;
-             Gg.Color.v_srgbi   1 100  80 |];
+             Gg.Color.v_srgbi  54 144 192;
+             Gg.Color.v_srgbi 103 169 207;
+             Gg.Color.v_srgbi 166 189 219;
+             Gg.Color.v_srgbi 208 209 230;
+             Gg.Color.v_srgbi 236 226 240;
+             Gg.Color.v_srgbi 255 247 251 |];
     cmyk = [| Gg.V4.v   0.   3.   0.   0.;
               Gg.V4.v   7.   9.   0.   0.;
               Gg.V4.v  18.  12.   0.   0.;
@@ -2976,15 +2976,15 @@ let pubugn_8 = {
     screen = `No }
 let pubugn_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 247 251;
-             Gg.Color.v_srgbi 236 226 240;
-             Gg.Color.v_srgbi 208 209 230;
-             Gg.Color.v_srgbi 166 189 219;
-             Gg.Color.v_srgbi 103 169 207;
-             Gg.Color.v_srgbi  54 144 192;
-             Gg.Color.v_srgbi   2 129 138;
+    rgb = [| Gg.Color.v_srgbi   1  70  54;
              Gg.Color.v_srgbi   1 108  89;
-             Gg.Color.v_srgbi   1  70  54 |];
+             Gg.Color.v_srgbi   2 129 138;
+             Gg.Color.v_srgbi  54 144 192;
+             Gg.Color.v_srgbi 103 169 207;
+             Gg.Color.v_srgbi 166 189 219;
+             Gg.Color.v_srgbi 208 209 230;
+             Gg.Color.v_srgbi 236 226 240;
+             Gg.Color.v_srgbi 255 247 251 |];
     cmyk = [| Gg.V4.v   0.   3.   0.   0.;
               Gg.V4.v   7.   9.   0.   0.;
               Gg.V4.v  18.  12.   0.   0.;
@@ -3218,7 +3218,7 @@ let puor : t list = [
 
 let purd_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 231 225 239 |];
+    rgb = [| Gg.Color.v_srgbi 221  28 119 |];
     cmyk = [| Gg.V4.v   9.   9.   0.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -3227,8 +3227,8 @@ let purd_1 = {
     screen = `Yes }
 let purd_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 231 225 239;
-             Gg.Color.v_srgbi 221  28 119 |];
+    rgb = [| Gg.Color.v_srgbi 221  28 119;
+             Gg.Color.v_srgbi 231 225 239 |];
     cmyk = [| Gg.V4.v   9.   9.   0.   0.;
               Gg.V4.v  10.  90.  15.   0. |];
     ty = `Seq;
@@ -3238,9 +3238,9 @@ let purd_2 = {
     screen = `Yes }
 let purd_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 231 225 239;
+    rgb = [| Gg.Color.v_srgbi 221  28 119;
              Gg.Color.v_srgbi 201 148 199;
-             Gg.Color.v_srgbi 221  28 119 |];
+             Gg.Color.v_srgbi 231 225 239 |];
     cmyk = [| Gg.V4.v   9.   9.   0.   0.;
               Gg.V4.v  20.  38.   0.   0.;
               Gg.V4.v  10.  90.  15.   0. |];
@@ -3251,10 +3251,10 @@ let purd_3 = {
     screen = `Yes }
 let purd_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 241 238 246;
-             Gg.Color.v_srgbi 215 181 216;
+    rgb = [| Gg.Color.v_srgbi 206  18  86;
              Gg.Color.v_srgbi 223 101 176;
-             Gg.Color.v_srgbi 206  18  86 |];
+             Gg.Color.v_srgbi 215 181 216;
+             Gg.Color.v_srgbi 241 238 246 |];
     cmyk = [| Gg.V4.v   5.   5.   0.   0.;
               Gg.V4.v  15.  25.   0.   0.;
               Gg.V4.v  10.  60.   0.   0.;
@@ -3266,11 +3266,11 @@ let purd_4 = {
     screen = `Yes }
 let purd_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 241 238 246;
-             Gg.Color.v_srgbi 215 181 216;
-             Gg.Color.v_srgbi 223 101 176;
+    rgb = [| Gg.Color.v_srgbi 152   0  67;
              Gg.Color.v_srgbi 221  28 119;
-             Gg.Color.v_srgbi 152   0  67 |];
+             Gg.Color.v_srgbi 223 101 176;
+             Gg.Color.v_srgbi 215 181 216;
+             Gg.Color.v_srgbi 241 238 246 |];
     cmyk = [| Gg.V4.v   5.   5.   0.   0.;
               Gg.V4.v  15.  25.   0.   0.;
               Gg.V4.v  10.  60.   0.   0.;
@@ -3283,12 +3283,12 @@ let purd_5 = {
     screen = `Yes }
 let purd_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 241 238 246;
-             Gg.Color.v_srgbi 212 185 218;
-             Gg.Color.v_srgbi 201 148 199;
-             Gg.Color.v_srgbi 223 101 176;
+    rgb = [| Gg.Color.v_srgbi 152   0  67;
              Gg.Color.v_srgbi 221  28 119;
-             Gg.Color.v_srgbi 152   0  67 |];
+             Gg.Color.v_srgbi 223 101 176;
+             Gg.Color.v_srgbi 201 148 199;
+             Gg.Color.v_srgbi 212 185 218;
+             Gg.Color.v_srgbi 241 238 246 |];
     cmyk = [| Gg.V4.v   5.   5.   0.   0.;
               Gg.V4.v  16.  23.   0.   0.;
               Gg.V4.v  20.  38.   0.   0.;
@@ -3302,13 +3302,13 @@ let purd_6 = {
     screen = `No }
 let purd_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 241 238 246;
-             Gg.Color.v_srgbi 212 185 218;
-             Gg.Color.v_srgbi 201 148 199;
-             Gg.Color.v_srgbi 223 101 176;
-             Gg.Color.v_srgbi 231  41 138;
+    rgb = [| Gg.Color.v_srgbi 145   0  63;
              Gg.Color.v_srgbi 206  18  86;
-             Gg.Color.v_srgbi 145   0  63 |];
+             Gg.Color.v_srgbi 231  41 138;
+             Gg.Color.v_srgbi 223 101 176;
+             Gg.Color.v_srgbi 201 148 199;
+             Gg.Color.v_srgbi 212 185 218;
+             Gg.Color.v_srgbi 241 238 246 |];
     cmyk = [| Gg.V4.v   5.   5.   0.   0.;
               Gg.V4.v  16.  23.   0.   0.;
               Gg.V4.v  20.  38.   0.   0.;
@@ -3323,14 +3323,14 @@ let purd_7 = {
     screen = `No }
 let purd_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 247 244 249;
-             Gg.Color.v_srgbi 231 225 239;
-             Gg.Color.v_srgbi 212 185 218;
-             Gg.Color.v_srgbi 201 148 199;
-             Gg.Color.v_srgbi 223 101 176;
-             Gg.Color.v_srgbi 231  41 138;
+    rgb = [| Gg.Color.v_srgbi 145   0  63;
              Gg.Color.v_srgbi 206  18  86;
-             Gg.Color.v_srgbi 145   0  63 |];
+             Gg.Color.v_srgbi 231  41 138;
+             Gg.Color.v_srgbi 223 101 176;
+             Gg.Color.v_srgbi 201 148 199;
+             Gg.Color.v_srgbi 212 185 218;
+             Gg.Color.v_srgbi 231 225 239;
+             Gg.Color.v_srgbi 247 244 249 |];
     cmyk = [| Gg.V4.v   3.   3.   0.   0.;
               Gg.V4.v   9.   9.   0.   0.;
               Gg.V4.v  16.  23.   0.   0.;
@@ -3346,15 +3346,15 @@ let purd_8 = {
     screen = `No }
 let purd_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 247 244 249;
-             Gg.Color.v_srgbi 231 225 239;
-             Gg.Color.v_srgbi 212 185 218;
-             Gg.Color.v_srgbi 201 148 199;
-             Gg.Color.v_srgbi 223 101 176;
-             Gg.Color.v_srgbi 231  41 138;
-             Gg.Color.v_srgbi 206  18  86;
+    rgb = [| Gg.Color.v_srgbi 103   0  31;
              Gg.Color.v_srgbi 152   0  67;
-             Gg.Color.v_srgbi 103   0  31 |];
+             Gg.Color.v_srgbi 206  18  86;
+             Gg.Color.v_srgbi 231  41 138;
+             Gg.Color.v_srgbi 223 101 176;
+             Gg.Color.v_srgbi 201 148 199;
+             Gg.Color.v_srgbi 212 185 218;
+             Gg.Color.v_srgbi 231 225 239;
+             Gg.Color.v_srgbi 247 244 249 |];
     cmyk = [| Gg.V4.v   3.   3.   0.   0.;
               Gg.V4.v   9.   9.   0.   0.;
               Gg.V4.v  16.  23.   0.   0.;
@@ -3374,7 +3374,7 @@ let purd : t list = [
 
 let purples_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 239 237 245 |];
+    rgb = [| Gg.Color.v_srgbi 117 107 177 |];
     cmyk = [| Gg.V4.v   6.   5.   0.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -3383,8 +3383,8 @@ let purples_1 = {
     screen = `Yes }
 let purples_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 239 237 245;
-             Gg.Color.v_srgbi 117 107 177 |];
+    rgb = [| Gg.Color.v_srgbi 117 107 177;
+             Gg.Color.v_srgbi 239 237 245 |];
     cmyk = [| Gg.V4.v   6.   5.   0.   0.;
               Gg.V4.v  55.  48.   0.   0. |];
     ty = `Seq;
@@ -3394,9 +3394,9 @@ let purples_2 = {
     screen = `Yes }
 let purples_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 239 237 245;
+    rgb = [| Gg.Color.v_srgbi 117 107 177;
              Gg.Color.v_srgbi 188 189 220;
-             Gg.Color.v_srgbi 117 107 177 |];
+             Gg.Color.v_srgbi 239 237 245 |];
     cmyk = [| Gg.V4.v   6.   5.   0.   0.;
               Gg.V4.v  28.  18.   0.   0.;
               Gg.V4.v  55.  48.   0.   0. |];
@@ -3407,10 +3407,10 @@ let purples_3 = {
     screen = `Yes }
 let purples_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 242 240 247;
-             Gg.Color.v_srgbi 203 201 226;
+    rgb = [| Gg.Color.v_srgbi 106  81 163;
              Gg.Color.v_srgbi 158 154 200;
-             Gg.Color.v_srgbi 106  81 163 |];
+             Gg.Color.v_srgbi 203 201 226;
+             Gg.Color.v_srgbi 242 240 247 |];
     cmyk = [| Gg.V4.v   5.   4.   0.   0.;
               Gg.V4.v  20.  15.   0.   0.;
               Gg.V4.v  38.  30.   0.   0.;
@@ -3422,11 +3422,11 @@ let purples_4 = {
     screen = `No }
 let purples_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 242 240 247;
-             Gg.Color.v_srgbi 203 201 226;
-             Gg.Color.v_srgbi 158 154 200;
+    rgb = [| Gg.Color.v_srgbi  84  39 143;
              Gg.Color.v_srgbi 117 107 177;
-             Gg.Color.v_srgbi  84  39 143 |];
+             Gg.Color.v_srgbi 158 154 200;
+             Gg.Color.v_srgbi 203 201 226;
+             Gg.Color.v_srgbi 242 240 247 |];
     cmyk = [| Gg.V4.v   5.   4.   0.   0.;
               Gg.V4.v  20.  15.   0.   0.;
               Gg.V4.v  38.  30.   0.   0.;
@@ -3439,12 +3439,12 @@ let purples_5 = {
     screen = `No }
 let purples_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 242 240 247;
-             Gg.Color.v_srgbi 218 218 235;
-             Gg.Color.v_srgbi 188 189 220;
-             Gg.Color.v_srgbi 158 154 200;
+    rgb = [| Gg.Color.v_srgbi  84  39 143;
              Gg.Color.v_srgbi 117 107 177;
-             Gg.Color.v_srgbi  84  39 143 |];
+             Gg.Color.v_srgbi 158 154 200;
+             Gg.Color.v_srgbi 188 189 220;
+             Gg.Color.v_srgbi 218 218 235;
+             Gg.Color.v_srgbi 242 240 247 |];
     cmyk = [| Gg.V4.v   5.   4.   0.   0.;
               Gg.V4.v  14.  10.   0.   0.;
               Gg.V4.v  26.  18.   0.   0.;
@@ -3458,13 +3458,13 @@ let purples_6 = {
     screen = `No }
 let purples_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 242 240 247;
-             Gg.Color.v_srgbi 218 218 235;
-             Gg.Color.v_srgbi 188 189 220;
-             Gg.Color.v_srgbi 158 154 200;
-             Gg.Color.v_srgbi 128 125 186;
+    rgb = [| Gg.Color.v_srgbi  74  20 134;
              Gg.Color.v_srgbi 106  81 163;
-             Gg.Color.v_srgbi  74  20 134 |];
+             Gg.Color.v_srgbi 128 125 186;
+             Gg.Color.v_srgbi 158 154 200;
+             Gg.Color.v_srgbi 188 189 220;
+             Gg.Color.v_srgbi 218 218 235;
+             Gg.Color.v_srgbi 242 240 247 |];
     cmyk = [| Gg.V4.v   5.   4.   0.   0.;
               Gg.V4.v  14.  10.   0.   0.;
               Gg.V4.v  26.  18.   0.   0.;
@@ -3479,14 +3479,14 @@ let purples_7 = {
     screen = `No }
 let purples_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 252 251 253;
-             Gg.Color.v_srgbi 239 237 245;
-             Gg.Color.v_srgbi 218 218 235;
-             Gg.Color.v_srgbi 188 189 220;
-             Gg.Color.v_srgbi 158 154 200;
-             Gg.Color.v_srgbi 128 125 186;
+    rgb = [| Gg.Color.v_srgbi  74  20 134;
              Gg.Color.v_srgbi 106  81 163;
-             Gg.Color.v_srgbi  74  20 134 |];
+             Gg.Color.v_srgbi 128 125 186;
+             Gg.Color.v_srgbi 158 154 200;
+             Gg.Color.v_srgbi 188 189 220;
+             Gg.Color.v_srgbi 218 218 235;
+             Gg.Color.v_srgbi 239 237 245;
+             Gg.Color.v_srgbi 252 251 253 |];
     cmyk = [| Gg.V4.v   1.   1.   0.   0.;
               Gg.V4.v   6.   5.   0.   0.;
               Gg.V4.v  14.  10.   0.   0.;
@@ -3502,15 +3502,15 @@ let purples_8 = {
     screen = `No }
 let purples_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 252 251 253;
-             Gg.Color.v_srgbi 239 237 245;
-             Gg.Color.v_srgbi 218 218 235;
-             Gg.Color.v_srgbi 188 189 220;
-             Gg.Color.v_srgbi 158 154 200;
-             Gg.Color.v_srgbi 128 125 186;
-             Gg.Color.v_srgbi 106  81 163;
+    rgb = [| Gg.Color.v_srgbi  63   0 125;
              Gg.Color.v_srgbi  84  39 143;
-             Gg.Color.v_srgbi  63   0 125 |];
+             Gg.Color.v_srgbi 106  81 163;
+             Gg.Color.v_srgbi 128 125 186;
+             Gg.Color.v_srgbi 158 154 200;
+             Gg.Color.v_srgbi 188 189 220;
+             Gg.Color.v_srgbi 218 218 235;
+             Gg.Color.v_srgbi 239 237 245;
+             Gg.Color.v_srgbi 252 251 253 |];
     cmyk = [| Gg.V4.v   1.   1.   0.   0.;
               Gg.V4.v   6.   5.   0.   0.;
               Gg.V4.v  14.  10.   0.   0.;
@@ -3957,7 +3957,7 @@ let rdgy : t list = [
 
 let rdpu_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 253 224 221 |];
+    rgb = [| Gg.Color.v_srgbi 197  27 138 |];
     cmyk = [| Gg.V4.v   0.  12.   8.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -3966,8 +3966,8 @@ let rdpu_1 = {
     screen = `Yes }
 let rdpu_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 253 224 221;
-             Gg.Color.v_srgbi 197  27 138 |];
+    rgb = [| Gg.Color.v_srgbi 197  27 138;
+             Gg.Color.v_srgbi 253 224 221 |];
     cmyk = [| Gg.V4.v   0.  12.   8.   0.;
               Gg.V4.v  20.  90.   0.   0. |];
     ty = `Seq;
@@ -3977,9 +3977,9 @@ let rdpu_2 = {
     screen = `Yes }
 let rdpu_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 253 224 221;
+    rgb = [| Gg.Color.v_srgbi 197  27 138;
              Gg.Color.v_srgbi 250 159 181;
-             Gg.Color.v_srgbi 197  27 138 |];
+             Gg.Color.v_srgbi 253 224 221 |];
     cmyk = [| Gg.V4.v   0.  12.   8.   0.;
               Gg.V4.v   0.  38.  12.   0.;
               Gg.V4.v  20.  90.   0.   0. |];
@@ -3990,10 +3990,10 @@ let rdpu_3 = {
     screen = `Yes }
 let rdpu_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 254 235 226;
-             Gg.Color.v_srgbi 251 180 185;
+    rgb = [| Gg.Color.v_srgbi 174   1 126;
              Gg.Color.v_srgbi 247 104 161;
-             Gg.Color.v_srgbi 174   1 126 |];
+             Gg.Color.v_srgbi 251 180 185;
+             Gg.Color.v_srgbi 254 235 226 |];
     cmyk = [| Gg.V4.v   0.   8.   8.   0.;
               Gg.V4.v   0.  30.  15.   0.;
               Gg.V4.v   0.  60.  10.   0.;
@@ -4005,11 +4005,11 @@ let rdpu_4 = {
     screen = `Yes }
 let rdpu_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 254 235 226;
-             Gg.Color.v_srgbi 251 180 185;
-             Gg.Color.v_srgbi 247 104 161;
+    rgb = [| Gg.Color.v_srgbi 122   1 119;
              Gg.Color.v_srgbi 197  27 138;
-             Gg.Color.v_srgbi 122   1 119 |];
+             Gg.Color.v_srgbi 247 104 161;
+             Gg.Color.v_srgbi 251 180 185;
+             Gg.Color.v_srgbi 254 235 226 |];
     cmyk = [| Gg.V4.v   0.   8.   8.   0.;
               Gg.V4.v   0.  30.  15.   0.;
               Gg.V4.v   0.  60.  10.   0.;
@@ -4022,12 +4022,12 @@ let rdpu_5 = {
     screen = `Yes }
 let rdpu_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 254 235 226;
-             Gg.Color.v_srgbi 252 197 192;
-             Gg.Color.v_srgbi 250 159 181;
-             Gg.Color.v_srgbi 247 104 161;
+    rgb = [| Gg.Color.v_srgbi 122   1 119;
              Gg.Color.v_srgbi 197  27 138;
-             Gg.Color.v_srgbi 122   1 119 |];
+             Gg.Color.v_srgbi 247 104 161;
+             Gg.Color.v_srgbi 250 159 181;
+             Gg.Color.v_srgbi 252 197 192;
+             Gg.Color.v_srgbi 254 235 226 |];
     cmyk = [| Gg.V4.v   0.   8.   8.   0.;
               Gg.V4.v   0.  23.  15.   0.;
               Gg.V4.v   0.  38.  12.   0.;
@@ -4041,13 +4041,13 @@ let rdpu_6 = {
     screen = `No }
 let rdpu_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 254 235 226;
-             Gg.Color.v_srgbi 252 197 192;
-             Gg.Color.v_srgbi 250 159 181;
-             Gg.Color.v_srgbi 247 104 161;
-             Gg.Color.v_srgbi 221  52 151;
+    rgb = [| Gg.Color.v_srgbi 122   1 119;
              Gg.Color.v_srgbi 174   1 126;
-             Gg.Color.v_srgbi 122   1 119 |];
+             Gg.Color.v_srgbi 221  52 151;
+             Gg.Color.v_srgbi 247 104 161;
+             Gg.Color.v_srgbi 250 159 181;
+             Gg.Color.v_srgbi 252 197 192;
+             Gg.Color.v_srgbi 254 235 226 |];
     cmyk = [| Gg.V4.v   0.   8.   8.   0.;
               Gg.V4.v   0.  23.  15.   0.;
               Gg.V4.v   0.  38.  12.   0.;
@@ -4062,14 +4062,14 @@ let rdpu_7 = {
     screen = `No }
 let rdpu_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 247 243;
-             Gg.Color.v_srgbi 253 224 221;
-             Gg.Color.v_srgbi 252 197 192;
-             Gg.Color.v_srgbi 250 159 181;
-             Gg.Color.v_srgbi 247 104 161;
-             Gg.Color.v_srgbi 221  52 151;
+    rgb = [| Gg.Color.v_srgbi 122   1 119;
              Gg.Color.v_srgbi 174   1 126;
-             Gg.Color.v_srgbi 122   1 119 |];
+             Gg.Color.v_srgbi 221  52 151;
+             Gg.Color.v_srgbi 247 104 161;
+             Gg.Color.v_srgbi 250 159 181;
+             Gg.Color.v_srgbi 252 197 192;
+             Gg.Color.v_srgbi 253 224 221;
+             Gg.Color.v_srgbi 255 247 243 |];
     cmyk = [| Gg.V4.v   0.   3.   3.   0.;
               Gg.V4.v   0.  12.   8.   0.;
               Gg.V4.v   0.  23.  15.   0.;
@@ -4085,15 +4085,15 @@ let rdpu_8 = {
     screen = `No }
 let rdpu_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 247 243;
-             Gg.Color.v_srgbi 253 224 221;
-             Gg.Color.v_srgbi 252 197 192;
-             Gg.Color.v_srgbi 250 159 181;
-             Gg.Color.v_srgbi 247 104 161;
-             Gg.Color.v_srgbi 221  52 151;
-             Gg.Color.v_srgbi 174   1 126;
+    rgb = [| Gg.Color.v_srgbi  73   0 106;
              Gg.Color.v_srgbi 122   1 119;
-             Gg.Color.v_srgbi  73   0 106 |];
+             Gg.Color.v_srgbi 174   1 126;
+             Gg.Color.v_srgbi 221  52 151;
+             Gg.Color.v_srgbi 247 104 161;
+             Gg.Color.v_srgbi 250 159 181;
+             Gg.Color.v_srgbi 252 197 192;
+             Gg.Color.v_srgbi 253 224 221;
+             Gg.Color.v_srgbi 255 247 243 |];
     cmyk = [| Gg.V4.v   0.   3.   3.   0.;
               Gg.V4.v   0.  12.   8.   0.;
               Gg.V4.v   0.  23.  15.   0.;
@@ -4539,7 +4539,7 @@ let rdylgn : t list = [
 
 let reds_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 254 224 210 |];
+    rgb = [| Gg.Color.v_srgbi 222  45  38 |];
     cmyk = [| Gg.V4.v   0.  12.  12.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -4548,8 +4548,8 @@ let reds_1 = {
     screen = `Yes }
 let reds_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 254 224 210;
-             Gg.Color.v_srgbi 222  45  38 |];
+    rgb = [| Gg.Color.v_srgbi 222  45  38;
+             Gg.Color.v_srgbi 254 224 210 |];
     cmyk = [| Gg.V4.v   0.  12.  12.   0.;
               Gg.V4.v  12.  82.  75.   0. |];
     ty = `Seq;
@@ -4559,9 +4559,9 @@ let reds_2 = {
     screen = `Yes }
 let reds_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 254 224 210;
+    rgb = [| Gg.Color.v_srgbi 222  45  38;
              Gg.Color.v_srgbi 252 146 114;
-             Gg.Color.v_srgbi 222  45  38 |];
+             Gg.Color.v_srgbi 254 224 210 |];
     cmyk = [| Gg.V4.v   0.  12.  12.   0.;
               Gg.V4.v   0.  43.  43.   0.;
               Gg.V4.v  12.  82.  75.   0. |];
@@ -4572,10 +4572,10 @@ let reds_3 = {
     screen = `Yes }
 let reds_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 254 229 217;
-             Gg.Color.v_srgbi 252 174 145;
+    rgb = [| Gg.Color.v_srgbi 203  24  29;
              Gg.Color.v_srgbi 251 106  74;
-             Gg.Color.v_srgbi 203  24  29 |];
+             Gg.Color.v_srgbi 252 174 145;
+             Gg.Color.v_srgbi 254 229 217 |];
     cmyk = [| Gg.V4.v   0.  10.  10.   0.;
               Gg.V4.v   0.  32.  32.   0.;
               Gg.V4.v   0.  59.  59.   0.;
@@ -4587,11 +4587,11 @@ let reds_4 = {
     screen = `Maybe }
 let reds_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 254 229 217;
-             Gg.Color.v_srgbi 252 174 145;
-             Gg.Color.v_srgbi 251 106  74;
+    rgb = [| Gg.Color.v_srgbi 165  15  21;
              Gg.Color.v_srgbi 222  45  38;
-             Gg.Color.v_srgbi 165  15  21 |];
+             Gg.Color.v_srgbi 251 106  74;
+             Gg.Color.v_srgbi 252 174 145;
+             Gg.Color.v_srgbi 254 229 217 |];
     cmyk = [| Gg.V4.v   0.  10.  10.   0.;
               Gg.V4.v   0.  32.  32.   0.;
               Gg.V4.v   0.  59.  59.   0.;
@@ -4604,12 +4604,12 @@ let reds_5 = {
     screen = `No }
 let reds_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 254 229 217;
-             Gg.Color.v_srgbi 252 187 161;
-             Gg.Color.v_srgbi 252 146 114;
-             Gg.Color.v_srgbi 251 106  74;
+    rgb = [| Gg.Color.v_srgbi 165  15  21;
              Gg.Color.v_srgbi 222  45  38;
-             Gg.Color.v_srgbi 165  15  21 |];
+             Gg.Color.v_srgbi 251 106  74;
+             Gg.Color.v_srgbi 252 146 114;
+             Gg.Color.v_srgbi 252 187 161;
+             Gg.Color.v_srgbi 254 229 217 |];
     cmyk = [| Gg.V4.v   0.  10.  10.   0.;
               Gg.V4.v   0.  27.  27.   0.;
               Gg.V4.v   0.  43.  43.   0.;
@@ -4623,13 +4623,13 @@ let reds_6 = {
     screen = `No }
 let reds_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 254 229 217;
-             Gg.Color.v_srgbi 252 187 161;
-             Gg.Color.v_srgbi 252 146 114;
-             Gg.Color.v_srgbi 251 106  74;
-             Gg.Color.v_srgbi 239  59  44;
+    rgb = [| Gg.Color.v_srgbi 153   0  13;
              Gg.Color.v_srgbi 203  24  29;
-             Gg.Color.v_srgbi 153   0  13 |];
+             Gg.Color.v_srgbi 239  59  44;
+             Gg.Color.v_srgbi 251 106  74;
+             Gg.Color.v_srgbi 252 146 114;
+             Gg.Color.v_srgbi 252 187 161;
+             Gg.Color.v_srgbi 254 229 217 |];
     cmyk = [| Gg.V4.v   0.  10.  10.   0.;
               Gg.V4.v   0.  27.  27.   0.;
               Gg.V4.v   0.  43.  43.   0.;
@@ -4644,14 +4644,14 @@ let reds_7 = {
     screen = `No }
 let reds_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 245 240;
-             Gg.Color.v_srgbi 254 224 210;
-             Gg.Color.v_srgbi 252 187 161;
-             Gg.Color.v_srgbi 252 146 114;
-             Gg.Color.v_srgbi 251 106  74;
-             Gg.Color.v_srgbi 239  59  44;
+    rgb = [| Gg.Color.v_srgbi 153   0  13;
              Gg.Color.v_srgbi 203  24  29;
-             Gg.Color.v_srgbi 153   0  13 |];
+             Gg.Color.v_srgbi 239  59  44;
+             Gg.Color.v_srgbi 251 106  74;
+             Gg.Color.v_srgbi 252 146 114;
+             Gg.Color.v_srgbi 252 187 161;
+             Gg.Color.v_srgbi 254 224 210;
+             Gg.Color.v_srgbi 255 245 240 |];
     cmyk = [| Gg.V4.v   0.   4.   4.   0.;
               Gg.V4.v   0.  12.  12.   0.;
               Gg.V4.v   0.  27.  27.   0.;
@@ -4667,15 +4667,15 @@ let reds_8 = {
     screen = `No }
 let reds_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 245 240;
-             Gg.Color.v_srgbi 254 224 210;
-             Gg.Color.v_srgbi 252 187 161;
-             Gg.Color.v_srgbi 252 146 114;
-             Gg.Color.v_srgbi 251 106  74;
-             Gg.Color.v_srgbi 239  59  44;
-             Gg.Color.v_srgbi 203  24  29;
+    rgb = [| Gg.Color.v_srgbi 103   0  13;
              Gg.Color.v_srgbi 165  15  21;
-             Gg.Color.v_srgbi 103   0  13 |];
+             Gg.Color.v_srgbi 203  24  29;
+             Gg.Color.v_srgbi 239  59  44;
+             Gg.Color.v_srgbi 251 106  74;
+             Gg.Color.v_srgbi 252 146 114;
+             Gg.Color.v_srgbi 252 187 161;
+             Gg.Color.v_srgbi 254 224 210;
+             Gg.Color.v_srgbi 255 245 240 |];
     cmyk = [| Gg.V4.v   0.   4.   4.   0.;
               Gg.V4.v   0.  12.  12.   0.;
               Gg.V4.v   0.  27.  27.   0.;
@@ -5439,7 +5439,7 @@ let spectral : t list = [
 
 let ylgn_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 247 252 185 |];
+    rgb = [| Gg.Color.v_srgbi  49 163  84 |];
     cmyk = [| Gg.V4.v   3.   0.  27.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -5448,8 +5448,8 @@ let ylgn_1 = {
     screen = `Yes }
 let ylgn_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 247 252 185;
-             Gg.Color.v_srgbi  49 163  84 |];
+    rgb = [| Gg.Color.v_srgbi  49 163  84;
+             Gg.Color.v_srgbi 247 252 185 |];
     cmyk = [| Gg.V4.v   3.   0.  27.   0.;
               Gg.V4.v  81.   0.  76.   0. |];
     ty = `Seq;
@@ -5459,9 +5459,9 @@ let ylgn_2 = {
     screen = `Yes }
 let ylgn_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 247 252 185;
+    rgb = [| Gg.Color.v_srgbi  49 163  84;
              Gg.Color.v_srgbi 173 221 142;
-             Gg.Color.v_srgbi  49 163  84 |];
+             Gg.Color.v_srgbi 247 252 185 |];
     cmyk = [| Gg.V4.v   3.   0.  27.   0.;
               Gg.V4.v  32.   0.  43.   0.;
               Gg.V4.v  81.   0.  76.   0. |];
@@ -5472,10 +5472,10 @@ let ylgn_3 = {
     screen = `Yes }
 let ylgn_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 194 230 153;
+    rgb = [| Gg.Color.v_srgbi  35 132  67;
              Gg.Color.v_srgbi 120 198 121;
-             Gg.Color.v_srgbi  35 132  67 |];
+             Gg.Color.v_srgbi 194 230 153;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v  24.   0.  39.   0.;
               Gg.V4.v  53.   0.  53.   0.;
@@ -5487,11 +5487,11 @@ let ylgn_4 = {
     screen = `Yes }
 let ylgn_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 194 230 153;
-             Gg.Color.v_srgbi 120 198 121;
+    rgb = [| Gg.Color.v_srgbi   0 104  55;
              Gg.Color.v_srgbi  49 163  84;
-             Gg.Color.v_srgbi   0 104  55 |];
+             Gg.Color.v_srgbi 120 198 121;
+             Gg.Color.v_srgbi 194 230 153;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v  24.   0.  39.   0.;
               Gg.V4.v  53.   0.  53.   0.;
@@ -5504,12 +5504,12 @@ let ylgn_5 = {
     screen = `Yes }
 let ylgn_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 217 240 163;
-             Gg.Color.v_srgbi 173 221 142;
-             Gg.Color.v_srgbi 120 198 121;
+    rgb = [| Gg.Color.v_srgbi   0 104  55;
              Gg.Color.v_srgbi  49 163  84;
-             Gg.Color.v_srgbi   0 104  55 |];
+             Gg.Color.v_srgbi 120 198 121;
+             Gg.Color.v_srgbi 173 221 142;
+             Gg.Color.v_srgbi 217 240 163;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v  15.   0.  35.   0.;
               Gg.V4.v  32.   0.  43.   0.;
@@ -5523,13 +5523,13 @@ let ylgn_6 = {
     screen = `No }
 let ylgn_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 217 240 163;
-             Gg.Color.v_srgbi 173 221 142;
-             Gg.Color.v_srgbi 120 198 121;
-             Gg.Color.v_srgbi  65 171  93;
+    rgb = [| Gg.Color.v_srgbi   0  90  50;
              Gg.Color.v_srgbi  35 132  67;
-             Gg.Color.v_srgbi   0  90  50 |];
+             Gg.Color.v_srgbi  65 171  93;
+             Gg.Color.v_srgbi 120 198 121;
+             Gg.Color.v_srgbi 173 221 142;
+             Gg.Color.v_srgbi 217 240 163;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v  15.   0.  35.   0.;
               Gg.V4.v  32.   0.  43.   0.;
@@ -5544,14 +5544,14 @@ let ylgn_7 = {
     screen = `No }
 let ylgn_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 255 229;
-             Gg.Color.v_srgbi 247 252 185;
-             Gg.Color.v_srgbi 217 240 163;
-             Gg.Color.v_srgbi 173 221 142;
-             Gg.Color.v_srgbi 120 198 121;
-             Gg.Color.v_srgbi  65 171  93;
+    rgb = [| Gg.Color.v_srgbi   0  90  50;
              Gg.Color.v_srgbi  35 132  67;
-             Gg.Color.v_srgbi   0  90  50 |];
+             Gg.Color.v_srgbi  65 171  93;
+             Gg.Color.v_srgbi 120 198 121;
+             Gg.Color.v_srgbi 173 221 142;
+             Gg.Color.v_srgbi 217 240 163;
+             Gg.Color.v_srgbi 247 252 185;
+             Gg.Color.v_srgbi 255 255 229 |];
     cmyk = [| Gg.V4.v   0.   0.  10.   0.;
               Gg.V4.v   3.   0.  27.   0.;
               Gg.V4.v  15.   0.  35.   0.;
@@ -5567,15 +5567,15 @@ let ylgn_8 = {
     screen = `No }
 let ylgn_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 255 229;
-             Gg.Color.v_srgbi 247 252 185;
-             Gg.Color.v_srgbi 217 240 163;
-             Gg.Color.v_srgbi 173 221 142;
-             Gg.Color.v_srgbi 120 198 121;
-             Gg.Color.v_srgbi  65 171  93;
-             Gg.Color.v_srgbi  35 132  67;
+    rgb = [| Gg.Color.v_srgbi   0  69  41;
              Gg.Color.v_srgbi   0 104  55;
-             Gg.Color.v_srgbi   0  69  41 |];
+             Gg.Color.v_srgbi  35 132  67;
+             Gg.Color.v_srgbi  65 171  93;
+             Gg.Color.v_srgbi 120 198 121;
+             Gg.Color.v_srgbi 173 221 142;
+             Gg.Color.v_srgbi 217 240 163;
+             Gg.Color.v_srgbi 247 252 185;
+             Gg.Color.v_srgbi 255 255 229 |];
     cmyk = [| Gg.V4.v   0.   0.  10.   0.;
               Gg.V4.v   3.   0.  27.   0.;
               Gg.V4.v  15.   0.  35.   0.;
@@ -5595,7 +5595,7 @@ let ylgn : t list = [
 
 let ylgnbu_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 237 248 177 |];
+    rgb = [| Gg.Color.v_srgbi  44 127 184 |];
     cmyk = [| Gg.V4.v   7.   0.  30.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -5604,8 +5604,8 @@ let ylgnbu_1 = {
     screen = `Yes }
 let ylgnbu_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 237 248 177;
-             Gg.Color.v_srgbi  44 127 184 |];
+    rgb = [| Gg.Color.v_srgbi  44 127 184;
+             Gg.Color.v_srgbi 237 248 177 |];
     cmyk = [| Gg.V4.v   7.   0.  30.   0.;
               Gg.V4.v  85.  27.   0.   0. |];
     ty = `Seq;
@@ -5615,9 +5615,9 @@ let ylgnbu_2 = {
     screen = `Yes }
 let ylgnbu_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 237 248 177;
+    rgb = [| Gg.Color.v_srgbi  44 127 184;
              Gg.Color.v_srgbi 127 205 187;
-             Gg.Color.v_srgbi  44 127 184 |];
+             Gg.Color.v_srgbi 237 248 177 |];
     cmyk = [| Gg.V4.v   7.   0.  30.   0.;
               Gg.V4.v  50.   0.  20.   0.;
               Gg.V4.v  85.  27.   0.   0. |];
@@ -5628,10 +5628,10 @@ let ylgnbu_3 = {
     screen = `Yes }
 let ylgnbu_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 161 218 180;
+    rgb = [| Gg.Color.v_srgbi  34  94 168;
              Gg.Color.v_srgbi  65 182 196;
-             Gg.Color.v_srgbi  34  94 168 |];
+             Gg.Color.v_srgbi 161 218 180;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v  37.   0.  25.   0.;
               Gg.V4.v  75.   0.  10.   0.;
@@ -5643,11 +5643,11 @@ let ylgnbu_4 = {
     screen = `Yes }
 let ylgnbu_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 161 218 180;
-             Gg.Color.v_srgbi  65 182 196;
+    rgb = [| Gg.Color.v_srgbi  37  52 148;
              Gg.Color.v_srgbi  44 127 184;
-             Gg.Color.v_srgbi  37  52 148 |];
+             Gg.Color.v_srgbi  65 182 196;
+             Gg.Color.v_srgbi 161 218 180;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v  37.   0.  25.   0.;
               Gg.V4.v  75.   0.  10.   0.;
@@ -5660,12 +5660,12 @@ let ylgnbu_5 = {
     screen = `Maybe }
 let ylgnbu_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 199 233 180;
-             Gg.Color.v_srgbi 127 205 187;
-             Gg.Color.v_srgbi  65 182 196;
+    rgb = [| Gg.Color.v_srgbi  37  52 148;
              Gg.Color.v_srgbi  44 127 184;
-             Gg.Color.v_srgbi  37  52 148 |];
+             Gg.Color.v_srgbi  65 182 196;
+             Gg.Color.v_srgbi 127 205 187;
+             Gg.Color.v_srgbi 199 233 180;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v  22.   0.  27.   0.;
               Gg.V4.v  50.   0.  20.   0.;
@@ -5679,13 +5679,13 @@ let ylgnbu_6 = {
     screen = `No }
 let ylgnbu_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 199 233 180;
-             Gg.Color.v_srgbi 127 205 187;
-             Gg.Color.v_srgbi  65 182 196;
-             Gg.Color.v_srgbi  29 145 192;
+    rgb = [| Gg.Color.v_srgbi  12  44 132;
              Gg.Color.v_srgbi  34  94 168;
-             Gg.Color.v_srgbi  12  44 132 |];
+             Gg.Color.v_srgbi  29 145 192;
+             Gg.Color.v_srgbi  65 182 196;
+             Gg.Color.v_srgbi 127 205 187;
+             Gg.Color.v_srgbi 199 233 180;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v  22.   0.  27.   0.;
               Gg.V4.v  50.   0.  20.   0.;
@@ -5700,14 +5700,14 @@ let ylgnbu_7 = {
     screen = `No }
 let ylgnbu_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 255 217;
-             Gg.Color.v_srgbi 237 248 177;
-             Gg.Color.v_srgbi 199 233 180;
-             Gg.Color.v_srgbi 127 205 187;
-             Gg.Color.v_srgbi  65 182 196;
-             Gg.Color.v_srgbi  29 145 192;
+    rgb = [| Gg.Color.v_srgbi  12  44 132;
              Gg.Color.v_srgbi  34  94 168;
-             Gg.Color.v_srgbi  12  44 132 |];
+             Gg.Color.v_srgbi  29 145 192;
+             Gg.Color.v_srgbi  65 182 196;
+             Gg.Color.v_srgbi 127 205 187;
+             Gg.Color.v_srgbi 199 233 180;
+             Gg.Color.v_srgbi 237 248 177;
+             Gg.Color.v_srgbi 255 255 217 |];
     cmyk = [| Gg.V4.v   0.   0.  15.   0.;
               Gg.V4.v   7.   0.  30.   0.;
               Gg.V4.v  22.   0.  27.   0.;
@@ -5723,15 +5723,15 @@ let ylgnbu_8 = {
     screen = `No }
 let ylgnbu_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 255 217;
-             Gg.Color.v_srgbi 237 248 177;
-             Gg.Color.v_srgbi 199 233 180;
-             Gg.Color.v_srgbi 127 205 187;
-             Gg.Color.v_srgbi  65 182 196;
-             Gg.Color.v_srgbi  29 145 192;
-             Gg.Color.v_srgbi  34  94 168;
+    rgb = [| Gg.Color.v_srgbi   8  29  88;
              Gg.Color.v_srgbi  37  52 148;
-             Gg.Color.v_srgbi   8  29  88 |];
+             Gg.Color.v_srgbi  34  94 168;
+             Gg.Color.v_srgbi  29 145 192;
+             Gg.Color.v_srgbi  65 182 196;
+             Gg.Color.v_srgbi 127 205 187;
+             Gg.Color.v_srgbi 199 233 180;
+             Gg.Color.v_srgbi 237 248 177;
+             Gg.Color.v_srgbi 255 255 217 |];
     cmyk = [| Gg.V4.v   0.   0.  15.   0.;
               Gg.V4.v   7.   0.  30.   0.;
               Gg.V4.v  22.   0.  27.   0.;
@@ -5752,7 +5752,7 @@ let ylgnbu : t list = [
 
 let ylorbr_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 255 247 188 |];
+    rgb = [| Gg.Color.v_srgbi 217  95  14 |];
     cmyk = [| Gg.V4.v   0.   3.  25.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -5761,8 +5761,8 @@ let ylorbr_1 = {
     screen = `Yes }
 let ylorbr_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 255 247 188;
-             Gg.Color.v_srgbi 217  95  14 |];
+    rgb = [| Gg.Color.v_srgbi 217  95  14;
+             Gg.Color.v_srgbi 255 247 188 |];
     cmyk = [| Gg.V4.v   0.   3.  25.   0.;
               Gg.V4.v  15.  60.  95.   0. |];
     ty = `Seq;
@@ -5772,9 +5772,9 @@ let ylorbr_2 = {
     screen = `Yes }
 let ylorbr_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 255 247 188;
+    rgb = [| Gg.Color.v_srgbi 217  95  14;
              Gg.Color.v_srgbi 254 196  79;
-             Gg.Color.v_srgbi 217  95  14 |];
+             Gg.Color.v_srgbi 255 247 188 |];
     cmyk = [| Gg.V4.v   0.   3.  25.   0.;
               Gg.V4.v   0.  23.  65.   0.;
               Gg.V4.v  15.  60.  95.   0. |];
@@ -5785,10 +5785,10 @@ let ylorbr_3 = {
     screen = `Yes }
 let ylorbr_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 255 255 212;
-             Gg.Color.v_srgbi 254 217 142;
+    rgb = [| Gg.Color.v_srgbi 204  76   2;
              Gg.Color.v_srgbi 254 153  41;
-             Gg.Color.v_srgbi 204  76   2 |];
+             Gg.Color.v_srgbi 254 217 142;
+             Gg.Color.v_srgbi 255 255 212 |];
     cmyk = [| Gg.V4.v   0.   0.  17.   0.;
               Gg.V4.v   0.  15.  40.   0.;
               Gg.V4.v   0.  40.  80.   0.;
@@ -5800,11 +5800,11 @@ let ylorbr_4 = {
     screen = `Maybe }
 let ylorbr_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 255 255 212;
-             Gg.Color.v_srgbi 254 217 142;
-             Gg.Color.v_srgbi 254 153  41;
+    rgb = [| Gg.Color.v_srgbi 153  52   4;
              Gg.Color.v_srgbi 217  95  14;
-             Gg.Color.v_srgbi 153  52   4 |];
+             Gg.Color.v_srgbi 254 153  41;
+             Gg.Color.v_srgbi 254 217 142;
+             Gg.Color.v_srgbi 255 255 212 |];
     cmyk = [| Gg.V4.v   0.   0.  17.   0.;
               Gg.V4.v   0.  15.  40.   0.;
               Gg.V4.v   0.  40.  80.   0.;
@@ -5817,12 +5817,12 @@ let ylorbr_5 = {
     screen = `No }
 let ylorbr_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 255 255 212;
-             Gg.Color.v_srgbi 254 227 145;
-             Gg.Color.v_srgbi 254 196  79;
-             Gg.Color.v_srgbi 254 153  41;
+    rgb = [| Gg.Color.v_srgbi 153  52   4;
              Gg.Color.v_srgbi 217  95  14;
-             Gg.Color.v_srgbi 153  52   4 |];
+             Gg.Color.v_srgbi 254 153  41;
+             Gg.Color.v_srgbi 254 196  79;
+             Gg.Color.v_srgbi 254 227 145;
+             Gg.Color.v_srgbi 255 255 212 |];
     cmyk = [| Gg.V4.v   0.   0.  17.   0.;
               Gg.V4.v   0.  11.  40.   0.;
               Gg.V4.v   0.  23.  65.   0.;
@@ -5836,13 +5836,13 @@ let ylorbr_6 = {
     screen = `No }
 let ylorbr_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 255 255 212;
-             Gg.Color.v_srgbi 254 227 145;
-             Gg.Color.v_srgbi 254 196  79;
-             Gg.Color.v_srgbi 254 153  41;
-             Gg.Color.v_srgbi 236 112  20;
+    rgb = [| Gg.Color.v_srgbi 140  45   4;
              Gg.Color.v_srgbi 204  76   2;
-             Gg.Color.v_srgbi 140  45   4 |];
+             Gg.Color.v_srgbi 236 112  20;
+             Gg.Color.v_srgbi 254 153  41;
+             Gg.Color.v_srgbi 254 196  79;
+             Gg.Color.v_srgbi 254 227 145;
+             Gg.Color.v_srgbi 255 255 212 |];
     cmyk = [| Gg.V4.v   0.   0.  17.   0.;
               Gg.V4.v   0.  11.  40.   0.;
               Gg.V4.v   0.  23.  65.   0.;
@@ -5857,14 +5857,14 @@ let ylorbr_7 = {
     screen = `No }
 let ylorbr_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 255 229;
-             Gg.Color.v_srgbi 255 247 188;
-             Gg.Color.v_srgbi 254 227 145;
-             Gg.Color.v_srgbi 254 196  79;
-             Gg.Color.v_srgbi 254 153  41;
-             Gg.Color.v_srgbi 236 112  20;
+    rgb = [| Gg.Color.v_srgbi 140  45   4;
              Gg.Color.v_srgbi 204  76   2;
-             Gg.Color.v_srgbi 140  45   4 |];
+             Gg.Color.v_srgbi 236 112  20;
+             Gg.Color.v_srgbi 254 153  41;
+             Gg.Color.v_srgbi 254 196  79;
+             Gg.Color.v_srgbi 254 227 145;
+             Gg.Color.v_srgbi 255 247 188;
+             Gg.Color.v_srgbi 255 255 229 |];
     cmyk = [| Gg.V4.v   0.   0.  10.   0.;
               Gg.V4.v   0.   3.  25.   0.;
               Gg.V4.v   0.  11.  40.   0.;
@@ -5880,15 +5880,15 @@ let ylorbr_8 = {
     screen = `No }
 let ylorbr_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 255 229;
-             Gg.Color.v_srgbi 255 247 188;
-             Gg.Color.v_srgbi 254 227 145;
-             Gg.Color.v_srgbi 254 196  79;
-             Gg.Color.v_srgbi 254 153  41;
-             Gg.Color.v_srgbi 236 112  20;
-             Gg.Color.v_srgbi 204  76   2;
+    rgb = [| Gg.Color.v_srgbi 102  37   6;
              Gg.Color.v_srgbi 153  52   4;
-             Gg.Color.v_srgbi 102  37   6 |];
+             Gg.Color.v_srgbi 204  76   2;
+             Gg.Color.v_srgbi 236 112  20;
+             Gg.Color.v_srgbi 254 153  41;
+             Gg.Color.v_srgbi 254 196  79;
+             Gg.Color.v_srgbi 254 227 145;
+             Gg.Color.v_srgbi 255 247 188;
+             Gg.Color.v_srgbi 255 255 229 |];
     cmyk = [| Gg.V4.v   0.   0.  10.   0.;
               Gg.V4.v   0.   3.  25.   0.;
               Gg.V4.v   0.  11.  40.   0.;
@@ -5909,7 +5909,7 @@ let ylorbr : t list = [
 
 let ylorrd_1 = {
     length = 1;
-    rgb = [| Gg.Color.v_srgbi 255 237 160 |];
+    rgb = [| Gg.Color.v_srgbi 240  59  32 |];
     cmyk = [| Gg.V4.v   0.   7.  35.   0. |];
     ty = `Seq;
     blind = `Yes;
@@ -5918,8 +5918,8 @@ let ylorrd_1 = {
     screen = `Yes }
 let ylorrd_2 = {
     length = 2;
-    rgb = [| Gg.Color.v_srgbi 255 237 160;
-             Gg.Color.v_srgbi 240  59  32 |];
+    rgb = [| Gg.Color.v_srgbi 240  59  32;
+             Gg.Color.v_srgbi 255 237 160 |];
     cmyk = [| Gg.V4.v   0.   7.  35.   0.;
               Gg.V4.v   5.  77.  80.   0. |];
     ty = `Seq;
@@ -5929,9 +5929,9 @@ let ylorrd_2 = {
     screen = `Yes }
 let ylorrd_3 = {
     length = 3;
-    rgb = [| Gg.Color.v_srgbi 255 237 160;
+    rgb = [| Gg.Color.v_srgbi 240  59  32;
              Gg.Color.v_srgbi 254 178  76;
-             Gg.Color.v_srgbi 240  59  32 |];
+             Gg.Color.v_srgbi 255 237 160 |];
     cmyk = [| Gg.V4.v   0.   7.  35.   0.;
               Gg.V4.v   0.  30.  65.   0.;
               Gg.V4.v   5.  77.  80.   0. |];
@@ -5942,10 +5942,10 @@ let ylorrd_3 = {
     screen = `Yes }
 let ylorrd_4 = {
     length = 4;
-    rgb = [| Gg.Color.v_srgbi 255 255 178;
-             Gg.Color.v_srgbi 254 204  92;
+    rgb = [| Gg.Color.v_srgbi 227  26  28;
              Gg.Color.v_srgbi 253 141  60;
-             Gg.Color.v_srgbi 227  26  28 |];
+             Gg.Color.v_srgbi 254 204  92;
+             Gg.Color.v_srgbi 255 255 178 |];
     cmyk = [| Gg.V4.v   0.   0.  30.   0.;
               Gg.V4.v   0.  20.  60.   0.;
               Gg.V4.v   0.  45.  70.   0.;
@@ -5957,11 +5957,11 @@ let ylorrd_4 = {
     screen = `Maybe }
 let ylorrd_5 = {
     length = 5;
-    rgb = [| Gg.Color.v_srgbi 255 255 178;
-             Gg.Color.v_srgbi 254 204  92;
-             Gg.Color.v_srgbi 253 141  60;
+    rgb = [| Gg.Color.v_srgbi 189   0  38;
              Gg.Color.v_srgbi 240  59  32;
-             Gg.Color.v_srgbi 189   0  38 |];
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 254 204  92;
+             Gg.Color.v_srgbi 255 255 178 |];
     cmyk = [| Gg.V4.v   0.   0.  30.   0.;
               Gg.V4.v   0.  20.  60.   0.;
               Gg.V4.v   0.  45.  70.   0.;
@@ -5974,12 +5974,12 @@ let ylorrd_5 = {
     screen = `Maybe }
 let ylorrd_6 = {
     length = 6;
-    rgb = [| Gg.Color.v_srgbi 255 255 178;
-             Gg.Color.v_srgbi 254 217 118;
-             Gg.Color.v_srgbi 254 178  76;
-             Gg.Color.v_srgbi 253 141  60;
+    rgb = [| Gg.Color.v_srgbi 189   0  38;
              Gg.Color.v_srgbi 240  59  32;
-             Gg.Color.v_srgbi 189   0  38 |];
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 254 178  76;
+             Gg.Color.v_srgbi 254 217 118;
+             Gg.Color.v_srgbi 255 255 178 |];
     cmyk = [| Gg.V4.v   0.   0.  30.   0.;
               Gg.V4.v   0.  15.  50.   0.;
               Gg.V4.v   0.  30.  65.   0.;
@@ -5993,13 +5993,13 @@ let ylorrd_6 = {
     screen = `No }
 let ylorrd_7 = {
     length = 7;
-    rgb = [| Gg.Color.v_srgbi 255 255 178;
-             Gg.Color.v_srgbi 254 217 118;
-             Gg.Color.v_srgbi 254 178  76;
-             Gg.Color.v_srgbi 253 141  60;
-             Gg.Color.v_srgbi 252  78  42;
+    rgb = [| Gg.Color.v_srgbi 177   0  38;
              Gg.Color.v_srgbi 227  26  28;
-             Gg.Color.v_srgbi 177   0  38 |];
+             Gg.Color.v_srgbi 252  78  42;
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 254 178  76;
+             Gg.Color.v_srgbi 254 217 118;
+             Gg.Color.v_srgbi 255 255 178 |];
     cmyk = [| Gg.V4.v   0.   0.  30.   0.;
               Gg.V4.v   0.  15.  50.   0.;
               Gg.V4.v   0.  30.  65.   0.;
@@ -6014,14 +6014,14 @@ let ylorrd_7 = {
     screen = `No }
 let ylorrd_8 = {
     length = 8;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 255 237 160;
-             Gg.Color.v_srgbi 254 217 118;
-             Gg.Color.v_srgbi 254 178  76;
-             Gg.Color.v_srgbi 253 141  60;
-             Gg.Color.v_srgbi 252  78  42;
+    rgb = [| Gg.Color.v_srgbi 177   0  38;
              Gg.Color.v_srgbi 227  26  28;
-             Gg.Color.v_srgbi 177   0  38 |];
+             Gg.Color.v_srgbi 252  78  42;
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 254 178  76;
+             Gg.Color.v_srgbi 254 217 118;
+             Gg.Color.v_srgbi 255 237 160;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v   0.   7.  35.   0.;
               Gg.V4.v   0.  15.  50.   0.;
@@ -6037,15 +6037,15 @@ let ylorrd_8 = {
     screen = `No }
 let ylorrd_9 = {
     length = 9;
-    rgb = [| Gg.Color.v_srgbi 255 255 204;
-             Gg.Color.v_srgbi 255 237 160;
-             Gg.Color.v_srgbi 254 217 118;
-             Gg.Color.v_srgbi 254 178  76;
-             Gg.Color.v_srgbi 253 141  60;
-             Gg.Color.v_srgbi 252  78  42;
-             Gg.Color.v_srgbi 227  26  28;
+    rgb = [| Gg.Color.v_srgbi 128   0  38;
              Gg.Color.v_srgbi 189   0  38;
-             Gg.Color.v_srgbi 128   0  38 |];
+             Gg.Color.v_srgbi 227  26  28;
+             Gg.Color.v_srgbi 252  78  42;
+             Gg.Color.v_srgbi 253 141  60;
+             Gg.Color.v_srgbi 254 178  76;
+             Gg.Color.v_srgbi 254 217 118;
+             Gg.Color.v_srgbi 255 237 160;
+             Gg.Color.v_srgbi 255 255 204 |];
     cmyk = [| Gg.V4.v   0.   0.  20.   0.;
               Gg.V4.v   0.   7.  35.   0.;
               Gg.V4.v   0.  15.  50.   0.;
