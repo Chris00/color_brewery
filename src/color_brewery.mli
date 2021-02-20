@@ -99,7 +99,7 @@ module Palette : sig
 
   val gradient : ?interpolate: bool -> t -> Gradient.t
   (** [gradient m] returns a gradient constructed from the palette.
-     It only makes sense for sequential palettes.
+     It only makes sense for sequential and some diverging palettes.
 
      @param interpolate If [false] (the default), just map *)
 

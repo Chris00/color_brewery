@@ -55,7 +55,7 @@ let () =
     ~comment:"Best <a href=\"https://youtu.be/XjHzLUnHeM0?t=230\"
               >to avoid red and green</a>.";
   gradient 0x000000 0xFFFFFF ~n:150 ~w:1;
-  fprintf fh "<h3>Palettes</h3>\n";
+  fprintf fh "<h3>Palettes (sequential and diverging)</h3>\n";
   List.iter (fun (comment, p) -> palette p ~n:128 ~w:1 ~comment)
     Color_brewery.Palette.(["viridis", viridis; "magma", magma;
                             "inferno", inferno; "plasma", plasma; ]);
@@ -65,13 +65,30 @@ let () =
       palette (last p) ~n:128 ~w:1 ~interpolate:true
         ~comment:(comment ^ " (interpolated)")
     )
-    Color_brewery.Palette.(["blues", blues; "bugn", bugn; "bupu", bupu;
-                            "gnbu", gnbu; "greens", greens; "greys", greys;
-                            "orrd", orrd; "oranges", oranges; "pubu", pubu;
-                            "pubugn", pubugn; "purd", purd; "purples", purples;
-                            "rdpu", rdpu; "reds", reds; "ylgn", ylgn;
-                            "ylgnbu", ylgnbu; "ylorbr", ylorbr;
-                            "ylorrd", ylorrd]);
+    Color_brewery.Palette.(["ylgn", ylgn; "ylgnbu", ylgnbu; "gnbu", gnbu;
+                            "bugn", bugn; "pubugn", pubugn; "pubu", pubu;
+                            "bupu", bupu; "rdpu", rdpu; "purd", purd;
+                            "orrd", orrd; "ylorrd", ylorrd; "ylorbr", ylorbr;
+                            "purples", purples; "blues", blues;
+                            "greens", greens; "oranges", oranges;
+                            "reds", reds; "greys", greys;
+                            (* Diverging *)
+                            "puor", puor; "brbg", brbg; "prgn", prgn;
+                            "piyg", piyg; "rdbu", rdbu; "rdgy", rdgy;
+                            "rdylbu", rdylbu; "spectral", spectral;
+                            "rdylgn", rdylgn ]);
+  fprintf fh "<h3>Palettes (others)</h3>\n";
+  List.iter (fun (comment, p) ->
+      let p = last p in
+      let n = Color_brewery.Palette.length p in
+      let comment = sprintf "%s (%i colors)" comment n in
+      palette p ~n ~w:30 ~comment;
+    )
+    Color_brewery.Palette.(["set1", set1; "pastel1", pastel1;
+                            "set2", set2; "pastel2", pastel2;
+                            "dark2", dark2;
+                            "set3", set3;
+                            "paired", paired; "accent", accent ]);
   fprintf fh "</body>\n\
               </html>\n";
   close_out fh;
