@@ -6,8 +6,8 @@
  (name exe)
  (deps gradient.exe conversions.exe))
 
-(alias
- (name runtest)
+(rule
+ (alias runtest)
  (action (progn
           (run %{exe:gradient.exe})
           (run %{exe:conversions.exe}))))
