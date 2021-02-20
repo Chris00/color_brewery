@@ -20,7 +20,7 @@ doc: build
 	@echo "See _build/default/_doc/_html/index.html"
 
 lint:
-	@opam lint color_brewery.opam
+	@opam lint
 
 # See the beginning of tools/make_brewer.ml for the JSON files to download.
 # This only need to be run if these JSON files change — the result is
