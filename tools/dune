@@ -1,4 +1,4 @@
 (executable
  (name        make_palettes)
- (public_name make_palettes)
+ (optional)
  (libraries   yojson gg))
