@@ -91,6 +91,12 @@ module Palette : sig
   val cmyk : t -> cmyk list
   (** [cmyk m] returns the CMYK color range of the palette [m]. *)
 
+  val get_rgb : t -> int -> rgba
+  (** [get_rgb m i] return the [i]th RGB color of the palette [m]. *)
+
+  val get_cmyk : t -> int -> cmyk
+  (** [get_cmyk m i] return the [i]th CMYK color of the palette [m]. *)
+
   val find : ?ty:[`Seq | `Div | `Qual] ->
              ?blind:[`Yes | `No | `Maybe] ->
              ?print:[`Yes | `No | `Maybe] ->
@@ -98,13 +104,13 @@ module Palette : sig
              ?lcd:[`Yes | `No | `Maybe] ->
              int -> t list
   (** [find length] return the list of palettes that support the
-      desired properties for the length [length].  Note that the
-      maximum length is 12 and the longer the palette, the less it
-      will satisfy other properties.  For properties selected with
-      [`Yes] [`No] or [`Maybe], setting [`No] (the default) means one
-      does not care, setting [`Maybe] selects palettes that maybe (or
-      for sure) satisfy the property and [`Yes] selects palettes that
-      satisfy the property for sure.
+      desired properties and having at least length [length].  Note
+      that most of the palette have ≤ 12 colors and the longer the
+      palette, the less it will satisfy other properties.  For
+      properties selected with [`Yes] [`No] or [`Maybe], setting [`No]
+      (the default) means one does not care, setting [`Maybe] selects
+      palettes that maybe (or for sure) satisfy the property and
+      [`Yes] selects palettes that satisfy the property for sure.
 
       - [ty], if provided, restricts maps to the color scheme:
         {ul
