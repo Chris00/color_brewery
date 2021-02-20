@@ -28,7 +28,10 @@ let rec last = function [] -> failwith "last"
 let () =
   let fh = open_out "gradient.html" in
   fprintf fh "<html>\n\
-              <body>\n";
+              <head>
+              <title>Color_brewery: test %s</title>
+              </head>
+              <body>\n" (Filename.basename Sys.argv.(0));
   let range ?comment ?w color ~n =
     let dt = 1. /. float(n - 1) in
     let colors = List.map (fun i -> color (float i *. dt)) (int_range 0 n) in
